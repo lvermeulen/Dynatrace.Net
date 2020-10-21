@@ -1,6 +1,6 @@
 ![Icon](https://i.imgur.com/qMwX65s.jpg)
 # Dynatrace.Net 
-[![Build status](https://ci.appveyor.com/api/projects/status/c9npduu2dp9ljlps?svg=true)](https://ci.appveyor.com/project/lvermeulen/dynatrace-net)
+[![Build status](https://ci.appveyor.com/api/projects/status/580qa5qts41o6fv7?svg=true)](https://ci.appveyor.com/project/lvermeulen/dynatrace-net)
  [![license](https://img.shields.io/github/license/lvermeulen/Dynatrace.Net.svg?maxAge=2592000)](https://github.com/lvermeulen/Dynatrace.Net/blob/master/LICENSE) [![NuGet](https://img.shields.io/nuget/vpre/Dynatrace.Net.svg?maxAge=2592000)](https://www.nuget.org/packages/Dynatrace.Net/) ![downloads](https://img.shields.io/nuget/dt/Dynatrace.Net)
  ![](https://img.shields.io/badge/.net-4.5.2-yellowgreen.svg) ![](https://img.shields.io/badge/netstandard-1.4-yellowgreen.svg)
 
