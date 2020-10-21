@@ -2,9 +2,8 @@
 using System.Linq;
 using Dynatrace.Net.Common.Converters;
 using Dynatrace.Net.Common.Extensions;
-using Dynatrace.Net.Common.Models;
 
-namespace Dynatrace.Net.Environment.ProblemsV2.Models
+namespace Dynatrace.Net.Common.Models
 {
 	public class EntitySelector
 	{

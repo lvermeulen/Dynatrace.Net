@@ -1,4 +1,4 @@
-﻿namespace Dynatrace.Net.Environment.ProblemsV2.Models
+﻿namespace Dynatrace.Net.Common.Models
 {
 	public class Timeframe
 	{
