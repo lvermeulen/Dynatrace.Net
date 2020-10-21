@@ -1,4 +1,7 @@
-﻿namespace Dynatrace.Net.Configuration.Notifications.Models
+﻿using Dynatrace.Net.Common.Converters;
+using Newtonsoft.Json;
+
+namespace Dynatrace.Net.Configuration.Notifications.Models
 {
 	public class NotificationConfig
 	{
@@ -6,6 +9,7 @@
 		public string Name { get; set; }
 		public string AlertingProfile { get; set; }
 		public bool? Active { get; set; }
-		public string Type { get; set; }
+		[JsonConverter(typeof(NotificationConfigTypesConverter))]
+		public NotificationConfigTypes? Type { get; set; }
 	}
 }
