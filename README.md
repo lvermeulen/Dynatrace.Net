@@ -46,7 +46,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Events
   * [ ] Log Monitoring
   * [ ] Timeseries v1
-  * [ ] Metrics v2
+  * [X] Metrics v2
   * [ ] Network Zones
   * [ ] OneAgent on a Host
   * [ ] Topology and Smartscape v1
