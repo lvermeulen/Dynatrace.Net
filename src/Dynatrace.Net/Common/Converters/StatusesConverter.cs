@@ -1,0 +1,18 @@
+﻿using System.Collections.Generic;
+using Dynatrace.Net.Environment.ProblemsV1.Models;
+
+namespace Dynatrace.Net.Common.Converters
+{
+	public class StatusesConverter : JsonEnumConverter<Statuses>
+	{
+		private static readonly Dictionary<Statuses, string> s_pairs = new Dictionary<Statuses, string>
+		{
+			[Statuses.Closed] = "CLOSED",
+			[Statuses.Open] = "OPEN"
+		};
+
+		protected override Dictionary<Statuses, string> Pairs { get; } = s_pairs;
+
+		protected override string EntityString { get; } = "status";
+	}
+}
