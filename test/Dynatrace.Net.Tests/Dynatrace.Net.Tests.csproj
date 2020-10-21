@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Configuration\AnomalyDetection\Application\" />
+    <Folder Include="Configuration\AnomalyDetection\Application - Copy\" />
   </ItemGroup>
 
 </Project>

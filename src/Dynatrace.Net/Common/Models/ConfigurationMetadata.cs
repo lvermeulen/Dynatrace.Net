@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Dynatrace.Net.Configuration.AlertingProfiles.Models
+namespace Dynatrace.Net.Common.Models
 {
 	public class ConfigurationMetadata
 	{
