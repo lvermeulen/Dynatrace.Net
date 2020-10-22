@@ -39,7 +39,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
 * [ ] Environment API
   * [ ] ActiveGates
   * [ ] Anonymization
-  * [ ] Audit Logs
+  * [X] Audit Logs
   * [X] Cluster Information
   * [ ] Custom Tags
   * [ ] Deployment
