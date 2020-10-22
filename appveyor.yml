@@ -16,7 +16,7 @@ deploy:
   api_key:
     secure: yc/gQNTv1/CbW+NYNpSF0SEOAAVVPr96aLb7kWWE764XGrDlG/ijBXyzQ+g6EnFN
   skip_symbols: false
-  artifact: /.*\.nupkg/
+  artifact: /.*(\.|\.s)nupkg/
   on:
       branch: main                # release from main branch only
       appveyor_repo_tag: true       # deploy on tag push only
