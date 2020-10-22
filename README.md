@@ -40,7 +40,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] ActiveGates
   * [ ] Anonymization
   * [ ] Audit Logs
-  * [ ] Cluster Information
+  * [X] Cluster Information
   * [ ] Custom Tags
   * [ ] Deployment
   * [ ] Events
