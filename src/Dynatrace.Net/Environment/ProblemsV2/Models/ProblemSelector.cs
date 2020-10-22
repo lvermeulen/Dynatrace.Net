@@ -2,7 +2,7 @@
 using System.Linq;
 using Dynatrace.Net.Common.Converters;
 using Dynatrace.Net.Common.Extensions;
-using Dynatrace.Net.Environment.ProblemsV1.Models;
+using Dynatrace.Net.Common.Models;
 
 namespace Dynatrace.Net.Environment.ProblemsV2.Models
 {

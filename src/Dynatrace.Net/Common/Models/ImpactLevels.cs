@@ -1,4 +1,4 @@
-﻿namespace Dynatrace.Net.Environment.ProblemsV1.Models
+﻿namespace Dynatrace.Net.Common.Models
 {
 	public enum ImpactLevels
 	{

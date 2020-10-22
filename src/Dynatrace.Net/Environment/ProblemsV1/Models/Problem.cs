@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Models;
 using Newtonsoft.Json;
 
 namespace Dynatrace.Net.Environment.ProblemsV1.Models

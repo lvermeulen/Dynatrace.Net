@@ -43,7 +43,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Cluster Information
   * [ ] Custom Tags
   * [ ] Deployment
-  * [ ] Events
+  * [X] Events
   * [ ] Log Monitoring
   * [ ] Timeseries v1
   * [X] Metrics v2

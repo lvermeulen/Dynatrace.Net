@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Environment.ProblemsV1.Models;
 using Flurl.Http;
 
