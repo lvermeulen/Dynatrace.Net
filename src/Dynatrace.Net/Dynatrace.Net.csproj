@@ -1,12 +1,29 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net452;netstandard1.4;netstandard2.0</TargetFrameworks>
+    <PackageId>Api.Dynatrace.Net</PackageId>
+    <Authors>Luk Vermeulen</Authors>
+    <Company>lointain</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/lvermeulen/Dynatrace.Net</PackageProjectUrl>
+    <Description>C# client for Dynatrace</Description>
+    <PackageIcon>Dynatrace-small.jpg</PackageIcon>
+    <RepositoryUrl>https://github.com/lvermeulen/Dynatrace.Net</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Dynatrace</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Flurl.Http" Version="2.4.2" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\assets\Dynatrace-small.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
