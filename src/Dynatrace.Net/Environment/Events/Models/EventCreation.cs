@@ -12,7 +12,7 @@ namespace Dynatrace.Net.Environment.Events.Models
 		public int? End { get; set; }
 		public int? TimeoutMinutes { get; set; }
 		public PushEventAttachRules AttachRules { get; set; }
-		public object CustomProperties { get; set; }
+		public IDictionary<string, object> CustomProperties { get; set; }
 		public string Source { get; set; }
 		public string AnnotationType { get; set; }
 		public string AnnotationDescription { get; set; }
