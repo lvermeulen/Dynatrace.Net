@@ -13,7 +13,7 @@ namespace Dynatrace.Net
 	public partial class DynatraceClient
 	{
 		private static readonly PermissionsConverter s_permissionsConverter = new PermissionsConverter();
-		private static readonly ResultFormatsConverter s_resultFormatsConverter = new ResultFormatsConverter();
+		private static readonly TokenResultFormatsConverter s_tokenResultFormatsConverter = new TokenResultFormatsConverter();
 
 		private IFlurlRequest GetTokensUrl()
 		{
@@ -43,10 +43,10 @@ namespace Dynatrace.Net
 			return response;
 		}
 
-		public async Task<string> AddTokenAsync(CreateToken body, ResultFormats resultFormat, CancellationToken cancellationToken = default)
+		public async Task<string> AddTokenAsync(CreateToken body, TokenResultFormats? resultFormat, CancellationToken cancellationToken = default)
 		{
 			string response = await GetTokensUrl()
-				.WithHeader("Accept", s_resultFormatsConverter.ConvertToString(resultFormat))
+				.WithHeader("Accept", s_tokenResultFormatsConverter.ConvertToString(resultFormat ?? TokenResultFormats.ApplicationJson))
 				.PostJsonAsync(body, cancellationToken)
 				.ReceiveString()
 				.ConfigureAwait(false);

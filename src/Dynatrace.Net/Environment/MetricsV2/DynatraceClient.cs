@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Converters;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Environment.MetricsV2.Models;
 using Flurl.Http;
@@ -11,6 +12,8 @@ namespace Dynatrace.Net
 {
 	public partial class DynatraceClient
 	{
+		private static readonly MetricResultFormatsConverter s_metricResultFormatsConverter = new MetricResultFormatsConverter();
+
 		private IFlurlRequest GetMetricsV2Url()
 		{
 			return GetBaseUrl()
@@ -27,7 +30,7 @@ namespace Dynatrace.Net
 			return response.IsSuccessStatusCode;
 		}
 
-		public async Task<MetricDescriptorCollection> GetAllAvailableMetricsV2Async(string nextPageKey = null, int? pageSize = null, IEnumerable<string> metricSelector = null,
+		public async Task<MetricDescriptorCollection> GetAllAvailableMetricsV2Async(MetricResultFormats? resultFormat = null, string nextPageKey = null, int? pageSize = null, IEnumerable<string> metricSelector = null,
 			string text = null, IEnumerable<WithOrWithout<MetricFields>> fields = null, Timeframe writtenSince = null,
 			CancellationToken cancellationToken = default)
 		{
@@ -43,6 +46,7 @@ namespace Dynatrace.Net
 			};
 
 			var response = await GetMetricsV2Url()
+				.WithHeader("Accept", s_metricResultFormatsConverter.ConvertToString(resultFormat ?? MetricResultFormats.ApplicationJson))
 				.SetQueryParams(queryParamValues)
 				.GetJsonAsync<MetricDescriptorCollection>(cancellationToken)
 				.ConfigureAwait(false);
@@ -50,9 +54,10 @@ namespace Dynatrace.Net
 			return response;
 		}
 
-		public async Task<MetricDescriptor> GetMetricDescriptorV2Async(string metricId, CancellationToken cancellationToken = default)
+		public async Task<MetricDescriptor> GetMetricDescriptorV2Async(string metricId, MetricResultFormats? resultFormat = null, CancellationToken cancellationToken = default)
 		{
 			var response = await GetMetricsV2Url()
+				.WithHeader("Accept", s_metricResultFormatsConverter.ConvertToString(resultFormat ?? MetricResultFormats.ApplicationJson))
 				.AppendPathSegment(metricId)
 				.GetJsonAsync<MetricDescriptor>(cancellationToken)
 				.ConfigureAwait(false);
@@ -60,7 +65,7 @@ namespace Dynatrace.Net
 			return response;
 		}
 
-		public async Task<MetricData> GetMetricDataPointsV2Async(string nextPageKey = null, int? pageSize = null, IEnumerable<string> metricSelector = null,
+		public async Task<MetricData> GetMetricDataPointsV2Async(MetricResultFormats? resultFormat = null, string nextPageKey = null, int? pageSize = null, IEnumerable<string> metricSelector = null,
 			string resolution = null, Timeframe from = null, Timeframe to = null, EntitySelector entitySelector = null,
 			CancellationToken cancellationToken = default)
 		{
@@ -76,6 +81,7 @@ namespace Dynatrace.Net
 			};
 
 			var response = await GetMetricsV2Url()
+				.WithHeader("Accept", s_metricResultFormatsConverter.ConvertToString(resultFormat ?? MetricResultFormats.ApplicationJson))
 				.AppendPathSegment("comments")
 				.SetQueryParams(queryParamValues)
 				.GetJsonAsync<MetricData>(cancellationToken)
