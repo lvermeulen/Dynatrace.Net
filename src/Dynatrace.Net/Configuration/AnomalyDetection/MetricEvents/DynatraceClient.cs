@@ -15,7 +15,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("config/v1/anomalyDetection/metricEvents");
 		}
 
-		public async Task<StubList> GetAnomalyDetectionMetricEventsAsync(CancellationToken cancellationToken = default)
+		public async Task<StubList> GetAnomalyDetectionMetricEventRulesAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetAnomalyDetectionMetricEventsUrl()
 				.GetJsonAsync<StubList>(cancellationToken)
@@ -24,7 +24,7 @@ namespace Dynatrace.Net
 			return response;
 		}
 
-		public async Task<MetricEvent> GetAnomalyDetectionMetricEventAsync(string id, CancellationToken cancellationToken = default)
+		public async Task<MetricEvent> GetAnomalyDetectionMetricEventRuleAsync(string id, CancellationToken cancellationToken = default)
 		{
 			var response = await GetAnomalyDetectionMetricEventsUrl()
 				.AppendPathSegment(id)
@@ -44,7 +44,7 @@ namespace Dynatrace.Net
 			return response;
 		}
 
-		public async Task<bool> UpdateAnomalyDetectionMetricEventsAsync(string id, MetricEvent body, CancellationToken cancellationToken = default)
+		public async Task<bool> UpdateAnomalyDetectionMetricEventRuleAsync(string id, MetricEvent body, CancellationToken cancellationToken = default)
 		{
 			var response = await GetAnomalyDetectionMetricEventsUrl()
 				.AppendPathSegment(id)
@@ -54,7 +54,7 @@ namespace Dynatrace.Net
 			return response.IsSuccessStatusCode;
 		}
 
-		public async Task<bool> DeleteAnomalyDetectionMetricEventsAsync(string id, CancellationToken cancellationToken = default)
+		public async Task<bool> DeleteAnomalyDetectionMetricEventRuleAsync(string id, CancellationToken cancellationToken = default)
 		{
 			var response = await GetAnomalyDetectionMetricEventsUrl()
 				.AppendPathSegment(id)
