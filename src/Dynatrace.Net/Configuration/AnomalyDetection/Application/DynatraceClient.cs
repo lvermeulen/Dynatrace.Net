@@ -14,7 +14,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("config/v1/anomalyDetection/applications");
 		}
 
-		public async Task<ApplicationAnomalyDetectionConfig> GetAnomalyDetectionApplicationAsync(CancellationToken cancellationToken = default)
+		public async Task<ApplicationAnomalyDetectionConfig> GetAnomalyDetectionApplicationConfigurationAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetAnomalyDetectionApplicationUrl()
 				.GetJsonAsync<ApplicationAnomalyDetectionConfig>(cancellationToken)
@@ -23,7 +23,7 @@ namespace Dynatrace.Net
 			return response;
 		}
 
-		public async Task<bool> UpdateAnomalyDetectionApplicationAsync(ApplicationAnomalyDetectionConfig body, CancellationToken cancellationToken = default)
+		public async Task<bool> UpdateAnomalyDetectionApplicationConfigurationAsync(ApplicationAnomalyDetectionConfig body, CancellationToken cancellationToken = default)
 		{
 			var response = await GetAnomalyDetectionApplicationUrl()
 				.PutJsonAsync(body, cancellationToken)

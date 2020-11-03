@@ -7,9 +7,9 @@ namespace Dynatrace.Net.Tests
 	public partial class DynatraceClientShould
 	{
 		[Fact]
-		public async Task GetAnomalyDetectionApplicationConfigurationAsync()
+		public async Task GetAnomalyDetectionDatabaseServicesConfigurationAsync()
 		{
-			var result = await _client.GetAnomalyDetectionApplicationConfigurationAsync().ConfigureAwait(false);
+			var result = await _client.GetAnomalyDetectionDatabaseServicesConfigurationAsync().ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}
