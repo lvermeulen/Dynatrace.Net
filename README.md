@@ -13,7 +13,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
 ## Features
 * [ ] Configuration API
   * [X] Alerting Profiles
-  * [ ] Anomaly Detection
+  * [X] Anomaly Detection
   * [ ] Auto-tags
   * [ ] AWS Credentials
   * [ ] Azure Credentials
@@ -44,7 +44,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Custom Tags
   * [ ] Deployment
   * [X] Events
-  * [ ] Log Monitoring
+  * [X] Log Monitoring
   * [ ] Timeseries v1
   * [X] Metrics v2
   * [ ] Network Zones

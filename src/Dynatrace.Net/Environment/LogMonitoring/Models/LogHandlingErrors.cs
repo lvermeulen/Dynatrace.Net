@@ -1,0 +1,30 @@
+﻿namespace Dynatrace.Net.Environment.LogMonitoring.Models
+{
+	public enum LogHandlingErrors
+	{
+		AgentVersionNotSupportingDocker,
+		Cancelled,
+		FileAccessDisabled,
+		FileNotFound,
+		IncorrectDateFormat,
+		IncorrectLogFile,
+		InternalProcessingError,
+		InvalidFilterQuery,
+		InvalidSearchQuery,
+		None,
+		NoLogAgent,
+		ProcessorFileProcessingError,
+		ProcessorInternalError,
+		ProcessorInvalidParameterError,
+		ProcessorNoLogsFileFoundError,
+		ProcessorStoppingInterrupted,
+		ProcessorTimedOut,
+		ProcessorUnhandledException,
+		ProcessorUnzippingError,
+		RepackFailedToSaveLogAnalysisInStorage,
+		RepackFailedToStoreAllLogAnalysis,
+		RepackFailedToStoreLogAnalysis,
+		SomeLogIncorrectDateFormat,
+		Timeout
+	}
+}
