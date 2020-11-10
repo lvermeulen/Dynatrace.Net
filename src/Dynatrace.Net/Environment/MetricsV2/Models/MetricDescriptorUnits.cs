@@ -56,6 +56,8 @@
 		State,
 		Unspecified,
 		Week,
-		Year
+		Year,
+		K,
+		Mcores
 	}
 }

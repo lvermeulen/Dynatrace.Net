@@ -49,7 +49,7 @@ namespace Dynatrace.Net.Common.Converters
 			[MetricDescriptorUnits.Month] = "Month",
 			[MetricDescriptorUnits.NanoSecond] = "NanoSecond",
 			[MetricDescriptorUnits.NanoSecondPerMinute] = "NanoSecondPerMinute",
-			[MetricDescriptorUnits.NotApplicable] = "NotApplicable",
+			[MetricDescriptorUnits.NotApplicable] = "N/A",
 			[MetricDescriptorUnits.PerHour] = "PerHour",
 			[MetricDescriptorUnits.PerMinute] = "PerMinute",
 			[MetricDescriptorUnits.PerSecond] = "PerSecond",
@@ -61,7 +61,9 @@ namespace Dynatrace.Net.Common.Converters
 			[MetricDescriptorUnits.State] = "State",
 			[MetricDescriptorUnits.Unspecified] = "Unspecified",
 			[MetricDescriptorUnits.Week] = "Week",
-			[MetricDescriptorUnits.Year] = "Year"
+			[MetricDescriptorUnits.Year] = "Year",
+			[MetricDescriptorUnits.K] = "k",
+			[MetricDescriptorUnits.Mcores] = "mCores"
 		};
 
 		protected override Dictionary<MetricDescriptorUnits, string> Pairs { get; } = s_pairs;
