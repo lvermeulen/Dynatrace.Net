@@ -26,4 +26,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configuration\Services\IbmMqTracing\Queues\" />
+  </ItemGroup>
+
 </Project>
