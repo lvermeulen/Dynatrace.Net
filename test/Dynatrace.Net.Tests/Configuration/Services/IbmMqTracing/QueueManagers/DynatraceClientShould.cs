@@ -8,14 +8,14 @@ namespace Dynatrace.Net.Tests
 	public partial class DynatraceClientShould
 	{
 		[Fact]
-		public async Task GetAll()
+		public async Task GetAllIbmMqTracingQueueManagersAsync()
 		{
 			var result = await _client.GetAllIbmMqTracingQueueManagersAsync().ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
 		[Fact]
-		public async Task Get()
+		public async Task GetIbmMqTracingQueueManagerAsync()
 		{
 			var results = await _client.GetAllIbmMqTracingQueueManagersAsync().ConfigureAwait(false);
 			var firstResult = results.Values.FirstOrDefault();
