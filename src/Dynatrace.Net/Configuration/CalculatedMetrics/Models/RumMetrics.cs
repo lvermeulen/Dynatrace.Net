@@ -1,0 +1,38 @@
+﻿namespace Dynatrace.Net.Configuration.CalculatedMetrics.Models
+{
+	public enum RumMetrics
+	{
+		Apdex,
+		ApplicationCache,
+		Callback,
+		DnsLookup,
+		DomComplete,
+		DomContentLoaded,
+		DomInteractive,
+		DoubleProperty,
+		ErrorCount,
+		FirstContentfulPaint,
+		FirstInputDelay,
+		FirstInputStart,
+		FirstPaint,
+		HtmlDownloaded,
+		LargestContentfulPaint,
+		LoadEventEnd,
+		LoadEventStart,
+		LongProperty,
+		NavigationStart,
+		OnDomContentLoaded,
+		OnLoad,
+		Processing,
+		RedirectTime,
+		Request,
+		RequestStart,
+		Response,
+		SecureConnect,
+		SpeedIndex,
+		TcpConnect,
+		TimeToFirstByte,
+		UserActionDuration,
+		VisuallyComplete
+	}
+}

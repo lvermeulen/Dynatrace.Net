@@ -1,0 +1,32 @@
+﻿namespace Dynatrace.Net.Configuration.CalculatedMetrics.Models
+{
+	public enum CalculatedMetricTypes
+	{
+		CpuTime,
+		DatabaseChildCallCount,
+		DatabaseChildCallTime,
+		DiskIoTime,
+		ExceptionCount,
+		FailedRequestCount,
+		FailedRequestCountClient,
+		FailureRate,
+		FailureRateClient,
+		Http4XxErrorCount,
+		Http4XxErrorCountClient,
+		Http5XxErrorCount,
+		Http5XxErrorCountClient,
+		IoTime,
+		LockTime,
+		NetworkIoTime,
+		NonDatabaseChildCallCount,
+		NonDatabaseChildCallTime,
+		ProcessingTime,
+		RequestAttribute,
+		RequestCount,
+		ResponseTime,
+		ResponseTimeClient,
+		SuccessfulRequestCount,
+		SuccessfulRequestCountClient,
+		WaitTime
+	}
+}

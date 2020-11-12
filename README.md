@@ -17,7 +17,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Auto-tags
   * [ ] AWS Credentials
   * [ ] Azure Credentials
-  * [ ] Calculated Metrics
+  * [X] Calculated Metrics
   * [ ] Cloud Foundry Credentials
   * [ ] Conditional Naming
   * [ ] Credential Vault

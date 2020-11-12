@@ -1,0 +1,40 @@
+﻿namespace Dynatrace.Net.Configuration.CalculatedMetrics.Models
+{
+	public enum SyntheticMetrics
+	{
+		ApplicationCache,
+		Callback,
+		DnsLookup,
+		DomComplete,
+		DomContentLoaded,
+		DomInteractive,
+		FailedRequestResources,
+		FirstContentfulPaint,
+		FirstInputDelay,
+		FirstInputStart,
+		FirstPaint,
+		HtmlDownloaded,
+		HttpErrors,
+		JavaScriptErrors,
+		LargestContentfulPaint,
+		LoadEventEnd,
+		LoadEventStart,
+		NavigationStart,
+		OnDomContentLoaded,
+		OnLoad,
+		Processing,
+		RedirectTime,
+		Request,
+		RequestStart,
+		ResourceCount,
+		Response,
+		SecureConnect,
+		SpeedIndex,
+		TcpConnect,
+		TimeToFirstByte,
+		TotalDuration,
+		TransferSize,
+		UserActionDuration,
+		VisuallyComplete
+	}
+}
