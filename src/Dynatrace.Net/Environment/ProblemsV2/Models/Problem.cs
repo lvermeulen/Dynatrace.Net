@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Dynatrace.Net.Common.Models;
 
 namespace Dynatrace.Net.Environment.ProblemsV2.Models
 {

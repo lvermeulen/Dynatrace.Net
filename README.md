@@ -35,7 +35,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Remote Environments
   * [ ] Reports
   * [ ] RUM
-  * [ ] Services
+  * [X] Services
 * [ ] Environment API
   * [ ] ActiveGates
   * [ ] Anonymization
@@ -50,7 +50,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Network Zones
   * [ ] OneAgent on a Host
   * [ ] Topology and Smartscape v1
-  * [ ] Monitored Entities v2
+  * [X] Monitored Entities v2
   * [X] Problems
   * [X] Problems v2
   * [ ] Real User Monitoring Javascript Code
