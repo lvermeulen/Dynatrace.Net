@@ -11,7 +11,7 @@ namespace Dynatrace.Net.Environment.MonitoredEntitiesV2.Models
 		public object FromRelationships { get; set; }
 		public string EntityId { get; set; }
 		public IEnumerable<MeTag> Tags { get; set; }
-		public IEnumerable<ManagementZone> ManagementZones { get; set; }
+		public IEnumerable<ManagementZoneInfo> ManagementZones { get; set; }
 		public object Properties { get; set; }
 		public string DisplayName { get; set; }
 	}

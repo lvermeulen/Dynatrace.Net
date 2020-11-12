@@ -27,7 +27,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Frequent Issue Detection
   * [ ] Kubernetes Credentials
   * [ ] Maintenance Windows
-  * [ ] Management Zones
+  * [X] Management Zones
   * [ ] Mobile Symbolication
   * [X] Notifications
   * [ ] OneAgent on a Host

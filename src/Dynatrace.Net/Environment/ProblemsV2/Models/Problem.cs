@@ -16,7 +16,7 @@ namespace Dynatrace.Net.Environment.ProblemsV2.Models
 		public ImpactAnalysis ImpactAnalysis { get; set; }
 		public string SeverityLevel { get; set; }
 		public string ProblemId { get; set; }
-		public IEnumerable<ManagementZone> ManagementZones { get; set; }
+		public IEnumerable<ManagementZoneInfo> ManagementZones { get; set; }
 		public IEnumerable<EntityStub> AffectedEntities { get; set; }
 		public string Title { get; set; }
 		public string Status { get; set; }
