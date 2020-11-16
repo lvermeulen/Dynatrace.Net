@@ -58,4 +58,4 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Synthetic v1
   * [ ] Synthetic v2
   * [X] Tokens
-  * [ ] User Sessions
+  * [X] User Sessions
