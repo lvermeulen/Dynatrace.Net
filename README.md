@@ -26,7 +26,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Extensions
   * [ ] Frequent Issue Detection
   * [ ] Kubernetes Credentials
-  * [ ] Maintenance Windows
+  * [X] Maintenance Windows
   * [X] Management Zones
   * [ ] Mobile Symbolication
   * [X] Notifications

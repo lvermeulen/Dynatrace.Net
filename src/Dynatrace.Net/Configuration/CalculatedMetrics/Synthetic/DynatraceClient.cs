@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Models;
-using Dynatrace.Net.Configuration.Dashboards.Models;
+using Dynatrace.Net.Configuration.CalculatedMetrics.Models;
 using Flurl.Http;
 
 // ReSharper disable once CheckNamespace
@@ -9,55 +9,55 @@ namespace Dynatrace.Net
 {
 	public partial class DynatraceClient
 	{
-		private IFlurlRequest GetDashboardsUrl()
+		private IFlurlRequest GetCalculatedMetricsSyntheticUrl()
 		{
 			return GetBaseUrl()
-				.AppendPathSegment("config/v1/dashboards");
+				.AppendPathSegment("config/v1/calculatedMetrics/synthetic");
 		}
 
-		public async Task<DashboardList> GetDashboardsAsync(CancellationToken cancellationToken = default)
+		public async Task<StubList> GetCalculatedSyntheticMetricsAsync(CancellationToken cancellationToken = default)
 		{
-			var response = await GetDashboardsUrl()
-				.GetJsonAsync<DashboardList>(cancellationToken)
+			var response = await GetCalculatedMetricsSyntheticUrl()
+				.GetJsonAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
 		}
 
-		public async Task<Dashboard> GetDashboardAsync(string id, CancellationToken cancellationToken = default)
+		public async Task<CalculatedSyntheticMetric> GetCalculatedSyntheticMetricAsync(string metricKey, CancellationToken cancellationToken = default)
 		{
-			var response = await GetDashboardsUrl()
-				.AppendPathSegment(id)
-				.GetJsonAsync<Dashboard>(cancellationToken)
+			var response = await GetCalculatedMetricsSyntheticUrl()
+				.AppendPathSegment(metricKey)
+				.GetJsonAsync<CalculatedSyntheticMetric>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
 		}
 
-		public async Task<EntityShortRepresentation> AddDashboardAsync(Dashboard body, CancellationToken cancellationToken = default)
+		public async Task<CalculatedSyntheticMetric> AddCalculatedSyntheticMetricAsync(CalculatedSyntheticMetric body, CancellationToken cancellationToken = default)
 		{
-			var response = await GetDashboardsUrl()
+			var response = await GetCalculatedMetricsSyntheticUrl()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJson<CalculatedSyntheticMetric>()
 				.ConfigureAwait(false);
 
 			return response;
 		}
 
-		public async Task<bool> UpdateDashboardAsync(string id, Dashboard body, CancellationToken cancellationToken = default)
+		public async Task<bool> UpdateCalculatedSyntheticMetricAsync(string metricKey, SyntheticMetricUpdate body, CancellationToken cancellationToken = default)
 		{
-			var response = await GetDashboardsUrl()
-				.AppendPathSegment(id)
+			var response = await GetCalculatedMetricsSyntheticUrl()
+				.AppendPathSegment(metricKey)
 				.PutJsonAsync(body, cancellationToken)
 				.ConfigureAwait(false);
 
 			return response.IsSuccessStatusCode;
 		}
 
-		public async Task<bool> DeleteDashboardAsync(string id, CancellationToken cancellationToken = default)
+		public async Task<bool> DeleteCalculatedSyntheticMetricAsync(string metricKey, CancellationToken cancellationToken = default)
 		{
-			var response = await GetDashboardsUrl()
-				.AppendPathSegment(id)
+			var response = await GetCalculatedMetricsSyntheticUrl()
+				.AppendPathSegment(metricKey)
 				.DeleteAsync(cancellationToken)
 				.ConfigureAwait(false);
 
