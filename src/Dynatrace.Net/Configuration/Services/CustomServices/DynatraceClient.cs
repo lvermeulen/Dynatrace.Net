@@ -10,13 +10,13 @@ namespace Dynatrace.Net
 {
 	public partial class DynatraceClient
 	{
-		private static readonly CustomServiceTechnologiesConverter s_serviceTechnologiesConverter = new CustomServiceTechnologiesConverter();
+		private static readonly CustomServiceTechnologiesConverter s_customServiceTechnologiesConverter = new CustomServiceTechnologiesConverter();
 		private static readonly PositionsConverter s_positionsConverter = new PositionsConverter();
 
 		private IFlurlRequest GetCustomServicesUrl(CustomServiceTechnologies technology)
 		{
 			return GetBaseUrl()
-				.AppendPathSegment($"config/v1/service/customServices/{s_serviceTechnologiesConverter.ConvertToString(technology)}");
+				.AppendPathSegment($"config/v1/service/customServices/{s_customServiceTechnologiesConverter.ConvertToString(technology)}");
 		}
 
 		public async Task<StubList> GetAllCustomServiceRulesAsync(CustomServiceTechnologies technology, CancellationToken cancellationToken = default)

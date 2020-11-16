@@ -23,7 +23,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Credential Vault
   * [X] Dashboards
   * [ ] Data Privacy
-  * [ ] Extensions
+  * [X] Extensions
   * [ ] Frequent Issue Detection
   * [ ] Kubernetes Credentials
   * [ ] Maintenance Windows
