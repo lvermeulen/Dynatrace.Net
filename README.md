@@ -21,7 +21,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Cloud Foundry Credentials
   * [ ] Conditional Naming
   * [ ] Credential Vault
-  * [ ] Dashboards
+  * [X] Dashboards
   * [ ] Data Privacy
   * [ ] Extensions
   * [ ] Frequent Issue Detection
