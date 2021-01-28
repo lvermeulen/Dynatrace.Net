@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E250BC95
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dynatrace.Net", "src\Dynatrace.Net\Dynatrace.Net.csproj", "{3CEF6278-13BD-427E-842E-6067AFCA65EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynatrace.Net.Tests", "test\Dynatrace.Net.Tests\Dynatrace.Net.Tests.csproj", "{36E3ADD6-C49F-4A28-A403-A93504819D1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dynatrace.Net.Tests", "test\Dynatrace.Net.Tests\Dynatrace.Net.Tests.csproj", "{36E3ADD6-C49F-4A28-A403-A93504819D1C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2E170FFA-AAD2-43B8-810C-3D11A95F2D85}"
 	ProjectSection(SolutionItems) = preProject
