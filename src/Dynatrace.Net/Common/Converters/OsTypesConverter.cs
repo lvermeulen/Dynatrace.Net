@@ -18,6 +18,6 @@ namespace Dynatrace.Net.Common.Converters
 
 		protected override Dictionary<OsTypes, string> Pairs { get; } = s_pairs;
 
-		protected override string EntityString { get; } = "os type";
+		protected override string EntityString { get; } = "OS type";
 	}
 }

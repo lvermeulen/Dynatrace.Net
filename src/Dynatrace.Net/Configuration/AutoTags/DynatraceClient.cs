@@ -2,7 +2,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.AutoTags.Models;
-using Dynatrace.Net.Configuration.Dashboards.Models;
 using Flurl.Http;
 
 // ReSharper disable once CheckNamespace
