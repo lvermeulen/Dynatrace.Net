@@ -1,6 +1,6 @@
 ﻿namespace Dynatrace.Net.Environment.Deployment.Models
 {
-	public enum DeploymentOsTypes
+	public enum WindowsUnixDeploymentOsTypes
 	{
 		Windows,
 		Unix

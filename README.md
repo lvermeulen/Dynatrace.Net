@@ -42,7 +42,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Audit Logs
   * [X] Cluster Information
   * [ ] Custom Tags
-  * [ ] Deployment
+  * [X] Deployment
   * [X] Events
   * [X] Log Monitoring
   * [X] Timeseries v1

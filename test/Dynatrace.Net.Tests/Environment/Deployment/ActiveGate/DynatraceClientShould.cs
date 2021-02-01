@@ -10,7 +10,7 @@ namespace Dynatrace.Net.Tests
 		[Fact]
 		public async Task ListActiveGateAvailableVersionsAsync()
 		{
-			var result = await _client.ListActiveGateAvailableVersionsAsync(DeploymentOsTypes.Windows).ConfigureAwait(false);
+			var result = await _client.ListActiveGateAvailableVersionsAsync(WindowsUnixDeploymentOsTypes.Windows).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

@@ -2,7 +2,7 @@
 
 namespace Dynatrace.Net.Environment.Deployment.Models
 {
-	public class ActiveGateInstallerVersions
+	public class Versions
 	{
 		public IEnumerable<string> AvailableVersions { get; set; }
 	}

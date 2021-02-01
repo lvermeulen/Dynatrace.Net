@@ -9,7 +9,7 @@ namespace Dynatrace.Net
 {
 	public partial class DynatraceClient
 	{
-		private static readonly DeploymentOsTypesConverter s_deploymentOsTypesConverter = new DeploymentOsTypesConverter();
+		private static readonly WindowsUnixDeploymentOsTypesConverter s_deploymentOsTypesConverter = new WindowsUnixDeploymentOsTypesConverter();
 
 		private IFlurlRequest GetDeploymentActiveGateUrl()
 		{
@@ -17,7 +17,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("v1/deployment/installer/gateway");
 		}
 
-		public async Task<bool> DownloadActiveGateLatestAsync(DeploymentOsTypes osType, string ifNoneMatchEtag = null, CancellationToken cancellationToken = default)
+		public async Task<bool> DownloadActiveGateLatestAsync(WindowsUnixDeploymentOsTypes osType, string ifNoneMatchEtag = null, CancellationToken cancellationToken = default)
 		{
 			var response = await GetDeploymentActiveGateUrl()
 				.WithHeader("If-None-Match", ifNoneMatchEtag)
@@ -29,7 +29,7 @@ namespace Dynatrace.Net
 			return response.IsSuccessStatusCode;
 		}
 
-		public async Task<bool> DownloadActiveGateSpecificVersionAsync(DeploymentOsTypes osType, string version, string ifNoneMatchEtag = null, CancellationToken cancellationToken = default)
+		public async Task<bool> DownloadActiveGateSpecificVersionAsync(WindowsUnixDeploymentOsTypes osType, string version, string ifNoneMatchEtag = null, CancellationToken cancellationToken = default)
 		{
 			var response = await GetDeploymentActiveGateUrl()
 				.WithHeader("If-None-Match", ifNoneMatchEtag)
@@ -42,12 +42,12 @@ namespace Dynatrace.Net
 			return response.IsSuccessStatusCode;
 		}
 
-		public async Task<ActiveGateInstallerVersions> ListActiveGateAvailableVersionsAsync(DeploymentOsTypes osType, CancellationToken cancellationToken = default)
+		public async Task<Versions> ListActiveGateAvailableVersionsAsync(WindowsUnixDeploymentOsTypes osType, CancellationToken cancellationToken = default)
 		{
 			var response = await GetDeploymentActiveGateUrl()
 				.AppendPathSegment("versions")
 				.AppendPathSegment(s_deploymentOsTypesConverter.ConvertToString(osType))
-				.GetJsonAsync<ActiveGateInstallerVersions>(cancellationToken: cancellationToken)
+				.GetJsonAsync<Versions>(cancellationToken: cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
