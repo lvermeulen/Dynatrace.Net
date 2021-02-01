@@ -37,8 +37,8 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] RUM
   * [X] Services
 * [ ] Environment API
-  * [ ] ActiveGates
-  * [ ] Anonymization
+  * [X] ActiveGates
+  * [X] Anonymization
   * [X] Audit Logs
   * [X] Cluster Information
   * [X] Custom Tags
