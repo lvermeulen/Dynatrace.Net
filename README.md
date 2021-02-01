@@ -41,7 +41,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Anonymization
   * [X] Audit Logs
   * [X] Cluster Information
-  * [ ] Custom Tags
+  * [X] Custom Tags
   * [X] Deployment
   * [X] Events
   * [X] Log Monitoring

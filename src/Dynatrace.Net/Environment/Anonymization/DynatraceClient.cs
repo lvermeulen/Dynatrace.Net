@@ -3,9 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
-using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Environment.Anonymization.Models;
-using Dynatrace.Net.Environment.AuditLogs.Models;
 using Flurl.Http;
 
 // ReSharper disable once CheckNamespace
