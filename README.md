@@ -25,7 +25,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Data Privacy
   * [X] Extensions
   * [ ] Frequent Issue Detection
-  * [ ] Kubernetes Credentials
+  * [X] Kubernetes Credentials
   * [X] Maintenance Windows
   * [X] Management Zones
   * [ ] Mobile Symbolication
