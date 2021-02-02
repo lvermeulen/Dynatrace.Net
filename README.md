@@ -55,7 +55,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Problems v2
   * [ ] Real User Monitoring Javascript Code
   * [ ] Real User Monitoring Browser Extension
-  * [ ] Synthetic v1
+  * [X] Synthetic v1
   * [ ] Synthetic v2
   * [X] Tokens
   * [X] User Sessions

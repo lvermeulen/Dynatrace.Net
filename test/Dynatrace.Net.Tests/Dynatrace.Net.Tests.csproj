@@ -24,4 +24,11 @@
     <ProjectReference Include="..\..\src\Dynatrace.Net\Dynatrace.Net.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Environment\SyntheticV1\Monitors\" />
+    <Folder Include="Environment\SyntheticV1\Locations\" />
+    <Folder Include="Environment\SyntheticV1\External\" />
+    <Folder Include="Environment\SyntheticV1\Nodes\" />
+  </ItemGroup>
+
 </Project>
