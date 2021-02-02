@@ -48,7 +48,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Timeseries v1
   * [X] Metrics v2
   * [X] Network Zones
-  * [ ] OneAgent on a Host
+  * [X] OneAgent on a Host
   * [ ] Topology and Smartscape v1
   * [X] Monitored Entities v2
   * [X] Problems
@@ -56,6 +56,6 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Real User Monitoring Javascript Code
   * [ ] Real User Monitoring Browser Extension
   * [X] Synthetic v1
-  * [ ] Synthetic v2
+  * [X] Synthetic v2
   * [X] Tokens
   * [X] User Sessions
