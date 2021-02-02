@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <Folder Include="Environment\SyntheticV1\External\" />
-    <Folder Include="Environment\SyntheticV1\Nodes\" />
   </ItemGroup>
 
 </Project>
