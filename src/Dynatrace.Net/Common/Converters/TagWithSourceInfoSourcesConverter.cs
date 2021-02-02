@@ -5,7 +5,7 @@ namespace Dynatrace.Net.Common.Converters
 {
 	public class TagWithSourceInfoSourcesConverter : JsonEnumConverter<TagWithSourceInfoSources>
 	{
-		private static Dictionary<TagWithSourceInfoSources, string> s_pairs = new Dictionary<TagWithSourceInfoSources, string>
+		private static readonly Dictionary<TagWithSourceInfoSources, string> s_pairs = new Dictionary<TagWithSourceInfoSources, string>
 		{
 			[TagWithSourceInfoSources.Auto] = "AUTO",
 			[TagWithSourceInfoSources.RuleBased] = "RULE_BASED",
