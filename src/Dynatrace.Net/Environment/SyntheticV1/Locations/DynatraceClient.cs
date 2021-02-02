@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Environment.SyntheticV1.Models;
 using Flurl.Http;
 
@@ -10,7 +11,7 @@ namespace Dynatrace.Net
 {
 	public partial class DynatraceClient
 	{
-		private static readonly CloudPlatformsConverter s_cloudPlatformsConverter = new CloudPlatformsConverter();
+		private static readonly SyntheticLocationV1CloudPlatformsConverter s_v1CloudPlatformsConverter = new SyntheticLocationV1CloudPlatformsConverter();
 		private static readonly SyntheticLocationTypesConverter s_syntheticLocationTypesConverter = new SyntheticLocationTypesConverter();
 
 		private IFlurlRequest GetSyntheticLocationsV1Url()
@@ -19,11 +20,11 @@ namespace Dynatrace.Net
 				.AppendPathSegment("v1/synthetic/locations");
 		}
 
-		public async Task<SyntheticLocations> GetSyntheticLocationsV1Async(CloudPlatforms? cloudPlatform = null, SyntheticLocationTypes? type = null, CancellationToken cancellationToken = default)
+		public async Task<SyntheticLocations> GetSyntheticLocationsV1Async(SyntheticLocationV1CloudPlatforms? cloudPlatform = null, SyntheticLocationTypes? type = null, CancellationToken cancellationToken = default)
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
-				[nameof(cloudPlatform)] = s_cloudPlatformsConverter.ConvertToString(cloudPlatform),
+				[nameof(cloudPlatform)] = s_v1CloudPlatformsConverter.ConvertToString(cloudPlatform),
 				[nameof(type)] = s_syntheticLocationTypesConverter.ConvertToString(type)
 			};
 

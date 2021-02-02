@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Dynatrace.Net.Environment.SyntheticV1.Models;
+using Dynatrace.Net.Common.Models;
 
 namespace Dynatrace.Net.Common.Converters
 {

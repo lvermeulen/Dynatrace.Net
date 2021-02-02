@@ -1,6 +1,6 @@
 ﻿namespace Dynatrace.Net.Environment.SyntheticV1.Models
 {
-	public enum CloudPlatforms
+	public enum SyntheticLocationV1CloudPlatforms
 	{
 		Aws,
 		Azure,
