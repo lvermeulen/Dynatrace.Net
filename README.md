@@ -16,7 +16,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Anomaly Detection
   * [X] Auto-tags
   * [ ] AWS Credentials
-  * [ ] Azure Credentials
+  * [X] Azure Credentials
   * [X] Calculated Metrics
   * [ ] Cloud Foundry Credentials
   * [ ] Conditional Naming
