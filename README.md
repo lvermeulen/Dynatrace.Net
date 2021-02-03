@@ -15,7 +15,8 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Alerting Profiles
   * [X] Anomaly Detection
   * [X] Auto-tags
-  * [ ] AWS Credentials
+  * [X] AWS Credentials
+  * [ ] AWS PrivateLink
   * [X] Azure Credentials
   * [X] Calculated Metrics
   * [ ] Cloud Foundry Credentials
