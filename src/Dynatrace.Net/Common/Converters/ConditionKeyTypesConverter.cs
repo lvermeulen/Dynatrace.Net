@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ConditionKeyTypes.String] = "STRING"
 		};
 
-		protected override Dictionary<ConditionKeyTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ConditionKeyTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "condition key type";
+		protected override string EntityString => "condition key type";
 	}
 }

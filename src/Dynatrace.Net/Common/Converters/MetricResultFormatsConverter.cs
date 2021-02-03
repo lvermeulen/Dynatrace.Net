@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MetricResultFormats.TextCsvHeaderAbsent] = "text/csv; header=absent",
 		};
 
-		protected override Dictionary<MetricResultFormats, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MetricResultFormats, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "request header";
+		protected override string EntityString => "request header";
 	}
 }

@@ -17,8 +17,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ActiveGatesUpdateStatusTypes.UpdateProblem] = "UPDATE_PROBLEM"
 		};
 
-		protected override Dictionary<ActiveGatesUpdateStatusTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ActiveGatesUpdateStatusTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "update status";
+		protected override string EntityString => "update status";
 	}
 }

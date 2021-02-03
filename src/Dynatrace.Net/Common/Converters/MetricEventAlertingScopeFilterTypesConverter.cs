@@ -18,8 +18,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MetricEventAlertingScopeFilterTypes.Tag] = "TAG"
 		};
 
-		protected override Dictionary<MetricEventAlertingScopeFilterTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MetricEventAlertingScopeFilterTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "metric event alerting scope filter type";
+		protected override string EntityString => "metric event alerting scope filter type";
 	}
 }

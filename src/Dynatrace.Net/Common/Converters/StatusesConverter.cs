@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[Statuses.Open] = "OPEN"
 		};
 
-		protected override Dictionary<Statuses, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<Statuses, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "status";
+		protected override string EntityString => "status";
 	}
 }

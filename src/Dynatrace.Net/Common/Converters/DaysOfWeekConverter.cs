@@ -16,8 +16,8 @@ namespace Dynatrace.Net.Common.Converters
 			[DaysOfWeek.Wednesday] = "WEDNESDAY"
 		};
 
-		protected override Dictionary<DaysOfWeek, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<DaysOfWeek, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "day of week";
+		protected override string EntityString => "day of week";
 	}
 }

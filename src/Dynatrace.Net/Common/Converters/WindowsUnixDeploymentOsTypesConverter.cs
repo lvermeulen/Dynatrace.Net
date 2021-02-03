@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[WindowsUnixDeploymentOsTypes.Unix] = "unix"
 		};
 
-		protected override Dictionary<WindowsUnixDeploymentOsTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<WindowsUnixDeploymentOsTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "deployment OS type";
+		protected override string EntityString => "deployment OS type";
 	}
 }

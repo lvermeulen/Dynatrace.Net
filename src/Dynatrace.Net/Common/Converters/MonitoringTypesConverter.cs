@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MonitoringTypes.Standalone] = "STANDALONE"
 		};
 
-		protected override Dictionary<MonitoringTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MonitoringTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "monitoring type";
+		protected override string EntityString => "monitoring type";
 	}
 }

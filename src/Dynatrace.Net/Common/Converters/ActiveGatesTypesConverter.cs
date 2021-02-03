@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ActiveGatesTypes.EnvironmentMulti] = "ENVIRONMENT_MULTI"
 		};
 
-		protected override Dictionary<ActiveGatesTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ActiveGatesTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "type";
+		protected override string EntityString => "type";
 	}
 }

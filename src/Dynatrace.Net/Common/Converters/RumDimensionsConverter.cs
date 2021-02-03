@@ -17,8 +17,8 @@ namespace Dynatrace.Net.Common.Converters
 			[RumDimensions.UserActionType] = "UserActionType"
 		};
 
-		protected override Dictionary<RumDimensions, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<RumDimensions, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "dimension";
+		protected override string EntityString => "dimension";
 	}
 }

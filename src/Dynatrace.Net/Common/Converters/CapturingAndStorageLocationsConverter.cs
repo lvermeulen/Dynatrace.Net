@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Common.Converters
 			[CapturingAndStorageLocations.CaptureOnClientStoreOnServer] = "CAPTURE_ON_CLIENT_STORE_ON_SERVER"
 		};
 		
-		protected override Dictionary<CapturingAndStorageLocations, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<CapturingAndStorageLocations, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "capturing and storage location";
+		protected override string EntityString => "capturing and storage location";
 	}
 }

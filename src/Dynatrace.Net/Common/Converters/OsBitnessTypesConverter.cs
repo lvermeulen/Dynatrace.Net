@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[OsBitnessTypes.All] = "all"
 		};
 
-		protected override Dictionary<OsBitnessTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<OsBitnessTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "OS bitness";
+		protected override string EntityString => "OS bitness";
 	}
 }

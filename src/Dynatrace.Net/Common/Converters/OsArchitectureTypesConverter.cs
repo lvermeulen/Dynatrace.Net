@@ -16,8 +16,8 @@ namespace Dynatrace.Net.Common.Converters
 			[OsArchitectureTypes.X86] = "x86"
 		};
 
-		protected override Dictionary<OsArchitectureTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<OsArchitectureTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "OS architecture type";
+		protected override string EntityString => "OS architecture type";
 	}
 }

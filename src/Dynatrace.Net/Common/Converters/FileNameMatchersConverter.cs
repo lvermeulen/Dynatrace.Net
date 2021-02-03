@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[FileNameMatchers.StartsWith] = "STARTS_WITH"
 		};
 
-		protected override Dictionary<FileNameMatchers, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<FileNameMatchers, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "matcher";
+		protected override string EntityString => "matcher";
 	}
 }

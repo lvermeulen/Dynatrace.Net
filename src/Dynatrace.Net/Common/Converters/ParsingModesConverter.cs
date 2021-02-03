@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ParsingModes.All] = "all"
 		};
 
-		protected override Dictionary<ParsingModes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ParsingModes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "parsing mode";
+		protected override string EntityString => "parsing mode";
 	}
 }

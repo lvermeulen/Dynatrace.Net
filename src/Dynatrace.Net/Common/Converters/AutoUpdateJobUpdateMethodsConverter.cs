@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[AutoUpdateJobUpdateMethods.OnDemand] = "ON_DEMAND"
 		};
 
-		protected override Dictionary<AutoUpdateJobUpdateMethods, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<AutoUpdateJobUpdateMethods, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "update method";
+		protected override string EntityString => "update method";
 	}
 }

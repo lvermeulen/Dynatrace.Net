@@ -38,8 +38,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ManagementZoneRuleTypes.WebApplication] = "WEB_APPLICATION"
 		};
 
-		protected override Dictionary<ManagementZoneRuleTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ManagementZoneRuleTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "rule type";
+		protected override string EntityString => "rule type";
 	}
 }

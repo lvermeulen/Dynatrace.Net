@@ -14,8 +14,8 @@ namespace Dynatrace.Net.Common.Converters
 			[TokenDurations.Seconds] = "SECONDS"
 		};
 
-		protected override Dictionary<TokenDurations, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<TokenDurations, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "duration";
+		protected override string EntityString => "duration";
 	}
 }

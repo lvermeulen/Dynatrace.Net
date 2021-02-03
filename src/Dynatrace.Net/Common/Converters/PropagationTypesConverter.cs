@@ -17,8 +17,8 @@ namespace Dynatrace.Net.Common.Converters
 			[PropagationTypes.ServiceToProcessGroupLike] = "SERVICE_TO_PROCESS_GROUP_LIKE"
 		};
 
-		protected override Dictionary<PropagationTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<PropagationTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "propagation type";
+		protected override string EntityString => "propagation type";
 	}
 }

@@ -18,8 +18,8 @@ namespace Dynatrace.Net.Common.Converters
 			[UserSessionUserActionTypes.Xhr] = "Xhr"
 		};
 		
-		protected override Dictionary<UserSessionUserActionTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<UserSessionUserActionTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "user action type";
+		protected override string EntityString => "user action type";
 	}
 }

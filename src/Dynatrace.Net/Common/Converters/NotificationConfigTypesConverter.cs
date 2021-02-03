@@ -21,8 +21,8 @@ namespace Dynatrace.Net.Common.Converters
 			[NotificationConfigTypes.XMatters] = "XMATTERS"
 		};
 
-		protected override Dictionary<NotificationConfigTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<NotificationConfigTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "notification config type";
+		protected override string EntityString => "notification config type";
 	}
 }

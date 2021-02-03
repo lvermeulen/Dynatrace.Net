@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[LinuxDistributionFlavors.Musl] = "musl"
 		};
 
-		protected override Dictionary<LinuxDistributionFlavors, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<LinuxDistributionFlavors, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "Linux distribution flavor";
+		protected override string EntityString => "Linux distribution flavor";
 	}
 }

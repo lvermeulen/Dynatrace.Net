@@ -95,8 +95,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ConditionAttributeTypes.ZosCallType] = "ZOS_CALL_TYPE"
 		};
 
-		protected override Dictionary<ConditionAttributeTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ConditionAttributeTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "attribute";
+		protected override string EntityString => "attribute";
 	}
 }

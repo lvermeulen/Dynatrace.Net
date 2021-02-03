@@ -15,8 +15,8 @@ namespace Dynatrace.Net.Common.Converters
 			[Operators.StartsWith] = "STARTS_WITH"
 		};
 
-		protected override Dictionary<Operators, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<Operators, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "operator";
+		protected override string EntityString => "operator";
 	}
 }

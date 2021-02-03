@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[UserActionPropertyFilterMatchTypes.Equals] = "Equals"
 		};
 
-		protected override Dictionary<UserActionPropertyFilterMatchTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<UserActionPropertyFilterMatchTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "match type";
+		protected override string EntityString => "match type";
 	}
 }

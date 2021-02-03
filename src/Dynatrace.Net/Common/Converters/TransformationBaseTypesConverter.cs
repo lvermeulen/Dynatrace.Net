@@ -19,8 +19,8 @@ namespace Dynatrace.Net.Common.Converters
 			[TransformationBaseTypes.TakeSegments] = "TAKE_SEGMENTS"
 		};
 
-		protected override Dictionary<TransformationBaseTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<TransformationBaseTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "transformation base type";
+		protected override string EntityString => "transformation base type";
 	}
 }

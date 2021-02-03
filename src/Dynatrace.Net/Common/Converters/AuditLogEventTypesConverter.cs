@@ -16,8 +16,8 @@ namespace Dynatrace.Net.Common.Converters
 			[AuditLogEventTypes.Update] = "UPDATE"
 		};
 
-		protected override Dictionary<AuditLogEventTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<AuditLogEventTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "audit log event type";
+		protected override string EntityString => "audit log event type";
 	}
 }

@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[Positions.Prepend] = "PREPEND"
 		};
 
-		protected override Dictionary<Positions, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<Positions, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "position";
+		protected override string EntityString => "position";
 	}
 }

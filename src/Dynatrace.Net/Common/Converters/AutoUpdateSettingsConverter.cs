@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[AutoUpdateSettings.Disabled] = "DISABLED"
 		};
 
-		protected override Dictionary<AutoUpdateSettings, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<AutoUpdateSettings, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "auto-update setting";
+		protected override string EntityString => "auto-update setting";
 	}
 }

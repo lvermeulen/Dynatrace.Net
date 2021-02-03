@@ -16,8 +16,8 @@ namespace Dynatrace.Net.Common.Converters
 			[UserSessionEventTypes.VisitTag] = "VisitTag"
 		};
 		
-		protected override Dictionary<UserSessionEventTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<UserSessionEventTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "user session event type";
+		protected override string EntityString => "user session event type";
 	}
 }

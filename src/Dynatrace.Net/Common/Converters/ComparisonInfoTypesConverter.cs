@@ -25,8 +25,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ComparisonInfoTypes.ZosCallType] = "ZOS_CALL_TYPE"
 		};
 
-		protected override Dictionary<ComparisonInfoTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ComparisonInfoTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "comparison info type";
+		protected override string EntityString => "comparison info type";
 	}
 }

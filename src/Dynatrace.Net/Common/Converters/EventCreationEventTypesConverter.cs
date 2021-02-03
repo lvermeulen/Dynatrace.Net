@@ -18,8 +18,8 @@ namespace Dynatrace.Net.Common.Converters
 			[EventCreationEventTypes.ResourceContention] = "RESOURCE_CONTENTION"
 		};
 
-		protected override Dictionary<EventCreationEventTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<EventCreationEventTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "event type";
+		protected override string EntityString => "event type";
 	}
 }

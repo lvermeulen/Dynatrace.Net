@@ -14,8 +14,8 @@ namespace Dynatrace.Net.Common.Converters
 			[TimeSeriesSources.RemotePlugin] = "REMOTE_PLUGIN"
 		};
 
-		protected override Dictionary<TimeSeriesSources, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<TimeSeriesSources, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "time series source";
+		protected override string EntityString => "time series source";
 	}
 }

@@ -33,8 +33,8 @@ namespace Dynatrace.Net.Common.Converters
 			[LogHandlingErrors.Timeout] = "TIMEOUT"
 		};
 
-		protected override Dictionary<LogHandlingErrors, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<LogHandlingErrors, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "log handling error";
+		protected override string EntityString => "log handling error";
 	}
 }

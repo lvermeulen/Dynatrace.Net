@@ -52,8 +52,8 @@ namespace Dynatrace.Net.Common.Converters
 			[Permissions.SyntheticLocationsWrite] = "syntheticLocations.write"
 		};
 
-		protected override Dictionary<Permissions, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<Permissions, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "permission";
+		protected override string EntityString => "permission";
 	}
 }

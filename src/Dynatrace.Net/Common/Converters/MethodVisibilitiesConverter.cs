@@ -14,8 +14,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MethodVisibilities.Public] = "PUBLIC"
 		};
 
-		protected override Dictionary<MethodVisibilities, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MethodVisibilities, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "method visibility";
+		protected override string EntityString => "method visibility";
 	}
 }

@@ -72,8 +72,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ResolutionTypes.QHd] = "qHD"
 		};
 
-		protected override Dictionary<ResolutionTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ResolutionTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "resolution type";
+		protected override string EntityString => "resolution type";
 	}
 }

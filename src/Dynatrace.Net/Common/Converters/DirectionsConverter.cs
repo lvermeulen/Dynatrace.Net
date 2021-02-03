@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[Directions.Descending] = "DESCENDING"
 		};
 
-		protected override Dictionary<Directions, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<Directions, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "direction";
+		protected override string EntityString => "direction";
 	}
 }

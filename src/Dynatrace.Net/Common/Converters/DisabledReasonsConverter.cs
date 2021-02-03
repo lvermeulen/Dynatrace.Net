@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[DisabledReasons.TopxForcibleDeactivated] = "TOPX_FORCIBLE_DEACTIVATED"
 		};
 
-		protected override Dictionary<DisabledReasons, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<DisabledReasons, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "disabled reason";
+		protected override string EntityString => "disabled reason";
 	}
 }

@@ -47,8 +47,8 @@ namespace Dynatrace.Net.Common.Converters
 			[TileTypes.Virtualization] = "VIRTUALIZATION"
 		};
 
-		protected override Dictionary<TileTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<TileTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "tile type";
+		protected override string EntityString => "tile type";
 	}
 }

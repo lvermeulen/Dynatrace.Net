@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[PlaceHolderAggregationTypes.Last] = "LAST"
 		};
 
-		protected override Dictionary<PlaceHolderAggregationTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<PlaceHolderAggregationTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "aggregation type";
+		protected override string EntityString => "aggregation type";
 	}
 }

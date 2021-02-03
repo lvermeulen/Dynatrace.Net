@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[SyntheticLocationTypes.Private] = "PRIVATE"
 		};
 		
-		protected override Dictionary<SyntheticLocationTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<SyntheticLocationTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "synthetic location type";
+		protected override string EntityString => "synthetic location type";
 	}
 }

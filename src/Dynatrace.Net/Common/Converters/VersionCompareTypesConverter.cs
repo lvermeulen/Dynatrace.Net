@@ -14,8 +14,8 @@ namespace Dynatrace.Net.Common.Converters
 			[VersionCompareTypes.LowerEqual] = "LOWER_EQUAL"
 		};
 
-		protected override Dictionary<VersionCompareTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<VersionCompareTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "version compare type";
+		protected override string EntityString => "version compare type";
 	}
 }

@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[HealthStates.Unhealthy] = "UNHEALTHY"
 		};
 
-		protected override Dictionary<HealthStates, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<HealthStates, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "healthState";
+		protected override string EntityString => "healthState";
 	}
 }

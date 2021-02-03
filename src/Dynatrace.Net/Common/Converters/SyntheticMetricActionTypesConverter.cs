@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[SyntheticMetricActionTypes.Xhr] = "Xhr"
 		};
 
-		protected override Dictionary<SyntheticMetricActionTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<SyntheticMetricActionTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "action type";
+		protected override string EntityString => "action type";
 	}
 }

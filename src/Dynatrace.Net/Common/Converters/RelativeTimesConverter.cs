@@ -21,8 +21,8 @@ namespace Dynatrace.Net.Common.Converters
             [RelativeTimes.Week] = "week"
         };
 
-        protected override Dictionary<RelativeTimes, string> Pairs { get; } = s_pairs;
+        protected override Dictionary<RelativeTimes, string> Pairs => s_pairs;
 
-        protected override string EntityString { get; } = "relativeTime";
+        protected override string EntityString => "relativeTime";
     }
 }

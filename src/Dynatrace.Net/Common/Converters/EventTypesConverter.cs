@@ -111,8 +111,8 @@ namespace Dynatrace.Net.Common.Converters
 			[EventTypes.WebCheckLocalOutage] = "WEB_CHECK_LOCAL_OUTAGE",
 		};
 
-		protected override Dictionary<EventTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<EventTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "event type";
+		protected override string EntityString => "event type";
 	}
 }

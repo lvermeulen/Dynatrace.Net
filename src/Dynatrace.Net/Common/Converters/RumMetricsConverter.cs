@@ -41,7 +41,7 @@ namespace Dynatrace.Net.Common.Converters
 			[RumMetrics.VisuallyComplete] = "VisuallyComplete"
 		};
 
-		protected override Dictionary<RumMetrics, string> Pairs { get; } = s_pairs;
-		protected override string EntityString { get; } = "metric";
+		protected override Dictionary<RumMetrics, string> Pairs => s_pairs;
+		protected override string EntityString => "metric";
 	}
 }

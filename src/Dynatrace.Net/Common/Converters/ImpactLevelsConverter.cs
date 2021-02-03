@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ImpactLevels.Service] = "SERVICE"
 		};
 
-		protected override Dictionary<ImpactLevels, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ImpactLevels, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "impactLevel";
+		protected override string EntityString => "impactLevel";
 	}
 }

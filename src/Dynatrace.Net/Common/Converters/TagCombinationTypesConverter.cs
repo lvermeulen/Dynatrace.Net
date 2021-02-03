@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[TagCombinationTypes.Or] = "OR"
 		};
 		
-		protected override Dictionary<TagCombinationTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<TagCombinationTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "tag combination type";
+		protected override string EntityString => "tag combination type";
 	}
 }

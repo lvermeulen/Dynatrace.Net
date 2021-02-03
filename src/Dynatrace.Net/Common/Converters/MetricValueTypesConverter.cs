@@ -30,7 +30,7 @@ namespace Dynatrace.Net.Common.Converters
 			[MetricValueTypes.Occurrences] = "OCCURRENCES"
 		};
 		
-		protected override Dictionary<MetricValueTypes, string> Pairs { get; } = s_pairs;
-		protected override string EntityString { get; } = "metric value type";
+		protected override Dictionary<MetricValueTypes, string> Pairs => s_pairs;
+		protected override string EntityString => "metric value type";
 	}
 }

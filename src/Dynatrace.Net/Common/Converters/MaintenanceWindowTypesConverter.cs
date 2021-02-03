@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MaintenanceWindowTypes.Unplanned] = "UNPLANNED"
 		};
 
-		protected override Dictionary<MaintenanceWindowTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MaintenanceWindowTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "maintenance window type";
+		protected override string EntityString => "maintenance window type";
 	}
 }

@@ -14,8 +14,8 @@ namespace Dynatrace.Net.Common.Converters
 			[QueueEntryPointTypes.RabbitMq] = "RABBIT_MQ"
 		};
 
-		protected override Dictionary<QueueEntryPointTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<QueueEntryPointTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "queue entrypoint type";
+		protected override string EntityString => "queue entrypoint type";
 	}
 }

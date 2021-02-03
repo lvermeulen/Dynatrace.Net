@@ -15,8 +15,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ExtensionTypes.Unknown] = "UNKNOWN"
 		};
 
-		protected override Dictionary<ExtensionTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ExtensionTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "extension type";
+		protected override string EntityString => "extension type";
 	}
 }

@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Common.Converters
 			[DiskNameMetricTypes.WriteTimeExceeding] = "WRITE_TIME_EXCEEDING"
 		};
 
-		protected override Dictionary<DiskNameMetricTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<DiskNameMetricTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "metric type";
+		protected override string EntityString => "metric type";
 	}
 }

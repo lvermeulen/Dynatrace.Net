@@ -26,8 +26,8 @@ namespace Dynatrace.Net.Common.Converters
 			[AutoTagRuleTypes.SyntheticTest] = "SYNTHETIC_TEST"
 		};
 
-		protected override Dictionary<AutoTagRuleTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<AutoTagRuleTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "auto-tag rule type";
+		protected override string EntityString => "auto-tag rule type";
 	}
 }

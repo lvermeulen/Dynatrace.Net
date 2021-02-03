@@ -17,8 +17,8 @@ namespace Dynatrace.Net.Common.Converters
 			[TagInfoContexts.Kubernetes] = "KUBERNETES"
 		};
 
-		protected override Dictionary<TagInfoContexts, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<TagInfoContexts, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "tag info context";
+		protected override string EntityString => "tag info context";
 	}
 }

@@ -66,8 +66,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MetricDescriptorUnits.Mcores] = "mCores"
 		};
 
-		protected override Dictionary<MetricDescriptorUnits, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MetricDescriptorUnits, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "metric descriptor unit";
+		protected override string EntityString => "metric descriptor unit";
 	}
 }

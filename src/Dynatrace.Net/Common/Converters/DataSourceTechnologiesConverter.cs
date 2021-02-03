@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[DataSourceTechnologies.Php] = "PHP"
 		};
 
-		protected override Dictionary<DataSourceTechnologies, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<DataSourceTechnologies, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "technology";
+		protected override string EntityString => "technology";
 	}
 }

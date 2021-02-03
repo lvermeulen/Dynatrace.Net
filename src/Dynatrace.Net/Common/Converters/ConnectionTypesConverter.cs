@@ -14,8 +14,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ConnectionTypes.Wifi] = "WIFI"
 		};
 
-		protected override Dictionary<ConnectionTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ConnectionTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "connection type";
+		protected override string EntityString => "connection type";
 	}
 }

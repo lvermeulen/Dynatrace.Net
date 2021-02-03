@@ -14,8 +14,8 @@ namespace Dynatrace.Net.Common.Converters
 			[OneAgentDeploymentOsTypes.Zos] = "zos"
 		};
 
-		protected override Dictionary<OneAgentDeploymentOsTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<OneAgentDeploymentOsTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "OneAgent deployment OS type";
+		protected override string EntityString => "OneAgent deployment OS type";
 	}
 }

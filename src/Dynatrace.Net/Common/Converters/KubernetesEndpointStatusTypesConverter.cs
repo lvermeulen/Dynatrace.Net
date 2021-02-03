@@ -19,8 +19,8 @@ namespace Dynatrace.Net.Common.Converters
 			[KubernetesEndpointStatusTypes.Unknown] = "UNKNOWN"
 		};
 
-		protected override Dictionary<KubernetesEndpointStatusTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<KubernetesEndpointStatusTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "Kubernetes endpoint status";
+		protected override string EntityString => "Kubernetes endpoint status";
 	}
 }

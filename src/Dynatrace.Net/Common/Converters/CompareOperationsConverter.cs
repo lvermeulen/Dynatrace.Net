@@ -20,8 +20,8 @@ namespace Dynatrace.Net.Common.Converters
 			[CompareOperations.Tag] = "TAG"
 		};
 
-		protected override Dictionary<CompareOperations, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<CompareOperations, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "compare operation";
+		protected override string EntityString => "compare operation";
 	}
 }

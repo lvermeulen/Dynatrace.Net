@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[SyntheticMonitorTypesV1.Http] = "HTTP"
 		};
 		
-		protected override Dictionary<SyntheticMonitorTypesV1, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<SyntheticMonitorTypesV1, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "synthetic monitor type";
+		protected override string EntityString => "synthetic monitor type";
 	}
 }

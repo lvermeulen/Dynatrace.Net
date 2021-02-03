@@ -15,8 +15,8 @@ namespace Dynatrace.Net.Common.Converters
 			[AttributeTypes.UrlPath] = "URL_PATH"
 		};
 
-		protected override Dictionary<AttributeTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<AttributeTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "attribute type";
+		protected override string EntityString => "attribute type";
 	}
 }

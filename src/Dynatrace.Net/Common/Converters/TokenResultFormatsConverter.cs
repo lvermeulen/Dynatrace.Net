@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Common.Converters
 			[TokenResultFormats.TextCsvHeaderAbsent] = "text/csv; header=absent",
 		};
 
-		protected override Dictionary<TokenResultFormats, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<TokenResultFormats, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "request header";
+		protected override string EntityString => "request header";
 	}
 }

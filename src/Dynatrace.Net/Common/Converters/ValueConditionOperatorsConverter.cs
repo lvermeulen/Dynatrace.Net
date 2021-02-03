@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ValueConditionOperators.Equal] = "EQUALS"
 		};
 
-		protected override Dictionary<ValueConditionOperators, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ValueConditionOperators, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "operator";
+		protected override string EntityString => "operator";
 	}
 }

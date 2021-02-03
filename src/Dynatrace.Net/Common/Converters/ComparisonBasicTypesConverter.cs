@@ -35,8 +35,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ComparisonBasicTypes.Tag] = "TAG"
 		};
 
-		protected override Dictionary<ComparisonBasicTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ComparisonBasicTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "comparison type";
+		protected override string EntityString => "comparison type";
 	}
 }

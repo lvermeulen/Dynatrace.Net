@@ -18,8 +18,8 @@ namespace Dynatrace.Net.Common.Converters
 			[LogAnalysisStatuses.Waiting] = "WAITING"
 		};
 
-		protected override Dictionary<LogAnalysisStatuses, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<LogAnalysisStatuses, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "log analysis status";
+		protected override string EntityString => "log analysis status";
 	}
 }

@@ -15,8 +15,8 @@ namespace Dynatrace.Net.Common.Converters
 			[CalculatedMobileMetricDimensionTypes.Os] = "OS"
 		};
 
-		protected override Dictionary<CalculatedMobileMetricDimensionTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<CalculatedMobileMetricDimensionTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "dimension type";
+		protected override string EntityString => "dimension type";
 	}
 }

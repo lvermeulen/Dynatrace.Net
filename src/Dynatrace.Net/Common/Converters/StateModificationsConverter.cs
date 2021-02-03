@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[StateModifications.Inactive] = "INACTIVE"
 		};
 
-		protected override Dictionary<StateModifications, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<StateModifications, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "state modification";
+		protected override string EntityString => "state modification";
 	}
 }

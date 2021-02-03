@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[AvailabilityMonitoringPgMethods.ProcessImpact] = "PROCESS_IMPACT"
 		};
 
-		protected override Dictionary<AvailabilityMonitoringPgMethods, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<AvailabilityMonitoringPgMethods, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "availability monitoring process group method";
+		protected override string EntityString => "availability monitoring process group method";
 	}
 }

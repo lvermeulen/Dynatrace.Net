@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MetricTypes.WebRequestErrorCount] = "WEB_REQUEST_ERROR_COUNT"
 		};
 
-		protected override Dictionary<MetricTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MetricTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "metric type";
+		protected override string EntityString => "metric type";
 	}
 }

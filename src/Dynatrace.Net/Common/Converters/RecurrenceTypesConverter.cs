@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Common.Converters
 			[RecurrenceTypes.Weekly] = "WEEKLY"
 		};
 
-		protected override Dictionary<RecurrenceTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<RecurrenceTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "recurrence type";
+		protected override string EntityString => "recurrence type";
 	}
 }

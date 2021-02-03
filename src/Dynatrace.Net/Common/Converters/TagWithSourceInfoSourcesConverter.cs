@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[TagWithSourceInfoSources.User] = "USER"
 		};
 
-		protected override Dictionary<TagWithSourceInfoSources, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<TagWithSourceInfoSources, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "tag with source info source";
+		protected override string EntityString => "tag with source info source";
 	}
 }

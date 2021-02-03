@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[StringPositions.Between] = "BETWEEN"
 		};
 
-		protected override Dictionary<StringPositions, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<StringPositions, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "string position";
+		protected override string EntityString => "string position";
 	}
 }

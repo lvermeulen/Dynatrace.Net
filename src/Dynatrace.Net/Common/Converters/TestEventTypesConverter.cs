@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[TestEventTypes.TestSlowdown] = "testSlowdown"
 		};
 
-		protected override Dictionary<TestEventTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<TestEventTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "event type";
+		protected override string EntityString => "event type";
 	}
 }

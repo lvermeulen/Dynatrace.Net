@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[TimeSeriesQueryModes.Total] = "TOTAL"
 		};
 
-		protected override Dictionary<TimeSeriesQueryModes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<TimeSeriesQueryModes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "query mode";
+		protected override string EntityString => "query mode";
 	}
 }

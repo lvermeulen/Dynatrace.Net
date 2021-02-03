@@ -29,8 +29,8 @@ namespace Dynatrace.Net.Common.Converters
 			[AdditionalFields.UserActionsDateProperties] = "userActions.dateProperties"
 		};
 
-		protected override Dictionary<AdditionalFields, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<AdditionalFields, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "addition field";
+		protected override string EntityString => "addition field";
 	}
 }

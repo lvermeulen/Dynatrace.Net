@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[Matchers.StartsWith] = "STARTS_WITH"
 		};
 
-		protected override Dictionary<Matchers, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<Matchers, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "matcher";
+		protected override string EntityString => "matcher";
 	}
 }

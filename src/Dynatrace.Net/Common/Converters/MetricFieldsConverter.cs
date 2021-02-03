@@ -20,8 +20,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MetricFields.EntityType] = "entityType"
 		};
 
-		protected override Dictionary<MetricFields, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MetricFields, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "metric field";
+		protected override string EntityString => "metric field";
 	}
 }

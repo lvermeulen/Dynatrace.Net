@@ -14,8 +14,8 @@ namespace Dynatrace.Net.Common.Converters
 			[PlaceholderKinds.RegexExtraction] = "REGEX_EXTRACTION"
 		};
 		
-		protected override Dictionary<PlaceholderKinds, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<PlaceholderKinds, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "placeholder kind";
+		protected override string EntityString => "placeholder kind";
 	}
 }

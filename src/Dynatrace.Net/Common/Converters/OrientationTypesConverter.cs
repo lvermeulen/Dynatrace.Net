@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[OrientationTypes.Unknown] = "UNKNOWN"
 		};
 		
-		protected override Dictionary<OrientationTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<OrientationTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "orientation type";
+		protected override string EntityString => "orientation type";
 	}
 }

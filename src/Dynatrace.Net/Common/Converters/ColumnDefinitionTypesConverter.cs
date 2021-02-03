@@ -11,7 +11,7 @@ namespace Dynatrace.Net.Common.Converters
 			[ColumnDefinitionTypes.Json] = "JSON"
 		};
 
-		protected override Dictionary<ColumnDefinitionTypes, string> Pairs { get; } = s_pairs;
-		protected override string EntityString { get; } = "column definition type";
+		protected override Dictionary<ColumnDefinitionTypes, string> Pairs => s_pairs;
+		protected override string EntityString => "column definition type";
 	}
 }

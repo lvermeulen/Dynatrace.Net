@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ReleaseStages.Ga] = "GA"
 		};
 
-		protected override Dictionary<ReleaseStages, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ReleaseStages, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "release stage";
+		protected override string EntityString => "release stage";
 	}
 }

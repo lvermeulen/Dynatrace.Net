@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[SessionAttributeTechnologies.Java] = "JAVA"
 		};
 
-		protected override Dictionary<SessionAttributeTechnologies, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<SessionAttributeTechnologies, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "technology";
+		protected override string EntityString => "technology";
 	}
 }

@@ -15,8 +15,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MessageTypes.SingleType] = "SINGLE_TYPE"
 		};
 
-		protected override Dictionary<MessageTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MessageTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "message type";
+		protected override string EntityString => "message type";
 	}
 }

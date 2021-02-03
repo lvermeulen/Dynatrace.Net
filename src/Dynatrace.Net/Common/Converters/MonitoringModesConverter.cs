@@ -11,7 +11,7 @@ namespace Dynatrace.Net.Common.Converters
 			[MonitoringModes.FullStack] = "FULL_STACK"
 		};
 
-		protected override Dictionary<MonitoringModes, string> Pairs { get; } = s_pairs;
-		protected override string EntityString { get; } = "monitoring mode";
+		protected override Dictionary<MonitoringModes, string> Pairs => s_pairs;
+		protected override string EntityString => "monitoring mode";
 	}
 }

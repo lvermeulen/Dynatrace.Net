@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[SyntheticLocationStatusTypes.Hidden] = "HIDDEN"
 		};
 
-		protected override Dictionary<SyntheticLocationStatusTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<SyntheticLocationStatusTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "location status";
+		protected override string EntityString => "location status";
 	}
 }

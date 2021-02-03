@@ -43,8 +43,8 @@ namespace Dynatrace.Net.Common.Converters
 			[SyntheticMetrics.VisuallyComplete] = "VisuallyComplete"
 		};
 
-		protected override Dictionary<SyntheticMetrics, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<SyntheticMetrics, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "metric";
+		protected override string EntityString => "metric";
 	}
 }

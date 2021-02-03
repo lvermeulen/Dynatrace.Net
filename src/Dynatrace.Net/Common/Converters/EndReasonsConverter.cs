@@ -15,8 +15,8 @@ namespace Dynatrace.Net.Common.Converters
 			[EndReasons.UserActionLimit] = "USER_ACTION_LIMIT"
 		};
 
-		protected override Dictionary<EndReasons, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<EndReasons, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "end reason";
+		protected override string EntityString => "end reason";
 	}
 }

@@ -23,8 +23,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ExtensionStates.WaitingForState] = "WAITING_FOR_STATE"
 		};
 
-		protected override Dictionary<ExtensionStates, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ExtensionStates, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "extension state";
+		protected override string EntityString => "extension state";
 	}
 }

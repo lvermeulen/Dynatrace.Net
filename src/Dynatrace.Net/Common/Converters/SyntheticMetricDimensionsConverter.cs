@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[SyntheticMetricDimensions.ResourceOrigin] = "ResourceOrigin"
 		};
 
-		protected override Dictionary<SyntheticMetricDimensions, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<SyntheticMetricDimensions, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "dimension";
+		protected override string EntityString => "dimension";
 	}
 }

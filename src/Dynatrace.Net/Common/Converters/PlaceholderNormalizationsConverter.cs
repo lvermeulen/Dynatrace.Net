@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[PlaceholderNormalizations.ToUpperCase] = "TO_UPPER_CASE"
 		};
 		
-		protected override Dictionary<PlaceholderNormalizations, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<PlaceholderNormalizations, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "normalization";
+		protected override string EntityString => "normalization";
 	}
 }

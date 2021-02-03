@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Common.Converters
 			[AuditLogCategories.WebUi] = "WEB_UI"
 		};
 
-		protected override Dictionary<AuditLogCategories, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<AuditLogCategories, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "audit log category";
+		protected override string EntityString => "audit log category";
 	}
 }

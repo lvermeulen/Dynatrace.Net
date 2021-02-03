@@ -204,8 +204,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ConditionKeyAttributeTypes.WebApplicationType] = "WEB_APPLICATION_TYPE"
 		};
 
-		protected override Dictionary<ConditionKeyAttributeTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ConditionKeyAttributeTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "condition key attribute type";
+		protected override string EntityString => "condition key attribute type";
 	}
 }

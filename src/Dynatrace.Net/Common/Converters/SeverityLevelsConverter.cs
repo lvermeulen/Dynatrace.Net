@@ -15,8 +15,8 @@ namespace Dynatrace.Net.Common.Converters
 			[SeverityLevels.ResourceContention] = "RESOURCE_CONTENTION"
 		};
 
-		protected override Dictionary<SeverityLevels, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<SeverityLevels, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "severityLevel";
+		protected override string EntityString => "severityLevel";
 	}
 }

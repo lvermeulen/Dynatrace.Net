@@ -29,8 +29,8 @@ namespace Dynatrace.Net.Common.Converters
 			[TechnologyModuleTypes.ZOs] = "Z_OS"
 		};
 
-		protected override Dictionary<TechnologyModuleTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<TechnologyModuleTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "technology module";
+		protected override string EntityString => "technology module";
 	}
 }

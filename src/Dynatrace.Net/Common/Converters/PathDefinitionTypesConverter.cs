@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[PathDefinitionTypes.Wildcard] = "WILDCARD"
 		};
 
-		protected override Dictionary<PathDefinitionTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<PathDefinitionTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "path definition type";
+		protected override string EntityString => "path definition type";
 	}
 }

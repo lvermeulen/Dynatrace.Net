@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Common.Converters
 			[AutoUpdateJobUpdateTypes.ZRemote] = "Z_REMOTE"
 		};
 
-		protected override Dictionary<AutoUpdateJobUpdateTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<AutoUpdateJobUpdateTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "update type";
+		protected override string EntityString => "update type";
 	}
 }

@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ApplicationTypes.WebApplication] = "WEB_APPLICATION"
 		};
 		
-		protected override Dictionary<ApplicationTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ApplicationTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "application type";
+		protected override string EntityString => "application type";
 	}
 }

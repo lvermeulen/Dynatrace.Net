@@ -177,8 +177,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ServiceTechnologies.ZeroMq] = "ZERO_MQ"
 		};
 
-		protected override Dictionary<ServiceTechnologies, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ServiceTechnologies, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "service technology";
+		protected override string EntityString => "service technology";
 	}
 }

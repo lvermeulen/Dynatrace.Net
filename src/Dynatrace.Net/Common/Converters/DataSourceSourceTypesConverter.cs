@@ -22,8 +22,8 @@ namespace Dynatrace.Net.Common.Converters
 			[DataSourceSourceTypes.UriPath] = "URI_PATH"
 		};
 
-		protected override Dictionary<DataSourceSourceTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<DataSourceSourceTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "source type";
+		protected override string EntityString => "source type";
 	}
 }

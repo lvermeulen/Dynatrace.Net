@@ -15,8 +15,8 @@ namespace Dynatrace.Net.Common.Converters
 			[CaptureTypes.This] = "THIS"
 		};
 
-		protected override Dictionary<CaptureTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<CaptureTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "capture type";
+		protected override string EntityString => "capture type";
 	}
 }

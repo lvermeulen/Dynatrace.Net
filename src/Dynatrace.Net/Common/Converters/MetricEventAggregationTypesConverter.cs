@@ -17,8 +17,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MetricEventAggregationTypes.Value] = "VALUE"
 		};
 
-		protected override Dictionary<MetricEventAggregationTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MetricEventAggregationTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "metric event aggregation type";
+		protected override string EntityString => "metric event aggregation type";
 	}
 }

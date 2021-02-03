@@ -101,8 +101,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MeTypes.VmwareDatacenter] = "VMWARE_DATACENTER"
 		};
 
-		protected override Dictionary<MeTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MeTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "me type";
+		protected override string EntityString => "me type";
 	}
 }

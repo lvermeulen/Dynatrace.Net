@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[CreatedFromTypes.Gui] = "GUI"
 		};
 
-		protected override Dictionary<CreatedFromTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<CreatedFromTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "created from type";
+		protected override string EntityString => "created from type";
 	}
 }

@@ -14,8 +14,8 @@ namespace Dynatrace.Net.Common.Converters
 			[CustomServiceTechnologies.Php] = "php"
 		};
 
-		protected override Dictionary<CustomServiceTechnologies, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<CustomServiceTechnologies, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "service technology";
+		protected override string EntityString => "service technology";
 	}
 }

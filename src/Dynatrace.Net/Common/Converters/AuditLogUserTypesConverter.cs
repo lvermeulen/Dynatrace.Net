@@ -14,8 +14,8 @@ namespace Dynatrace.Net.Common.Converters
 			[AuditLogUserTypes.UserName] = "USER_NAME"
 		};
 
-		protected override Dictionary<AuditLogUserTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<AuditLogUserTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "audit log user type";
+		protected override string EntityString => "audit log user type";
 	}
 }

@@ -15,8 +15,8 @@ namespace Dynatrace.Net.Common.Converters
 			[AutoUpdateJobStates.Succeed] = "SUCCEED"
 		};
 
-		protected override Dictionary<AutoUpdateJobStates, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<AutoUpdateJobStates, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "job state";
+		protected override string EntityString => "job state";
 	}
 }

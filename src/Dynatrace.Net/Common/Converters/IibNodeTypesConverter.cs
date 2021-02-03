@@ -50,8 +50,8 @@ namespace Dynatrace.Net.Common.Converters
 			[IibNodeTypes.XslMqsiNode] = "XSL_MQSI_NODE"
 		};
 
-		protected override Dictionary<IibNodeTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<IibNodeTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "node type";
+		protected override string EntityString => "node type";
 	}
 }

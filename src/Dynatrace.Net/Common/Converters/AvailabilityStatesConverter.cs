@@ -17,8 +17,8 @@ namespace Dynatrace.Net.Common.Converters
 			[AvailabilityStates.Unmonitored] = "UNMONITORED"
 		};
 
-		protected override Dictionary<AvailabilityStates, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<AvailabilityStates, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "availability state";
+		protected override string EntityString => "availability state";
 	}
 }

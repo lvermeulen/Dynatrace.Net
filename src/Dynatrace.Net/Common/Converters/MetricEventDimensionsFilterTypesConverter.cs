@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MetricEventDimensionsFilterTypes.String] = "STRING"
 		};
 
-		protected override Dictionary<MetricEventDimensionsFilterTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MetricEventDimensionsFilterTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "metric event dimensions filter type";
+		protected override string EntityString => "metric event dimensions filter type";
 	}
 }

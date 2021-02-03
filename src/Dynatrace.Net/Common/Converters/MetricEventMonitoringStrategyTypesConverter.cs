@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MetricEventMonitoringStrategyTypes.StaticThreshold] = "STATIC_THRESHOLD"
 		};
 
-		protected override Dictionary<MetricEventMonitoringStrategyTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MetricEventMonitoringStrategyTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "metric event monitoring strategy type";
+		protected override string EntityString => "metric event monitoring strategy type";
 	}
 }

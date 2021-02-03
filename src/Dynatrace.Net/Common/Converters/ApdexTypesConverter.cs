@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ApdexTypes.Unknown] = "Unknown"
 		};
 
-		protected override Dictionary<ApdexTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ApdexTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "apdex type";
+		protected override string EntityString => "apdex type";
 	}
 }

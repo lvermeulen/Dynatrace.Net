@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Common.Converters
 			[OneAgentInstallerTypes.PaasSh] = "paas-sh",
 		};
 
-		protected override Dictionary<OneAgentInstallerTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<OneAgentInstallerTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "OneAgent installer type";
+		protected override string EntityString => "OneAgent installer type";
 	}
 }

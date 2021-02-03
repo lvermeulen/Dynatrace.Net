@@ -12,8 +12,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MaintenanceWindowSuppressions.DontDetectProblems] = "DONT_DETECT_PROBLEMS"
 		};
 
-		protected override Dictionary<MaintenanceWindowSuppressions, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MaintenanceWindowSuppressions, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "maintenance window suppression";
+		protected override string EntityString => "maintenance window suppression";
 	}
 }

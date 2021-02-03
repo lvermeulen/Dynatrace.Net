@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[LoadingTimeThresholdTypes.Total] = "TOTAL"
 		};
 
-		protected override Dictionary<LoadingTimeThresholdTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<LoadingTimeThresholdTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "loading time threshold type";
+		protected override string EntityString => "loading time threshold type";
 	}
 }

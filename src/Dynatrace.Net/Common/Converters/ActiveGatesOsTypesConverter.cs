@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ActiveGatesOsTypes.Windows] = "WINDOWS"
 		};
 
-		protected override Dictionary<ActiveGatesOsTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ActiveGatesOsTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "OS type";
+		protected override string EntityString => "OS type";
 	}
 }

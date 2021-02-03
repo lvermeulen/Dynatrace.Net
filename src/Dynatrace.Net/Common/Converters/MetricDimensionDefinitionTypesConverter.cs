@@ -14,8 +14,8 @@ namespace Dynatrace.Net.Common.Converters
 			[MetricDimensionDefinitionTypes.Void] = "VOID"
 		};
 
-		protected override Dictionary<MetricDimensionDefinitionTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<MetricDimensionDefinitionTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "metric dimension definition type";
+		protected override string EntityString => "metric dimension definition type";
 	}
 }

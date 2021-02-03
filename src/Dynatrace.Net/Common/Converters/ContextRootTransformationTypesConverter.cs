@@ -15,8 +15,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ContextRootTransformationTypes.ReplaceBetween] = "REPLACE_BETWEEN"
 		};
 
-		protected override Dictionary<ContextRootTransformationTypes, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<ContextRootTransformationTypes, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "transformation type";
+		protected override string EntityString => "transformation type";
 	}
 }

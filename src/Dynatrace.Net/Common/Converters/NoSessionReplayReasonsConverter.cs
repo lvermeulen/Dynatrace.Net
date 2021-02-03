@@ -24,8 +24,8 @@ namespace Dynatrace.Net.Common.Converters
 			[NoSessionReplayReasons.ViewExcluded] = "VIEW_EXCLUDED"
 		};
 
-		protected override Dictionary<NoSessionReplayReasons, string> Pairs { get; } = s_pairs;
+		protected override Dictionary<NoSessionReplayReasons, string> Pairs => s_pairs;
 
-		protected override string EntityString { get; } = "reason for no session replay";
+		protected override string EntityString => "reason for no session replay";
 	}
 }
