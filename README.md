@@ -19,7 +19,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] AWS PrivateLink
   * [X] Azure Credentials
   * [X] Calculated Metrics
-  * [ ] Cloud Foundry Credentials
+  * [X] Cloud Foundry Credentials
   * [ ] Conditional Naming
   * [ ] Credential Vault
   * [X] Dashboards

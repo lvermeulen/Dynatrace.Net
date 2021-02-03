@@ -10,8 +10,8 @@ namespace Dynatrace.Net.Configuration.KubernetesCredentials.Models
 		public ConfigurationMetadata Metadata { get; set; }
 		public string Id { get; set; }
 		public bool? Active { get; set; }
-		[JsonConverter(typeof(KubernetesEndpointStatusTypesConverter))]
-		public KubernetesEndpointStatusTypes EndpointStatus { get; set; }
+		[JsonConverter(typeof(EndpointStatusTypesConverter))]
+		public EndpointStatusTypes EndpointStatus { get; set; }
 		public string EndpointStatusInfo { get; set; }
 		public string Label { get; set; }
 		public string EndpointUrl { get; set; }

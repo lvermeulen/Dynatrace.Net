@@ -1,6 +1,6 @@
-﻿namespace Dynatrace.Net.Configuration.KubernetesCredentials.Models
+﻿namespace Dynatrace.Net.Common.Models
 {
-	public enum KubernetesEndpointStatusTypes
+	public enum EndpointStatusTypes
 	{
 		Assigned,
 		Disabled,
