@@ -20,7 +20,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Azure Credentials
   * [X] Calculated Metrics
   * [X] Cloud Foundry Credentials
-  * [ ] Conditional Naming
+  * [X] Conditional Naming
   * [X] Credential Vault
   * [X] Dashboards
   * [ ] Data Privacy
