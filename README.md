@@ -21,7 +21,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Calculated Metrics
   * [X] Cloud Foundry Credentials
   * [ ] Conditional Naming
-  * [ ] Credential Vault
+  * [X] Credential Vault
   * [X] Dashboards
   * [ ] Data Privacy
   * [X] Extensions
