@@ -26,4 +26,11 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Environment\TopologyAndSmartscapeV1\Host\" />
+    <Folder Include="Environment\TopologyAndSmartscapeV1\Service\" />
+    <Folder Include="Environment\TopologyAndSmartscapeV1\ProcessGroup\" />
+    <Folder Include="Environment\TopologyAndSmartscapeV1\Process\" />
+  </ItemGroup>
+
 </Project>
