@@ -23,7 +23,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Conditional Naming
   * [X] Credential Vault
   * [X] Dashboards
-  * [ ] Data Privacy
+  * [X] Data Privacy
   * [X] Extensions
   * [X] Frequent Issue Detection
   * [X] Kubernetes Credentials
