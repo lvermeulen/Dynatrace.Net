@@ -24,8 +24,4 @@
     <ProjectReference Include="..\..\src\Dynatrace.Net\Dynatrace.Net.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Environment\TopologyAndSmartscapeV1\Service\" />
-  </ItemGroup>
-
 </Project>

@@ -2,10 +2,8 @@
 
 namespace Dynatrace.Net.Environment.TopologyAndSmartscapeV1.Models
 {
-	public class ApplicationBaselineValues
+	public class ApplicationBaselineValues : BaselineValuesBase
 	{
-		public string EntityId { get; set; }
-		public string DisplayName { get; set; }
 		public IEnumerable<EntityBaselineData> ApplicationDomInteractiveBaselines { get; set; }
 		public IEnumerable<EntityBaselineData> ApplicationHtmlDownloadedBaselines { get; set; }
 		public IEnumerable<EntityBaselineData> ApplicationLoadEventEndBaselines { get; set; }

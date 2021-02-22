@@ -1,0 +1,30 @@
+﻿namespace Dynatrace.Net.Environment.TopologyAndSmartscapeV1.Models
+{
+	public enum AgentTechnologyTypes
+	{
+		Apache,
+		Dotnet,
+		Dumpproc,
+		Go,
+		Iis,
+		Java,
+		LogAnalytics,
+		NotApplicable,
+		Net,
+		Nginx,
+		Nodejs,
+		Opentracingnative,
+		Os,
+		Php,
+		Plugin,
+		Process,
+		Python,
+		RemotePlugin,
+		Ruby,
+		Sdk,
+		Updater,
+		Varnish,
+		Wsmb,
+		Z,
+	}
+}

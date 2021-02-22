@@ -26,8 +26,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Environment\TopologyAndSmartscapeV1\Service\" />
-  </ItemGroup>
-
 </Project>
