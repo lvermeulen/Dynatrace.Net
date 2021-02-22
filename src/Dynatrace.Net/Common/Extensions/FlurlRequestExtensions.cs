@@ -44,27 +44,17 @@ namespace Dynatrace.Net.Common.Extensions
             return request.WithOAuthBearerToken(GetAccessToken(url, userName, password));
         }
 
-        private static string GetResponseHeadersFirstValue(this HttpResponseHeaders headers, string headerName) => headers.TryGetValues(headerName, out var values)
+        internal static string GetResponseHeadersFirstValue(this HttpResponseHeaders headers, string headerName) => headers.TryGetValues(headerName, out var values)
 	        ? values.FirstOrDefault()
 	        : null;
 
-        public static async Task<WithResponseHeaders<T>> GetJsonWithResponseHeadersAsync<T>(this IFlurlRequest request, CancellationToken cancellationToken = default, HttpCompletionOption completionOption = HttpCompletionOption.ResponseContentRead)
+        public static async Task<WithResponseHeaders<T>> GetJsonWithResponseHeadersAsync<T>(this IFlurlRequest request, Func<HttpResponseHeaders, T, WithResponseHeaders<T>> handleHeaders, CancellationToken cancellationToken = default, HttpCompletionOption completionOption = HttpCompletionOption.ResponseContentRead)
         {
 	        var response = request.SendAsync(HttpMethod.Get, cancellationToken: cancellationToken, completionOption: completionOption);
 	        var instance = await response.ReceiveJson<T>();
 	        var actualResponse = await response;
 
-	        var result = new WithResponseHeaders<T>();
-	        string totalCountValue = actualResponse.Headers.GetResponseHeadersFirstValue("Total-Count");
-	        if (totalCountValue != null)
-	        {
-		        result.TotalCount = Convert.ToInt32(totalCountValue);
-	        }
-	        result.NextPageKey = actualResponse.Headers.GetResponseHeadersFirstValue("Next-Page-Key");
-	        result.PageSize = actualResponse.Headers.GetResponseHeadersFirstValue("Page-Size");
-	        result.Instance = instance;
-
-	        return result;
+			return handleHeaders?.Invoke(actualResponse.Headers, instance);
         }
     }
 }

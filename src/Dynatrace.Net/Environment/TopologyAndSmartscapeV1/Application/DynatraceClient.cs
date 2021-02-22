@@ -37,7 +37,7 @@ namespace Dynatrace.Net
 
 			var response = await GetTopologyApplicationUrl()
 				.SetQueryParams(queryParamValues)
-				.GetJsonWithResponseHeadersAsync<IEnumerable<Application>>(cancellationToken)
+				.GetJsonWithResponseHeadersAsync<IEnumerable<Application>>(TopologyAndSmartscapeV1HeaderHandler.HandleTopologyAndSmartscapeV1Headers, cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
