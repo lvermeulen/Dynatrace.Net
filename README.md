@@ -37,7 +37,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Reports
   * [ ] RUM
   * [X] Services
-* [ ] Environment API
+* [X] Environment API
   * [X] ActiveGates
   * [X] Anonymization
   * [X] Audit Logs
@@ -54,7 +54,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Monitored Entities v2
   * [X] Problems
   * [X] Problems v2
-  * [ ] Real User Monitoring Javascript Code
+  * [X] Real User Monitoring Javascript Code
   * [X] Real User Monitoring Browser Extension
   * [X] Synthetic v1
   * [X] Synthetic v2
