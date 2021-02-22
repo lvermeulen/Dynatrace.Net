@@ -44,7 +44,7 @@ namespace Dynatrace.Net.Common.Extensions
             return request.WithOAuthBearerToken(GetAccessToken(url, userName, password));
         }
 
-        internal static string GetResponseHeadersFirstValue(this HttpResponseHeaders headers, string headerName) => headers.TryGetValues(headerName, out var values)
+        public static string GetResponseHeadersFirstValue(this HttpResponseHeaders headers, string headerName) => headers.TryGetValues(headerName, out var values)
 	        ? values.FirstOrDefault()
 	        : null;
 
@@ -55,6 +55,16 @@ namespace Dynatrace.Net.Common.Extensions
 	        var actualResponse = await response;
 
 			return handleHeaders?.Invoke(actualResponse.Headers, instance);
+        }
+
+        public static IFlurlRequest If(this IFlurlRequest request, bool condition, Func<IFlurlRequest, IFlurlRequest> flurlRequestAction)
+        {
+	        if (condition)
+	        {
+		        flurlRequestAction?.Invoke(request);
+	        }
+
+	        return request;
         }
     }
 }

@@ -29,7 +29,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Kubernetes Credentials
   * [X] Maintenance Windows
   * [X] Management Zones
-  * [ ] Mobile Symbolication
+  * [X] Mobile Symbolication
   * [X] Notifications
   * [ ] OneAgent on a Host
   * [ ] Plugins
