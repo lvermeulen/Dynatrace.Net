@@ -50,7 +50,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Metrics v2
   * [X] Network Zones
   * [X] OneAgent on a Host
-  * [ ] Topology and Smartscape v1
+  * [X] Topology and Smartscape v1
   * [X] Monitored Entities v2
   * [X] Problems
   * [X] Problems v2

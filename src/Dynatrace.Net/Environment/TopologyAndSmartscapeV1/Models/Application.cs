@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Dynatrace.Net.Common.Converters;
 using Dynatrace.Net.Common.Models;
-using Dynatrace.Net.Environment.UserSessions.Models;
 using Newtonsoft.Json;
 
 namespace Dynatrace.Net.Environment.TopologyAndSmartscapeV1.Models
