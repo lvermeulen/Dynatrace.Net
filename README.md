@@ -32,13 +32,14 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Mobile Symbolication
   * [X] Notifications
   * [X] OneAgent on a Host
-  * [ ] OneAgent on a Host Group
+  * [X] OneAgent on a Host Group
+  * [ ] OneAgent Environment-wide Configuration
   * [ ] Plugins
   * [ ] Remote Environments
   * [ ] Reports
   * [ ] RUM
   * [X] Services
-* [X] Environment API
+* [ ] Environment API
   * [X] ActiveGates
   * [X] Anonymization
   * [X] Audit Logs
@@ -57,6 +58,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Problems v2
   * [X] Real User Monitoring Javascript Code
   * [X] Real User Monitoring Browser Extension
+  * [ ] Service Level Objectives
   * [X] Synthetic v1
   * [X] Synthetic v2
   * [X] Tokens
