@@ -24,4 +24,13 @@
     <ProjectReference Include="..\..\src\Dynatrace.Net\Dynatrace.Net.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configuration\Rum\ApplicationsDetection\" />
+    <Folder Include="Configuration\Rum\ContentResources\" />
+    <Folder Include="Configuration\Rum\IpAddressMappingRules\" />
+    <Folder Include="Configuration\Rum\IpMappingHeaders\" />
+    <Folder Include="Configuration\Rum\MobileAndCustomApp\" />
+    <Folder Include="Configuration\Rum\WebApplicationConfiguration\" />
+  </ItemGroup>
+
 </Project>

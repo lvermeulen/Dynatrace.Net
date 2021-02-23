@@ -11,7 +11,7 @@ C# client for [Dynatrace](https://dynatrace.com/)
 See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https://dynatrace.com/support/help/dynatrace-api/)
 
 ## Features
-* [ ] Configuration API
+* [X] Configuration API
   * [X] Alerting Profiles
   * [X] Anomaly Detection
   * [X] Auto-tags
@@ -37,7 +37,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Plugins
   * [X] Remote Environments
   * [X] Reports
-  * [ ] RUM
+  * [X] RUM
   * [X] Services
 * [X] Environment API
   * [X] ActiveGates
