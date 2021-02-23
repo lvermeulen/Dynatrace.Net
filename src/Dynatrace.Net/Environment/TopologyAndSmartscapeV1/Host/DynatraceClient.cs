@@ -34,7 +34,7 @@ namespace Dynatrace.Net
 				[nameof(hostGroupName)] = hostGroupName,
 				[nameof(includeDetails)] = includeDetails,
 				[nameof(pageSize)] = pageSize,
-				[nameof(nextPageKey)] = nextPageKey,
+				[nameof(nextPageKey)] = nextPageKey
 			};
 
 			var response = await GetTopologyHostUrl()

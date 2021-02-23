@@ -3,6 +3,6 @@
 	public enum AwsAuthenticationDataTypes
 	{
 		Keys,
-		Role,
+		Role
 	}
 }

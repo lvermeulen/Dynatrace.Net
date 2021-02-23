@@ -10,6 +10,6 @@
 		Interoute,
 		Other,
 		Physical,
-		Undefined,
+		Undefined
 	}
 }

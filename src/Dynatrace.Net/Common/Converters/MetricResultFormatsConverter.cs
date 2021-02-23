@@ -9,7 +9,7 @@ namespace Dynatrace.Net.Common.Converters
 		{
 			[MetricResultFormats.ApplicationJson] = "application/json",
 			[MetricResultFormats.TextCsvHeaderPresent] = "text/csv; header=present",
-			[MetricResultFormats.TextCsvHeaderAbsent] = "text/csv; header=absent",
+			[MetricResultFormats.TextCsvHeaderAbsent] = "text/csv; header=absent"
 		};
 
 		protected override Dictionary<MetricResultFormats, string> Pairs => s_pairs;

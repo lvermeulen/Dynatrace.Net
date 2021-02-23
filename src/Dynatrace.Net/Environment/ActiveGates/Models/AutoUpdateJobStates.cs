@@ -7,6 +7,6 @@
 		Pending,
 		Rollback,
 		Skipped,
-		Succeed,
+		Succeed
 	}
 }

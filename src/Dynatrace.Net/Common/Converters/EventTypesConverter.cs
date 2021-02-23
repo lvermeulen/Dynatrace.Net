@@ -108,7 +108,7 @@ namespace Dynatrace.Net.Common.Converters
 			[EventTypes.UserActionDurationDegradation] = "USER_ACTION_DURATION_DEGRADATION",
 			[EventTypes.VirtualMachineShutdown] = "VIRTUAL_MACHINE_SHUTDOWN",
 			[EventTypes.WebCheckGlobalOutage] = "WEB_CHECK_GLOBAL_OUTAGE",
-			[EventTypes.WebCheckLocalOutage] = "WEB_CHECK_LOCAL_OUTAGE",
+			[EventTypes.WebCheckLocalOutage] = "WEB_CHECK_LOCAL_OUTAGE"
 		};
 
 		protected override Dictionary<EventTypes, string> Pairs => s_pairs;

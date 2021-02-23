@@ -7,6 +7,6 @@
 		Free,
 		Premium,
 		Shared,
-		Standard,
+		Standard
 	}
 }

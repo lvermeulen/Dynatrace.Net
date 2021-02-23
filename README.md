@@ -31,7 +31,8 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Management Zones
   * [X] Mobile Symbolication
   * [X] Notifications
-  * [ ] OneAgent on a Host
+  * [X] OneAgent on a Host
+  * [ ] OneAgent on a Host Group
   * [ ] Plugins
   * [ ] Remote Environments
   * [ ] Reports

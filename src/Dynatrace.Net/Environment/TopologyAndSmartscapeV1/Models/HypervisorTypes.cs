@@ -10,6 +10,6 @@
 		Virtualbox,
 		Vmware,
 		Wpar,
-		Xen,
+		Xen
 	}
 }

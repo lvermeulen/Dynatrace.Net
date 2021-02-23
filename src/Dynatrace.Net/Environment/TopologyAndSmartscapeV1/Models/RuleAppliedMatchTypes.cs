@@ -7,6 +7,6 @@
 		Ends,
 		Equal,
 		Matches,
-		Starts,
+		Starts
 	}
 }

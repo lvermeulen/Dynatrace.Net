@@ -3,6 +3,6 @@
 	public enum HostBitnessTypes
 	{
 		_32bit,
-		_64bit,
+		_64bit
 	}
 }

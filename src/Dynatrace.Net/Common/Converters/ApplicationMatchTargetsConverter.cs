@@ -8,7 +8,7 @@ namespace Dynatrace.Net.Common.Converters
 		private static readonly Dictionary<ApplicationMatchTargets, string> s_pairs = new Dictionary<ApplicationMatchTargets, string>
 		{
 			[ApplicationMatchTargets.Domain] = "DOMAIN",
-			[ApplicationMatchTargets.Url] = "URL",
+			[ApplicationMatchTargets.Url] = "URL"
 		};
 
 		protected override Dictionary<ApplicationMatchTargets, string> Pairs => s_pairs;

@@ -4,6 +4,6 @@
 	{
 		FullStack,
 		Infrastructure,
-		Off,
+		Off
 	}
 }

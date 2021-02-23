@@ -4,6 +4,6 @@
 	{
 		Automatic,
 		ManualInstallation,
-		OnDemand,
+		OnDemand
 	}
 }

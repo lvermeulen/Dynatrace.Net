@@ -21,6 +21,6 @@
 		UserActionsStringProperties,
 		UserActionsLongProperties,
 		UserActionsDoubleProperties,
-		UserActionsDateProperties,
+		UserActionsDateProperties
 	}
 }

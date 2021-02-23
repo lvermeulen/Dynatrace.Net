@@ -10,7 +10,7 @@ namespace Dynatrace.Net.Common.Converters
 			[OneAgentInstallerTypes.Default] = "default",
 			[OneAgentInstallerTypes.DefaultUnattended] = "default-unattended",
 			[OneAgentInstallerTypes.Paas] = "paas",
-			[OneAgentInstallerTypes.PaasSh] = "paas-sh",
+			[OneAgentInstallerTypes.PaasSh] = "paas-sh"
 		};
 
 		protected override Dictionary<OneAgentInstallerTypes, string> Pairs => s_pairs;

@@ -3,6 +3,6 @@
 	public enum SyntheticMonitorTypesV1
 	{
 		Browser,
-		Http,
+		Http
 	}
 }

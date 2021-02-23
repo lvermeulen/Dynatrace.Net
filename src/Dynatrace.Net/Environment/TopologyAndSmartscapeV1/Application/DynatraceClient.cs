@@ -32,7 +32,7 @@ namespace Dynatrace.Net
 				[nameof(managementZone)] = managementZone,
 				[nameof(includeDetails)] = includeDetails,
 				[nameof(pageSize)] = pageSize,
-				[nameof(nextPageKey)] = nextPageKey,
+				[nameof(nextPageKey)] = nextPageKey
 			};
 
 			var response = await GetTopologyApplicationUrl()

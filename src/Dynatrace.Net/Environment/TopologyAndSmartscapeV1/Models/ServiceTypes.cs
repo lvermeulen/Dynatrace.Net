@@ -23,6 +23,6 @@
 		Unknown,
 		WebRequest,
 		WebService,
-		WebSite,
+		WebSite
 	}
 }

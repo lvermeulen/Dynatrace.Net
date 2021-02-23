@@ -4,6 +4,6 @@
 	{
 		Android,
 		Ios,
-		Tvos,
+		Tvos
 	}
 }

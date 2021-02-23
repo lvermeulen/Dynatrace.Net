@@ -25,6 +25,6 @@
 		Updater,
 		Varnish,
 		Wsmb,
-		Z,
+		Z
 	}
 }

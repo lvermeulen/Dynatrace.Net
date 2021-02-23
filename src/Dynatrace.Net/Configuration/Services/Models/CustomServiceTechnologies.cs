@@ -6,6 +6,6 @@
 		Go,
 		Java,
 		NodeJs,
-		Php,
+		Php
 	}
 }

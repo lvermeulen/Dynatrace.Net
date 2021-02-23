@@ -10,7 +10,7 @@ namespace Dynatrace.Net.Common.Converters
 			[TokenResultFormats.ApplicationJson] = "application/json",
 			[TokenResultFormats.TextPlain] = "text/plain",
 			[TokenResultFormats.TextCsvHeaderPresent] = "text/csv; header=present",
-			[TokenResultFormats.TextCsvHeaderAbsent] = "text/csv; header=absent",
+			[TokenResultFormats.TextCsvHeaderAbsent] = "text/csv; header=absent"
 		};
 
 		protected override Dictionary<TokenResultFormats, string> Pairs => s_pairs;

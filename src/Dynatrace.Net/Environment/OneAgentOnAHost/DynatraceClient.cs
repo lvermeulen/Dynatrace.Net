@@ -62,7 +62,7 @@ namespace Dynatrace.Net
 				[nameof(pluginVersionIs)] = s_versionCompareTypesConverter.ConvertToString(pluginVersionIs),
 				[nameof(pluginVersionNumber)] = pluginVersionNumber,
 				[nameof(pluginState)] = s_extensionStatesConverter.ConvertToString(pluginState),
-				[nameof(nextPageKey)] = nextPageKey,
+				[nameof(nextPageKey)] = nextPageKey
 			};
 
 			var response = await GetOneAgentOnAHostUrl()

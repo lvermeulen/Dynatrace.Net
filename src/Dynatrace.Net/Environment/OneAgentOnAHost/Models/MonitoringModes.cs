@@ -3,6 +3,6 @@
 	public enum MonitoringModes
 	{
 		CloudInfrastructure,
-		FullStack,
+		FullStack
 	}
 }
