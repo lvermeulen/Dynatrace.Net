@@ -33,7 +33,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Notifications
   * [X] OneAgent on a Host
   * [X] OneAgent on a Host Group
-  * [ ] OneAgent Environment-wide Configuration
+  * [X] OneAgent Environment-wide Configuration
   * [ ] Plugins
   * [ ] Remote Environments
   * [ ] Reports
