@@ -6,20 +6,14 @@ namespace Dynatrace.Net.Common.Models
 	{
 		public static string With(T t, StringConverter converter = null)
 		{
-			if (converter == null)
-			{
-				converter = new StringConverter();
-			}
+			converter ??= new StringConverter();
 
 			return $"+{converter.ConvertToInvariantString(t)}";
 		}
 
 		public static string Without(T t, StringConverter converter = null)
 		{
-			if (converter == null)
-			{
-				converter = new StringConverter();
-			}
+			converter ??= new StringConverter();
 
 			return $"-{converter.ConvertToInvariantString(t)}";
 		}

@@ -12,6 +12,7 @@
     <RepositoryUrl>https://github.com/lvermeulen/Dynatrace.Net</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Dynatrace</PackageTags>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\.editorconfig" Link=".editorconfig" />
     <None Include="..\..\assets\Dynatrace-small.jpg">
       <Pack>True</Pack>
       <PackagePath></PackagePath>

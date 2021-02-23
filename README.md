@@ -39,7 +39,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [ ] Reports
   * [ ] RUM
   * [X] Services
-* [ ] Environment API
+* [X] Environment API
   * [X] ActiveGates
   * [X] Anonymization
   * [X] Audit Logs
@@ -58,7 +58,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] Problems v2
   * [X] Real User Monitoring Javascript Code
   * [X] Real User Monitoring Browser Extension
-  * [ ] Service Level Objectives
+  * [X] Service Level Objectives
   * [X] Synthetic v1
   * [X] Synthetic v2
   * [X] Tokens
