@@ -34,7 +34,7 @@ See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https:/
   * [X] OneAgent on a Host
   * [X] OneAgent on a Host Group
   * [X] OneAgent Environment-wide Configuration
-  * [ ] Plugins
+  * [X] Plugins
   * [ ] Remote Environments
   * [ ] Reports
   * [ ] RUM
