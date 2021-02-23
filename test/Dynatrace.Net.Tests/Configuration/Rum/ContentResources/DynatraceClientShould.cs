@@ -7,9 +7,9 @@ namespace Dynatrace.Net.Tests
 	public partial class DynatraceClientShould
 	{
 		[Fact]
-		public async Task GetRumAllowedBeaconDomainsConfigurationAsync()
+		public async Task GetRumContentProvidersConfigurationAsync()
 		{
-			var result = await _client.GetRumAllowedBeaconDomainsConfigurationAsync().ConfigureAwait(false);
+			var result = await _client.GetRumContentProvidersConfigurationAsync().ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

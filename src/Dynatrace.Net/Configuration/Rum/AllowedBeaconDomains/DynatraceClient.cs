@@ -1,8 +1,5 @@
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Dynatrace.Net.Common.Models;
-using Dynatrace.Net.Configuration.Reports.Models;
 using Dynatrace.Net.Configuration.Rum.Models;
 using Flurl.Http;
 
