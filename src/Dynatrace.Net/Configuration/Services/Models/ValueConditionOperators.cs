@@ -5,6 +5,7 @@
 		BeginsWith,
 		Contains,
 		EndsWith,
-		Equal
+		Equal,
+		Matches
 	}
 }

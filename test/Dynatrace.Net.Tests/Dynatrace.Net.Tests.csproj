@@ -25,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Configuration\Rum\ApplicationsDetection\" />
     <Folder Include="Configuration\Rum\MobileAndCustomApp\" />
     <Folder Include="Configuration\Rum\WebApplicationConfiguration\" />
   </ItemGroup>

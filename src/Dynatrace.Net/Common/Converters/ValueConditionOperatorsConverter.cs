@@ -10,7 +10,8 @@ namespace Dynatrace.Net.Common.Converters
 			[ValueConditionOperators.BeginsWith] = "BEGINS_WITH",
 			[ValueConditionOperators.Contains] = "CONTAINS",
 			[ValueConditionOperators.EndsWith] = "ENDS_WITH",
-			[ValueConditionOperators.Equal] = "EQUALS"
+			[ValueConditionOperators.Equal] = "EQUALS",
+			[ValueConditionOperators.Matches] = "MATCHES"
 		};
 
 		protected override Dictionary<ValueConditionOperators, string> Pairs => s_pairs;
