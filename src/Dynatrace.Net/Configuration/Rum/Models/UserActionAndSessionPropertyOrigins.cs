@@ -1,8 +1,9 @@
 ﻿namespace Dynatrace.Net.Configuration.Rum.Models
 {
-	public enum MobileSessionUserActionPropertyOrigins
+	public enum UserActionAndSessionPropertyOrigins
 	{
-		Api,
+		JavascriptApi,
+		MetaData,
 		ServerSideRequestAttribute
 	}
 }
