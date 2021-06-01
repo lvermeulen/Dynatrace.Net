@@ -19,6 +19,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllCredentialsAsync().ConfigureAwait(false);
 			var firstResult = results.Credentials.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetCredentialsAsync(firstResult?.Id).ConfigureAwait(false);
 			Assert.NotNull(result);

@@ -19,6 +19,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetSyntheticNodesV1Async().ConfigureAwait(false);
 			var firstResult = results.Nodes.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetSyntheticNodeV1Async(firstResult?.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);

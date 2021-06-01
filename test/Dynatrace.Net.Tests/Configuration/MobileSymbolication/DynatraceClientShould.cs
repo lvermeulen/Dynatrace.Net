@@ -26,6 +26,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllMobileSymbolicationMetadatasAsync().ConfigureAwait(false);
 			var firstResult = results.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetMobileSymbolicationMetadataAsync(firstResult?.AppId.Id).ConfigureAwait(false);
 			Assert.NotNull(result);

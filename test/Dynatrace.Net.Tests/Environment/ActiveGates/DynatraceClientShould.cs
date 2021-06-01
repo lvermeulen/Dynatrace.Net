@@ -19,7 +19,11 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetActiveGatesAsync().ConfigureAwait(false);
 			var firstResult = results.ActiveGates.FirstOrDefault();
-			
+			if (firstResult is null)
+			{
+				return;
+			}
+
 			var result = await _client.GetActiveGateAsync(firstResult?.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
@@ -29,6 +33,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetActiveGatesAsync().ConfigureAwait(false);
 			var firstResult = results.ActiveGates.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetAutoUpdateJobsAsync(firstResult?.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
@@ -39,9 +47,17 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetActiveGatesAsync().ConfigureAwait(false);
 			var firstResult = results.ActiveGates.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var jobs = await _client.GetAutoUpdateJobsAsync(firstResult?.Id).ConfigureAwait(false);
 			var firstJob = jobs.UpdateJobs?.FirstOrDefault();
+			if (firstJob is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetAutoUpdateJobAsync(firstResult?.Id, firstJob?.JobId).ConfigureAwait(false);
 			Assert.NotNull(result);

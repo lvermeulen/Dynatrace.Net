@@ -12,6 +12,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllTopologyHostsAsync().ConfigureAwait(false);
 			var firstResult = results.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetOneAgentOnAHostGroupAutoUpdateConfigAsync(firstResult?.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);

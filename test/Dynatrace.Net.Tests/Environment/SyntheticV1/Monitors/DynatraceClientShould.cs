@@ -19,6 +19,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetSyntheticMonitorsV1Async().ConfigureAwait(false);
 			var firstResult = results.Monitors.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetSyntheticMonitorV1Async(firstResult?.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);

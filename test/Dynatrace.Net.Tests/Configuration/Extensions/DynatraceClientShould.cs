@@ -40,9 +40,17 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetExtensionsAsync().ConfigureAwait(false);
 			var firstResult = results.Extensions.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var instances = await _client.GetExtensionInstancesAsync(firstResult?.Id).ConfigureAwait(false);
 			var firstInstance = instances.ConfigurationsList.FirstOrDefault();
+			if (firstInstance is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetExtensionInstanceAsync(firstResult?.Id, firstInstance?.Id).ConfigureAwait(false);
 			Assert.NotNull(result);

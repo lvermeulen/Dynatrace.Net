@@ -19,6 +19,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllTopologyAppsAsync().ConfigureAwait(false);
 			var firstResult = results.Instance.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetTopologyAppAsync(firstResult?.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);
@@ -29,6 +33,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllTopologyAppsAsync().ConfigureAwait(false);
 			var firstResult = results.Instance.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetTopologyAppBaselineAsync(firstResult?.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);

@@ -19,6 +19,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllTopologyProcessGroupsAsync().ConfigureAwait(false);
 			var firstResult = results.Instance.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetTopologyProcessGroupAsync(firstResult?.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);

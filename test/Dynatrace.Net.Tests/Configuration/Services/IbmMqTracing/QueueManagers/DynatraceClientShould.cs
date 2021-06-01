@@ -19,6 +19,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllIbmMqTracingQueueManagersAsync().ConfigureAwait(false);
 			var firstResult = results.Values.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetIbmMqTracingQueueManagerAsync(firstResult?.Name).ConfigureAwait(false);
 			Assert.NotNull(result);

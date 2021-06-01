@@ -19,6 +19,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllTopologyProcessesAsync().ConfigureAwait(false);
 			var firstResult = results.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetTopologyProcessAsync(firstResult?.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);

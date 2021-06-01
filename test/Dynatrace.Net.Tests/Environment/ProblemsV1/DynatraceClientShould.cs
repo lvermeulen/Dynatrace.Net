@@ -26,6 +26,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetProblemsFeedV1Async().ConfigureAwait(false);
 			var firstResult = results.Result.Problems.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetProblemDetailsV1Async(firstResult?.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
@@ -36,6 +40,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetProblemsFeedV1Async().ConfigureAwait(false);
 			var firstResult = results.Result.Problems.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetAllProblemDetailsCommentsV1Async(firstResult?.Id).ConfigureAwait(false);
 			Assert.NotNull(result);

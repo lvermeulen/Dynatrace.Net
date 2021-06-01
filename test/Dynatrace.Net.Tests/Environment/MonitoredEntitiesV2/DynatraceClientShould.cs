@@ -19,6 +19,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetMonitoredEntitiesV2Async().ConfigureAwait(false);
 			var firstResult = results.Entities.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetMonitoredEntityV2Async(firstResult?.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);
@@ -36,6 +40,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetMonitoredEntityTypesV2Async().ConfigureAwait(false);
 			var firstResult = results.Types.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetMonitoredEntityTypeV2Async(firstResult?.Type).ConfigureAwait(false);
 			Assert.NotNull(result);

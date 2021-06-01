@@ -26,6 +26,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllRealUserMonitoringJavaScriptCodeInjectedApplicationsAsync().ConfigureAwait(false);
 			var firstResult = results.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			string result = await _client.GetRealUserMonitoringJavaScriptCodeCurrentVersionAsync(firstResult?.ApplicationId).ConfigureAwait(false);
 			Assert.NotNull(result);
@@ -36,6 +40,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllRealUserMonitoringJavaScriptCodeInjectedApplicationsAsync().ConfigureAwait(false);
 			var firstResult = results.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			string result = await _client.GetRealUserMonitoringJavaScriptCodeJavaScriptTagAsync(firstResult?.ApplicationId).ConfigureAwait(false);
 			Assert.NotNull(result);
@@ -46,6 +54,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllRealUserMonitoringJavaScriptCodeInjectedApplicationsAsync().ConfigureAwait(false);
 			var firstResult = results.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			string result = await _client.GetRealUserMonitoringJavaScriptCodeOneAgentJavaScriptTagAsync(firstResult?.ApplicationId).ConfigureAwait(false);
 			Assert.NotNull(result);
@@ -56,6 +68,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllRealUserMonitoringJavaScriptCodeInjectedApplicationsAsync().ConfigureAwait(false);
 			var firstResult = results.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			string result = await _client.GetRealUserMonitoringJavaScriptCodeSynchronousCodeSnippetAsync(firstResult?.ApplicationId).ConfigureAwait(false);
 			Assert.NotNull(result);
@@ -66,6 +82,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllRealUserMonitoringJavaScriptCodeInjectedApplicationsAsync().ConfigureAwait(false);
 			var firstResult = results.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			string result = await _client.GetRealUserMonitoringJavaScriptCodeAsynchronousCodeSnippetAsync(firstResult?.ApplicationId).ConfigureAwait(false);
 			Assert.NotNull(result);
@@ -76,6 +96,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllRealUserMonitoringJavaScriptCodeInjectedApplicationsAsync().ConfigureAwait(false);
 			var firstResult = results.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			string result = await _client.GetRealUserMonitoringJavaScriptCodeInlineCodeAsync(firstResult?.ApplicationId).ConfigureAwait(false);
 			Assert.NotNull(result);

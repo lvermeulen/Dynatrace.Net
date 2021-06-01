@@ -19,6 +19,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllRumApplicationDetectionRulesAsync().ConfigureAwait(false);
 			var firstResult = results.Values.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetRumApplicationDetectionRuleAsync(firstResult?.Id).ConfigureAwait(false);
 			Assert.NotNull(result);

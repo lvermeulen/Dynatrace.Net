@@ -19,6 +19,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllPluginsAsync().ConfigureAwait(false);
 			var firstResult = results.Values.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetPluginAsync(firstResult?.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
@@ -29,6 +33,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllPluginsAsync().ConfigureAwait(false);
 			var firstResult = results.Values.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetPluginStatesAsync(firstResult?.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
@@ -39,6 +47,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllPluginsAsync().ConfigureAwait(false);
 			var firstResult = results.Values.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetPluginEndpointsAsync(firstResult?.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
@@ -49,9 +61,17 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllPluginsAsync().ConfigureAwait(false);
 			var firstResult = results.Values.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var endpoints = await _client.GetPluginEndpointsAsync(firstResult?.Id).ConfigureAwait(false);
 			var firstEndpoint = endpoints.Values.FirstOrDefault();
+			if (firstEndpoint is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetPluginEndpointAsync(firstResult?.Id, firstEndpoint?.Id).ConfigureAwait(false);
 			Assert.NotNull(result);

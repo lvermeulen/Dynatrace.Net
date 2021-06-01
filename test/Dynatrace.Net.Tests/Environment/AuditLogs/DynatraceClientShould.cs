@@ -19,7 +19,11 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAuditLogAsync().ConfigureAwait(false);
 			var firstResult = results.AuditLogs.FirstOrDefault();
-			
+			if (firstResult is null)
+			{
+				return;
+			}
+
 			var result = await _client.GetAuditLogEntryAsync(firstResult?.LogId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}

@@ -19,6 +19,10 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllServiceLevelObjectivesAsync().ConfigureAwait(false);
 			var firstResult = results.SLOs.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
 			var result = await _client.GetServiceLevelObjectiveAsync(firstResult?.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
