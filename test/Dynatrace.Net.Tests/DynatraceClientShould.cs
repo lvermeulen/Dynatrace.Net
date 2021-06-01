@@ -15,10 +15,9 @@ namespace Dynatrace.Net.Tests
 				.Build();
 
 			string url = configuration["url"];
-			string userName = configuration["userName"];
-			string password = configuration["password"];
+			string apiToken = configuration["apiToken"];
 
-			_client = new DynatraceClient(url, userName, password);
+			_client = new DynatraceClient(url, apiToken);
 		}
 	}
 }

@@ -17,26 +17,17 @@ namespace Dynatrace.Net
         });
 
         private readonly Url _url;
-        private readonly string _userName;
-        private readonly string _password;
-        private readonly Func<string> _getToken;
+        private readonly string _apiToken;
 
         private DynatraceClient(string url)
         {
             _url = url;
         }
 
-        public DynatraceClient(string url, string userName, string password)
+        public DynatraceClient(string url, string apiToken)
             : this(url)
         {
-            _userName = userName;
-            _password = password;
-        }
-
-        public DynatraceClient(string url, Func<string> getToken)
-            : this(url)
-        {
-            _getToken = getToken;
+            _apiToken = apiToken;
         }
 
         public void SetSerializer(ISerializer serializer)
@@ -47,6 +38,6 @@ namespace Dynatrace.Net
         private IFlurlRequest GetBaseUrl() => new Url(_url)
             .AppendPathSegment("api")
             .ConfigureRequest(settings => settings.JsonSerializer = _serializer)
-            .WithAuthentication(_getToken, _url, _userName, _password);
+            .WithApiToken(_apiToken);
     }
 }
