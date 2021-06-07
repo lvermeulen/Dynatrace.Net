@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace Dynatrace.Net
 		public async Task<IEnumerable<SymbolFile>> GetAllMobileSymbolicationMetadatasAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetMobileSymbolicationUrl()
-				.GetJsonAsync<IEnumerable<SymbolFile>>(cancellationToken)
+				.GetJsonIfNotEmptyAsync(Enumerable.Empty<SymbolFile>(), cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

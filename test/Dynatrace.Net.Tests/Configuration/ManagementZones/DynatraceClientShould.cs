@@ -24,7 +24,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetManagementZoneAsync(firstResult?.Id).ConfigureAwait(false);
+			var result = await _client.GetManagementZoneAsync(firstResult.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

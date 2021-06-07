@@ -19,8 +19,12 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetAllAvailableMetricsV2Async().ConfigureAwait(false);
 			var firstResult = results.Metrics.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
-			var result = await _client.GetMetricDescriptorV2Async(firstResult?.MetricId).ConfigureAwait(false);
+			var result = await _client.GetMetricDescriptorV2Async(firstResult.MetricId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 

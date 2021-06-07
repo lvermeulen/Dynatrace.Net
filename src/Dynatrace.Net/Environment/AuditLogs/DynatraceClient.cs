@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Environment.AuditLogs.Models;
 using Flurl.Http;
@@ -19,19 +20,40 @@ namespace Dynatrace.Net
 		public async Task<AuditLog> GetAuditLogAsync(string nextPageKey = null, int? pageSize = null, AuditLogFilter filter = null, Timeframe from = null, Timeframe to = null, bool? oldestFirst = null,
 			CancellationToken cancellationToken = default)
 		{
-			var queryParamValues = new Dictionary<string, object>
+			var queryParamValues = new Dictionary<string, object>();
+			if (nextPageKey is not null)
 			{
-				[nameof(nextPageKey)] = nextPageKey,
-				[nameof(pageSize)] = pageSize,
-				[nameof(filter)] = filter?.ToString(),
-				[nameof(from)] = from?.ToString(),
-				[nameof(to)] = to?.ToString(),
-				["sort"] = oldestFirst.HasValue && oldestFirst == true ? "timestamp" : "-timestamp"
-			};
+				queryParamValues[nameof(nextPageKey)] = nextPageKey;
+			}
+
+			if (pageSize is not null)
+			{
+				queryParamValues[nameof(pageSize)] = pageSize;
+			}
+
+			if (filter is not null)
+			{
+				queryParamValues[nameof(filter)] = filter.ToString();
+			}
+
+			if (from is not null)
+			{
+				queryParamValues[nameof(from)] = from.ToString();
+			}
+
+			if (to is not null)
+			{
+				queryParamValues[nameof(to)] = to.ToString();
+			}
+
+			if (oldestFirst is not null)
+			{
+				queryParamValues["sort"] = oldestFirst is true ? "timestamp" : "-timestamp";
+			}
 
 			var response = await GetAuditLogsUrl()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<AuditLog>(cancellationToken)
+				.GetJsonIfNotEmptyAsync(new AuditLog(), cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

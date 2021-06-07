@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Environment.CustomTags.Models;
 using Flurl.Http;
@@ -16,11 +17,27 @@ namespace Dynatrace.Net
 				.AppendPathSegment("v2/tags");
 		}
 
-		public async Task<CustomEntityTags> GetTagsAsync(EntitySelector entitySelector, CancellationToken cancellationToken = default)
+		public async Task<CustomEntityTags> GetTagsAsync(EntitySelector entitySelector, Timeframe from, Timeframe to, CancellationToken cancellationToken = default)
 		{
+			var queryParamValues = new Dictionary<string, object>();
+			if (entitySelector is not null)
+			{
+				queryParamValues.Add(nameof(entitySelector), entitySelector.ToString());
+			}
+
+			if (from is not null)
+			{
+				queryParamValues.Add(nameof(from), from.ToString());
+			}
+
+			if (to is not null)
+			{
+				queryParamValues.Add(nameof(to), to.ToString());
+			}
+
 			var response = await GetCustomTagsUrl()
-				.SetQueryParam(nameof(entitySelector), entitySelector.ToString())
-				.GetJsonAsync<CustomEntityTags>(cancellationToken)
+				.SetQueryParams(queryParamValues)
+				.GetJsonIfNotEmptyAsync(new CustomEntityTags(), cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

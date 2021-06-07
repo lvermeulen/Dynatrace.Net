@@ -18,13 +18,13 @@ namespace Dynatrace.Net.Tests
 		public async Task GetAwsCredentialsAsync()
 		{
 			var results = await _client.GetAllAwsCredentialsAsync().ConfigureAwait(false);
-			var firstResult = results.Values.FirstOrDefault();
+			var firstResult = results.Values?.FirstOrDefault();
 			if (firstResult is null)
 			{
 				return;
 			}
 
-			var result = await _client.GetAwsCredentialsAsync(firstResult?.Id).ConfigureAwait(false);
+			var result = await _client.GetAwsCredentialsAsync(firstResult.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

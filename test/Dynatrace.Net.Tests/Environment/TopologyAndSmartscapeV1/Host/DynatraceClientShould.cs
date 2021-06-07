@@ -24,7 +24,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetTopologyHostAsync(firstResult?.EntityId).ConfigureAwait(false);
+			var result = await _client.GetTopologyHostAsync(firstResult.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

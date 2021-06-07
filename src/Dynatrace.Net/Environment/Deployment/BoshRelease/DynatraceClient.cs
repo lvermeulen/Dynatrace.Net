@@ -33,7 +33,7 @@ namespace Dynatrace.Net
 			var response = await GetDeploymentBoshReleaseUrl()
 				.AppendPathSegment("versions")
 				.AppendPathSegment(s_deploymentOsTypesConverter.ConvertToString(osType))
-				.GetJsonAsync<Versions>(cancellationToken: cancellationToken)
+				.GetJsonAsync<Versions>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

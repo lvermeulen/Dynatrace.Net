@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.Events.Models;
 using Flurl.Http;
 
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetEventsUrl()
 				.AppendPathSegment("time")
-				.GetJsonAsync<EventQueryResult>(cancellationToken)
+				.GetJsonIfNotEmptyAsync(new EventQueryResult(), cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

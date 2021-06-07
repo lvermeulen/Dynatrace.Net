@@ -24,7 +24,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetTopologyServiceAsync(firstResult?.EntityId).ConfigureAwait(false);
+			var result = await _client.GetTopologyServiceAsync(firstResult.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	
@@ -38,7 +38,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetTopologyServiceBaselineAsync(firstResult?.EntityId).ConfigureAwait(false);
+			var result = await _client.GetTopologyServiceBaselineAsync(firstResult.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

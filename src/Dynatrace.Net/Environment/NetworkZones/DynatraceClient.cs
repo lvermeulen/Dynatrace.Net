@@ -15,6 +15,12 @@ namespace Dynatrace.Net
 				.AppendPathSegment("v2/networkZones");
 		}
 
+		private IFlurlRequest GetNetworkZoneSettingsUrl()
+		{
+			return GetBaseUrl()
+				.AppendPathSegment("v2/networkZoneSettings");
+		}
+
 		public async Task<NetworkZoneList> GetNetworkZonesAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetNetworkZonesUrl()
@@ -57,7 +63,7 @@ namespace Dynatrace.Net
 
 		public async Task<NetworkZoneSettings> GetNetworkZoneSettingsAsync(CancellationToken cancellationToken = default)
 		{
-			var response = await "v2/networkZoneSettings"
+			var response = await GetNetworkZoneSettingsUrl()
 				.GetJsonAsync<NetworkZoneSettings>(cancellationToken)
 				.ConfigureAwait(false);
 
@@ -66,7 +72,7 @@ namespace Dynatrace.Net
 
 		public async Task<bool> UpdateNetworkZoneSettingsAsync(NetworkZoneSettings body, CancellationToken cancellationToken = default)
 		{
-			var response = await "v2/networkZoneSettings"
+			var response = await GetNetworkZoneSettingsUrl()
 				.PutJsonAsync(body, cancellationToken)
 				.ConfigureAwait(false);
 

@@ -25,7 +25,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetConditionalNamingRuleAsync(ConditionalNamingTypes.Host, firstResult?.Id).ConfigureAwait(false);
+			var result = await _client.GetConditionalNamingRuleAsync(ConditionalNamingTypes.Host, firstResult.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

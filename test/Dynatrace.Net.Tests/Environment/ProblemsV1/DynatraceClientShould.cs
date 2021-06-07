@@ -31,7 +31,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetProblemDetailsV1Async(firstResult?.Id).ConfigureAwait(false);
+			var result = await _client.GetProblemDetailsV1Async(firstResult.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
@@ -45,7 +45,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetAllProblemDetailsCommentsV1Async(firstResult?.Id).ConfigureAwait(false);
+			var result = await _client.GetAllProblemDetailsCommentsV1Async(firstResult.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

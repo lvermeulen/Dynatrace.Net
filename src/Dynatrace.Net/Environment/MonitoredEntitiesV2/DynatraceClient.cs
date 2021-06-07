@@ -29,21 +29,42 @@ namespace Dynatrace.Net
 			Timeframe from = null, Timeframe to = null, IEnumerable<WithOrWithout<string>> fields = null,
 			CancellationToken cancellationToken = default)
 		{
-			var queryParamValues = new Dictionary<string, object>
+			var queryParamValues = new Dictionary<string, object>();
+			if (nextPageKey is not null)
 			{
-				[nameof(nextPageKey)] = nextPageKey,
-				[nameof(pageSize)] = pageSize,
-				[nameof(entitySelector)] = entitySelector?.ToString(),
-				[nameof(from)] = from?.ToString(),
-				[nameof(to)] = to?.ToString(),
-				[nameof(fields)] = string.Join(",", (fields ?? Enumerable.Empty<WithOrWithout<string>>())
+				queryParamValues[nameof(nextPageKey)] = nextPageKey;
+			}
+
+			if (pageSize is not null)
+			{
+				queryParamValues[nameof(pageSize)] = pageSize;
+			}
+
+			if (entitySelector is not null)
+			{
+				queryParamValues[nameof(entitySelector)] = entitySelector.ToString();
+			}
+
+			if (from is not null)
+			{
+				queryParamValues[nameof(from)] = from.ToString();
+			}
+
+			if (to is not null)
+			{
+				queryParamValues[nameof(to)] = to.ToString();
+			}
+
+			if (fields is not null)
+			{
+				queryParamValues[nameof(fields)] = string.Join(",", fields
 					.Distinct()
-					.Select(x => $"+{x.ToString().ToCamelCase()}")).WithPrefixAndParentheses("fields=")
-			};
+					.Select(x => $"+{x.ToString().ToCamelCase()}")).WithPrefixAndParentheses("fields=");
+			}
 
 			var response = await GetMonitoredEntitiesV2Url()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<EntitiesList>(cancellationToken)
+				.GetJsonIfNotEmptyAsync(new EntitiesList(), cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

@@ -35,15 +35,14 @@
 		protected Timeframe()
 		{ }
 
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Major Bug", "S3923:All branches in a conditional structure should not have exactly the same implementation", Justification = "<Pending>")]
 		public override string ToString()
 		{
-			switch (Strategy)
+			return Strategy switch
 			{
-				case TimeframeStrategy.UtcMilliseconds: return UtcMilliseconds.ToString();
-				case TimeframeStrategy.AbsoluteTimeframe: return AbsoluteTimeframe;
-				default: return RelativeTimeframe;
-			}
+				TimeframeStrategy.UtcMilliseconds => UtcMilliseconds.ToString(),
+				TimeframeStrategy.AbsoluteTimeframe => AbsoluteTimeframe,
+				var _ => RelativeTimeframe
+			};
 		}
 	}
 }

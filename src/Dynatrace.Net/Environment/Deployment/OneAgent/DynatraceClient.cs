@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.Deployment.Models;
 using Flurl.Http;
 
@@ -87,7 +88,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment(s_oneAgentDeploymentOsTypesConverter.ConvertToString(osType))
 				.AppendPathSegment(s_oneAgentInstallerTypesConverter.ConvertToString(installerType))
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<Versions>(cancellationToken: cancellationToken)
+				.GetJsonIfNotEmptyAsync(new Versions(), cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -109,7 +110,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("latest")
 				.AppendPathSegment("metainfo")
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<InstallerMetaInfoDto>(cancellationToken: cancellationToken)
+				.GetJsonAsync<InstallerMetaInfoDto>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -119,7 +120,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetDeploymentOneAgentUrl()
 				.AppendPathSegment("connectioninfo")
-				.GetJsonAsync<ConnectionInfo>(cancellationToken: cancellationToken)
+				.GetJsonAsync<ConnectionInfo>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

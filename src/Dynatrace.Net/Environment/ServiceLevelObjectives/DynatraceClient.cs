@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Environment.ServiceLevelObjectives.Models;
 using Flurl.Http;
@@ -34,7 +35,7 @@ namespace Dynatrace.Net
 
 			var response = await GetServiceLevelObjectivesUrl()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<SloList>(cancellationToken)
+				.GetJsonIfNotEmptyAsync(new SloList(), cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

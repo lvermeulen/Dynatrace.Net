@@ -19,16 +19,43 @@ namespace Dynatrace.Net.Common.Models
 
 		public override string ToString()
 		{
-			return string.Join(",", new List<string>
+			var list = new List<string>(7);
+			if (EntityType is not null)
 			{
-				EntityType?.WithPrefixAndParentheses("type", true),
-				string.Join(",", DynatraceEntityId.Select(x => x.WithQuotes())).WithPrefixAndParentheses("entityId"),
-				string.Join(",", Tag.Select(kvp => $"{kvp.Key}:{kvp.Value}")).WithPrefixAndParentheses("tag"),
-				ManagementZoneId?.WithPrefixAndParentheses("mzId", true),
-				ManagementZoneName?.WithPrefixAndParentheses("mzName", true),
-				DynatraceEntityName?.WithPrefixAndParentheses("entityName", true),
-				s_healthStatesConverter.ConvertToString(HealthState).WithPrefixAndParentheses("healthState", true)
-			});
+				list.Add(EntityType.WithPrefixAndParentheses("type", true));
+			}
+
+			if (DynatraceEntityId is not null)
+			{
+				list.Add(string.Join(",", DynatraceEntityId.Select(x => x.WithQuotes())).WithPrefixAndParentheses("entityId"));
+			}
+
+			if (Tag is not null)
+			{
+				list.Add(string.Join(",", Tag.Select(kvp => $"{kvp.Key}:{kvp.Value}")).WithPrefixAndParentheses("tag"));
+			}
+
+			if (ManagementZoneId is not null)
+			{
+				list.Add(ManagementZoneId.WithPrefixAndParentheses("mzId", true));
+			}
+
+			if (ManagementZoneName is not null)
+			{
+				list.Add(ManagementZoneName?.WithPrefixAndParentheses("mzName", true));
+			}
+
+			if (DynatraceEntityName is not null)
+			{
+				list.Add(DynatraceEntityName?.WithPrefixAndParentheses("entityName", true));
+			}
+
+			if (HealthState is not null)
+			{
+				list.Add(s_healthStatesConverter.ConvertToString(HealthState).WithPrefixAndParentheses("healthState", true));
+			}
+
+			return string.Join(",", list);
 		}
 	}
 }

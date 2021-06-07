@@ -31,7 +31,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetMobileSymbolicationMetadataAsync(firstResult?.AppId.Id).ConfigureAwait(false);
+			var result = await _client.GetMobileSymbolicationMetadataAsync(firstResult.AppId.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

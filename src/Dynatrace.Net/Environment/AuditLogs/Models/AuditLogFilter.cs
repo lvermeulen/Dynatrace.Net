@@ -13,13 +13,27 @@ namespace Dynatrace.Net.Environment.AuditLogs.Models
 
 		public override string ToString()
 		{
-			return string.Join(",", new List<string>
+			var list = new List<string>();
+			if (User is not null)
 			{
-				string.Join(",", (User ?? Enumerable.Empty<string>())).WithPrefixAndParentheses("user", true),
-				string.Join(",", (EventType ?? Enumerable.Empty<string>())).WithPrefixAndParentheses("eventType", true),
-				string.Join(",", (Category ?? Enumerable.Empty<string>())).WithPrefixAndParentheses("category", true),
-				string.Join(",", (EntityId ?? Enumerable.Empty<string>())).WithPrefixAndParentheses("entityId", true)
-			});
+				list.Add(string.Join(",", User ?? Enumerable.Empty<string>()).WithPrefixAndParentheses("user", true));
+			}
+
+			if (EventType is not null)
+			{
+				list.Add(string.Join(",", EventType ?? Enumerable.Empty<string>()).WithPrefixAndParentheses("eventType", true));
+			}
+
+			if (Category is not null)
+			{
+				list.Add(string.Join(",", Category ?? Enumerable.Empty<string>()).WithPrefixAndParentheses("category", true));
+			}
+
+			if (EntityId is not null)
+			{
+				list.Add(string.Join(",", EntityId ?? Enumerable.Empty<string>()).WithPrefixAndParentheses("entityId", true));
+			}
+			return string.Join(",", list);
 		}
 	}
 }

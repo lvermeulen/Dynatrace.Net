@@ -17,7 +17,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetOneAgentOnAHostConfigAsync(firstResult?.EntityId).ConfigureAwait(false);
+			var result = await _client.GetOneAgentOnAHostConfigAsync(firstResult.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
@@ -31,7 +31,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetOneAgentOnAHostAutoUpdateConfigAsync(firstResult?.EntityId).ConfigureAwait(false);
+			var result = await _client.GetOneAgentOnAHostAutoUpdateConfigAsync(firstResult.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
@@ -45,7 +45,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetOneAgentOnAHostMonitoringConfigAsync(firstResult?.EntityId).ConfigureAwait(false);
+			var result = await _client.GetOneAgentOnAHostMonitoringConfigAsync(firstResult.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
@@ -59,7 +59,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetOneAgentOnAHostTechnologyMonitoringConfigAsync(firstResult?.EntityId).ConfigureAwait(false);
+			var result = await _client.GetOneAgentOnAHostTechnologyMonitoringConfigAsync(firstResult.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

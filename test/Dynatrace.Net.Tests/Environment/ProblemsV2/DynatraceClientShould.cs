@@ -24,7 +24,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetProblemDetailsV2Async(firstResult?.ProblemId).ConfigureAwait(false);
+			var result = await _client.GetProblemDetailsV2Async(firstResult.ProblemId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
@@ -38,7 +38,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetAllProblemDetailsCommentsV2Async(firstResult?.ProblemId).ConfigureAwait(false);
+			var result = await _client.GetAllProblemDetailsCommentsV2Async(firstResult.ProblemId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
@@ -52,14 +52,14 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var comments = await _client.GetAllProblemDetailsCommentsV2Async(firstResult?.ProblemId).ConfigureAwait(false);
+			var comments = await _client.GetAllProblemDetailsCommentsV2Async(firstResult.ProblemId).ConfigureAwait(false);
 			var firstComment = comments.Comments.FirstOrDefault();
 			if (firstComment is null)
 			{
 				return;
 			}
 
-			var result = await _client.GetProblemDetailsCommentV2Async(firstResult?.ProblemId, firstComment?.Id).ConfigureAwait(false);
+			var result = await _client.GetProblemDetailsCommentV2Async(firstResult.ProblemId, firstComment.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.AnomalyDetection.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<AnomalyDetectionPg> GetAnomalyDetectionProcessGroupsConfigurationAsync(string id, CancellationToken cancellationToken = default)
 		{
 			var response = await GetAnomalyDetectionProcessGroupsUrl(id)
-				.GetJsonAsync<AnomalyDetectionPg>(cancellationToken)
+				.GetJsonIfNotEmptyAsync(new AnomalyDetectionPg(), cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

@@ -17,7 +17,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetMobileAndCustomAppUserActionsAsync(firstResult?.Id).ConfigureAwait(false);
+			var result = await _client.GetMobileAndCustomAppUserActionsAsync(firstResult.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
@@ -31,14 +31,14 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var keys = await _client.GetMobileAndCustomAppUserActionsAsync(firstResult?.Id).ConfigureAwait(false);
+			var keys = await _client.GetMobileAndCustomAppUserActionsAsync(firstResult.Id).ConfigureAwait(false);
 			var firstKey = keys?.UserActionProperties.FirstOrDefault();
 			if (firstKey is null)
 			{
 				return;
 			}
 
-			var result = await _client.GetMobileAndCustomAppUserActionAsync(firstResult?.Id, firstKey?.Key);
+			var result = await _client.GetMobileAndCustomAppUserActionAsync(firstResult.Id, firstKey.Key);
 			Assert.NotNull(result);
 		}
 	}

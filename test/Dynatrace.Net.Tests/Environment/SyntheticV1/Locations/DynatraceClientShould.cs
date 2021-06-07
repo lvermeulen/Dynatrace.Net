@@ -19,8 +19,12 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetSyntheticLocationsV1Async().ConfigureAwait(false);
 			var firstResult = results.Locations.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
-			var result = await _client.GetSyntheticLocationV1Async(firstResult?.EntityId).ConfigureAwait(false);
+			var result = await _client.GetSyntheticLocationV1Async(firstResult.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

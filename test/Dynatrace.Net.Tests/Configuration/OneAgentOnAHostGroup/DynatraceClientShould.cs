@@ -17,7 +17,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetOneAgentOnAHostGroupAutoUpdateConfigAsync(firstResult?.EntityId).ConfigureAwait(false);
+			var result = await _client.GetOneAgentOnAHostGroupAutoUpdateConfigAsync(firstResult.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

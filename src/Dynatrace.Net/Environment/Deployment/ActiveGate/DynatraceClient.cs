@@ -47,7 +47,7 @@ namespace Dynatrace.Net
 			var response = await GetDeploymentActiveGateUrl()
 				.AppendPathSegment("versions")
 				.AppendPathSegment(s_deploymentOsTypesConverter.ConvertToString(osType))
-				.GetJsonAsync<Versions>(cancellationToken: cancellationToken)
+				.GetJsonAsync<Versions>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

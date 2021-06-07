@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.RemoteEnvironments.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<RemoteEnvironmentConfigListDto> GetAllRemoteEnvironmentsAsync(CancellationToken cancellationToken = default)
 		{
 			var result = await GetRemoteEnvironmentsUrl()
-				.GetJsonAsync<RemoteEnvironmentConfigListDto>(cancellationToken)
+				.GetJsonIfNotEmptyAsync(new RemoteEnvironmentConfigListDto(), cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;

@@ -19,8 +19,12 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetNetworkZonesAsync().ConfigureAwait(false);
 			var firstResult = results.NetworkZones.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
-			var result = await _client.GetNetworkZoneAsync(firstResult?.Id).ConfigureAwait(false);
+			var result = await _client.GetNetworkZoneAsync(firstResult.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	

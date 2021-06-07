@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 // ReSharper disable once CheckNamespace
@@ -9,8 +10,14 @@ namespace Dynatrace.Net.Tests
 		[Fact]
 		public async Task GetAnomalyDetectionProcessGroupsConfigurationAsync()
 		{
-			const string id = "0";
-			var result = await _client.GetAnomalyDetectionProcessGroupsConfigurationAsync(id).ConfigureAwait(false);
+			var results = await _client.GetAllTopologyProcessGroupsAsync().ConfigureAwait(false);
+			var firstResult = results.Instance.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
+
+			var result = await _client.GetAnomalyDetectionProcessGroupsConfigurationAsync(firstResult.EntityId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

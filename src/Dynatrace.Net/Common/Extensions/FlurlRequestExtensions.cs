@@ -35,5 +35,17 @@ namespace Dynatrace.Net.Common.Extensions
 
 	        return request;
         }
+
+        public static async Task<TResult> GetJsonIfNotEmptyAsync<TResult>(this IFlurlRequest request, TResult emptyResult = default, CancellationToken cancellationToken = default, HttpCompletionOption completionOption = HttpCompletionOption.ResponseContentRead)
+        {
+	        try
+	        {
+		        return await request.GetJsonAsync<TResult>(cancellationToken, completionOption);
+	        }
+	        catch (FlurlParsingException)
+	        {
+		        return emptyResult;
+	        }
+        }
     }
 }

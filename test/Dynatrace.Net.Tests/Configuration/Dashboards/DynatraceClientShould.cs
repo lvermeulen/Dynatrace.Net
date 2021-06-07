@@ -19,8 +19,12 @@ namespace Dynatrace.Net.Tests
 		{
 			var results = await _client.GetDashboardsAsync().ConfigureAwait(false);
 			var firstResult = results.Dashboards.FirstOrDefault();
+			if (firstResult is null)
+			{
+				return;
+			}
 
-			var result = await _client.GetDashboardAsync(firstResult?.Id).ConfigureAwait(false);
+			var result = await _client.GetDashboardAsync(firstResult.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

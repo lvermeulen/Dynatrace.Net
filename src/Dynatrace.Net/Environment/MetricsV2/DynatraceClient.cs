@@ -73,7 +73,7 @@ namespace Dynatrace.Net
 			{
 				[nameof(nextPageKey)] = nextPageKey,
 				[nameof(pageSize)] = pageSize,
-				[nameof(metricSelector)] = string.Join(",", (metricSelector ?? Enumerable.Empty<string>())),
+				[nameof(metricSelector)] = string.Join(",", metricSelector ?? Enumerable.Empty<string>()),
 				[nameof(resolution)] = resolution,
 				[nameof(from)] = from?.ToString(),
 				[nameof(to)] = to?.ToString(),

@@ -18,13 +18,13 @@ namespace Dynatrace.Net.Tests
 		public async Task GetCalculatedLogMonitoringMetricAsync()
 		{
 			var results = await _client.GetCalculatedLogMonitoringMetricsAsync().ConfigureAwait(false);
-			var firstResult = results.Values.FirstOrDefault();
+			var firstResult = results.Values?.FirstOrDefault();
 			if (firstResult is null)
 			{
 				return;
 			}
 
-			var result = await _client.GetCalculatedLogMonitoringMetricAsync(firstResult?.Name).ConfigureAwait(false);
+			var result = await _client.GetCalculatedLogMonitoringMetricAsync(firstResult.Name).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

@@ -10,7 +10,7 @@ namespace Dynatrace.Net.Tests
 		[Fact]
 		public async Task GetAllTokensAsync()
 		{
-			var result = await _client.GetAllTokensAsync().ConfigureAwait(false);
+			var result = await _client.GetAllTokensAsync(1).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	
@@ -18,13 +18,13 @@ namespace Dynatrace.Net.Tests
 		public async Task GetTokenMetadataAsync()
 		{
 			var results = await _client.GetAllTokensAsync().ConfigureAwait(false);
-			var firstResult = results.Values.FirstOrDefault();
+			var firstResult = results.Values?.FirstOrDefault();
 			if (firstResult is null)
 			{
 				return;
 			}
 
-			var result = await _client.GetTokenMetadataAsync(firstResult?.Id).ConfigureAwait(false);
+			var result = await _client.GetTokenMetadataAsync(firstResult.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

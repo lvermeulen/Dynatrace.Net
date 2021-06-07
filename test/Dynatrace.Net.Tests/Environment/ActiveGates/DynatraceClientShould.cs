@@ -24,7 +24,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetActiveGateAsync(firstResult?.Id).ConfigureAwait(false);
+			var result = await _client.GetActiveGateAsync(firstResult.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
@@ -38,7 +38,7 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetAutoUpdateJobsAsync(firstResult?.Id).ConfigureAwait(false);
+			var result = await _client.GetAutoUpdateJobsAsync(firstResult.Id).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
@@ -52,14 +52,14 @@ namespace Dynatrace.Net.Tests
 				return;
 			}
 
-			var jobs = await _client.GetAutoUpdateJobsAsync(firstResult?.Id).ConfigureAwait(false);
+			var jobs = await _client.GetAutoUpdateJobsAsync(firstResult.Id).ConfigureAwait(false);
 			var firstJob = jobs.UpdateJobs?.FirstOrDefault();
 			if (firstJob is null)
 			{
 				return;
 			}
 
-			var result = await _client.GetAutoUpdateJobAsync(firstResult?.Id, firstJob?.JobId).ConfigureAwait(false);
+			var result = await _client.GetAutoUpdateJobAsync(firstResult.Id, firstJob.JobId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 

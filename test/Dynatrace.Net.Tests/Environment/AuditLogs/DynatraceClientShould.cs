@@ -18,13 +18,13 @@ namespace Dynatrace.Net.Tests
 		public async Task GetAuditLogEntryAsync()
 		{
 			var results = await _client.GetAuditLogAsync().ConfigureAwait(false);
-			var firstResult = results.AuditLogs.FirstOrDefault();
+			var firstResult = results.AuditLogs?.FirstOrDefault();
 			if (firstResult is null)
 			{
 				return;
 			}
 
-			var result = await _client.GetAuditLogEntryAsync(firstResult?.LogId).ConfigureAwait(false);
+			var result = await _client.GetAuditLogEntryAsync(firstResult.LogId).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}
