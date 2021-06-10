@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.ProblemsV1.Models;
 using Dynatrace.Net.Environment.TopologyAndSmartscapeV1.Models;
 using Flurl.Http;
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("v1/entity/infrastructure/hosts");
 		}
 
-		public async Task<IEnumerable<Host>> GetAllTopologyHostsAsync(int? startTimestamp = null, int? endTimestamp = null, RelativeTimes? relativeTime = null, IEnumerable<string> tag = null,
+		public async Task<IEnumerable<Host>> GetAllTopologyHostsAsync(long? startTimestamp = null, long? endTimestamp = null, RelativeTimes? relativeTime = null, IEnumerable<string> tag = null,
 			bool? showMonitoringCandidates = null, IEnumerable<string> entity = null, int? managementZone = null, string hostGroupId = null, string hostGroupName = null, bool? includeDetails = null, 
 			int? pageSize = null, string nextPageKey = null, CancellationToken cancellationToken = default)
 		{
@@ -39,7 +40,7 @@ namespace Dynatrace.Net
 
 			var response = await GetTopologyHostUrl()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<IEnumerable<Host>>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<IEnumerable<Host>>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -49,7 +50,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetTopologyHostUrl()
 				.AppendPathSegment(meIdentifier)
-				.GetJsonAsync<Host>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<Host>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

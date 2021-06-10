@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.CalculatedMetrics.Models;
 using Flurl.Http;
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		public async Task<StubList> GetCalculatedMobileAppsMetricsAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetCalculatedMetricsMobileAppsUrl()
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -28,7 +29,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetCalculatedMetricsMobileAppsUrl()
 				.AppendPathSegment(metricKey)
-				.GetJsonAsync<CalculatedMobileMetric>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<CalculatedMobileMetric>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -38,7 +39,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetCalculatedMetricsMobileAppsUrl()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<CalculatedMobileMetric>()
+				.ReceiveJsonWithErrorChecking<CalculatedMobileMetric>()
 				.ConfigureAwait(false);
 
 			return response;

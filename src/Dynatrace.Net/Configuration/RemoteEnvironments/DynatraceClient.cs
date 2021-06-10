@@ -28,7 +28,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetRemoteEnvironmentsUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<RemoteEnvironmentConfigDto>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<RemoteEnvironmentConfigDto>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -38,7 +38,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetRemoteEnvironmentsUrl()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<RemoteEnvironmentConfigStub>()
+				.ReceiveJsonWithErrorChecking<RemoteEnvironmentConfigStub>()
 				.ConfigureAwait(false);
 
 			return result;
@@ -49,7 +49,7 @@ namespace Dynatrace.Net
 			var result = await GetRemoteEnvironmentsUrl()
 				.AppendPathSegment(id)
 				.PutJsonAsync(body, cancellationToken)
-				.ReceiveJson<RemoteEnvironmentConfigStub>()
+				.ReceiveJsonWithErrorChecking<RemoteEnvironmentConfigStub>()
 				.ConfigureAwait(false);
 
 			return result;

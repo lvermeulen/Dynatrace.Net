@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.Reports.Models;
 using Flurl.Http;
@@ -29,7 +30,7 @@ namespace Dynatrace.Net
 
 			var result = await GetReportsUrl()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<ReportStubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ReportStubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -39,7 +40,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetReportsUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<DashboardReport>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<DashboardReport>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -49,7 +50,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetReportsUrl()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return result;
@@ -60,7 +61,7 @@ namespace Dynatrace.Net
 			var result = await GetReportsUrl()
 				.AppendPathSegment(id)
 				.PutJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return result;
@@ -82,7 +83,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment(id)
 				.AppendPathSegment("subscribe")
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return result;
@@ -94,7 +95,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment(id)
 				.AppendPathSegment("unsubscribe")
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return result;

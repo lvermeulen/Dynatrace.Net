@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.Notifications.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<NotificationConfigStubListDto> GetAllNotificationConfigurationsAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetNotificationsUrl()
-				.GetJsonAsync<NotificationConfigStubListDto>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<NotificationConfigStubListDto>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -27,7 +28,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetNotificationsUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<NotificationConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<NotificationConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

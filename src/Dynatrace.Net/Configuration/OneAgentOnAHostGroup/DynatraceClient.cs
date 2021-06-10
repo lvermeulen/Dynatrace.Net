@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.OneAgentOnAHostGroup.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<HostGroupAutoUpdateConfig> GetOneAgentOnAHostGroupAutoUpdateConfigAsync(string id, CancellationToken cancellationToken = default)
 		{
 			var response = await GetOneAgentOnAHostGroupConfigUrl(id)
-				.GetJsonAsync<HostGroupAutoUpdateConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<HostGroupAutoUpdateConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

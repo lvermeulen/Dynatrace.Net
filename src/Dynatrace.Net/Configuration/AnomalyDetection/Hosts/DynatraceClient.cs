@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.AnomalyDetection.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<HostsAnomalyDetectionConfig> GetAnomalyDetectionHostsConfigurationAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetAnomalyDetectionHostsUrl()
-				.GetJsonAsync<HostsAnomalyDetectionConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<HostsAnomalyDetectionConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

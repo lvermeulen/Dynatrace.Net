@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.KubernetesCredentials.Models;
 using Flurl.Http;
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		public async Task<StubList> GetAllKubernetesCredentialsAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetKubernetesCredentialsUrl()
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -28,7 +29,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetKubernetesCredentialsUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<KubernetesCredentials>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<KubernetesCredentials>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -38,7 +39,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetKubernetesCredentialsUrl()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return response;
@@ -49,7 +50,7 @@ namespace Dynatrace.Net
 			var response = await GetKubernetesCredentialsUrl()
 				.AppendPathSegment(id)
 				.PutJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return response;

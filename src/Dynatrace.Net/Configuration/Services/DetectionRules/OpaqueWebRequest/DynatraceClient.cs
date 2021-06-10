@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.Services.Models;
 using Flurl.Http;
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		public async Task<StubList> GetAllDetectionRulesOpaqueWebRequestAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetDetectionRulesOpaqueWebRequestUrl()
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -28,7 +29,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetDetectionRulesOpaqueWebRequestUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<OpaqueAndExternalWebRequestRule>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<OpaqueAndExternalWebRequestRule>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -40,7 +41,7 @@ namespace Dynatrace.Net
 			var response = await GetDetectionRulesOpaqueWebRequestUrl()
 				.SetQueryParam(nameof(position), s_positionsConverter.ConvertToString(position))
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return response;

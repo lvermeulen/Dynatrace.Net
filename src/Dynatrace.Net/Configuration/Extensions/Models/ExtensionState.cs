@@ -11,7 +11,7 @@ namespace Dynatrace.Net.Configuration.Extensions.Models
 		[JsonConverter(typeof(ExtensionStatesConverter))]
 		public ExtensionStates? State { get; set; }
 		public string StateDescription { get; set; }
-		public int? Timestamp { get; set; }
+		public long? Timestamp { get; set; }
 		public string HostId { get; set; }
 		public string ProcessId { get; set; }
 	}

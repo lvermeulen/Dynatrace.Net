@@ -63,7 +63,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetAuditLogsUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<AuditLogEntry>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<AuditLogEntry>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

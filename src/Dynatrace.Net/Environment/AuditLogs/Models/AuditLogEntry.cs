@@ -16,7 +16,7 @@ namespace Dynatrace.Net.Environment.AuditLogs.Models
 		[JsonConverter(typeof(AuditLogUserTypesConverter))]
 		public AuditLogUserTypes? UserType { get; set; }
 		public string UserOrigin { get; set; }
-		public int? Timestamp { get; set; }
+		public long? Timestamp { get; set; }
 		public bool? Success { get; set; }
 		public string Message { get; set; }
 		public object Patch { get; set; }

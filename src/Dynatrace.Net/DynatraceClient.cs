@@ -36,6 +36,7 @@ namespace Dynatrace.Net
         }
 
         private IFlurlRequest GetBaseUrl() => new Url(_url)
+	        .AllowAnyHttpStatus()
             .AppendPathSegment("api")
             .ConfigureRequest(settings => settings.JsonSerializer = _serializer)
             .WithApiToken(_apiToken);

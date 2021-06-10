@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.Deployment.Models;
 using Flurl.Http;
 
@@ -33,7 +34,7 @@ namespace Dynatrace.Net
 			var response = await GetDeploymentBoshReleaseUrl()
 				.AppendPathSegment("versions")
 				.AppendPathSegment(s_deploymentOsTypesConverter.ConvertToString(osType))
-				.GetJsonAsync<Versions>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<Versions>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -48,7 +49,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment(version)
 				.AppendPathSegment("checksum")
 				.SetQueryParam(nameof(skipMetadata), skipMetadata)
-				.GetJsonAsync<BoshReleaseChecksum>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<BoshReleaseChecksum>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.RealUserMonitoringJavaScriptCode.Models;
 using Flurl.Http;
 
@@ -19,7 +20,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetRealUserMonitoringJavaScriptCodeUrl()
 				.AppendPathSegment("manualApps")
-				.GetJsonAsync<IEnumerable<InjectedApplication>>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<IEnumerable<InjectedApplication>>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

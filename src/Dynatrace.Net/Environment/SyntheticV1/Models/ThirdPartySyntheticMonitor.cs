@@ -8,7 +8,7 @@ namespace Dynatrace.Net.Environment.SyntheticV1.Models
 		public string Title { get; set; }
 		public string Description { get; set; }
 		public string TestSetup { get; set; }
-		public int? ExpirationTimestamp { get; set; }
+		public long? ExpirationTimestamp { get; set; }
 		public string DrilldownLink { get; set; }
 		public string EditLink { get; set; }
 		public bool? Enabled { get; set; }

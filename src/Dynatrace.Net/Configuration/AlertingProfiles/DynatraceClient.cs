@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.AlertingProfiles.Models;
 using Flurl.Http;
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		public async Task<StubList> GetAlertingProfilesAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetAlertingProfilesUrl()
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -28,7 +29,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetAlertingProfilesUrl()
 				.AppendPathSegment(alertingProfileId)
-				.GetJsonAsync<AlertingProfile>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<AlertingProfile>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -38,7 +39,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetAlertingProfilesUrl()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return response;
@@ -49,7 +50,7 @@ namespace Dynatrace.Net
 			var response = await GetAlertingProfilesUrl()
 				.AppendPathSegment(alertingProfileId)
 				.PutJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return response;

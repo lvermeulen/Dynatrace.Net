@@ -2,7 +2,7 @@
 {
 	public class LogRecord
 	{
-		public int? Timestamp { get; set; }
+		public long? Timestamp { get; set; }
 		public string LogLevel { get; set; }
 		public string HostId { get; set; }
 		public string Text { get; set; }

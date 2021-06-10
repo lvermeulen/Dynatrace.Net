@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.Deployment.Models;
 using Flurl.Http;
 
@@ -47,7 +48,7 @@ namespace Dynatrace.Net
 			var response = await GetDeploymentActiveGateUrl()
 				.AppendPathSegment("versions")
 				.AppendPathSegment(s_deploymentOsTypesConverter.ConvertToString(osType))
-				.GetJsonAsync<Versions>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<Versions>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

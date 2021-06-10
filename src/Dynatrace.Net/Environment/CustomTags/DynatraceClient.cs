@@ -17,7 +17,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("v2/tags");
 		}
 
-		public async Task<CustomEntityTags> GetTagsAsync(EntitySelector entitySelector, Timeframe from, Timeframe to, CancellationToken cancellationToken = default)
+		public async Task<CustomEntityTags> GetTagsAsync(EntitySelector entitySelector, Timeframe from = null, Timeframe to = null, CancellationToken cancellationToken = default)
 		{
 			var queryParamValues = new Dictionary<string, object>();
 			if (entitySelector is not null)
@@ -48,7 +48,7 @@ namespace Dynatrace.Net
 			var response = await GetCustomTagsUrl()
 				.SetQueryParam(nameof(entitySelector), entitySelector.ToString())
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<AddedEntityTags>()
+				.ReceiveJsonWithErrorChecking<AddedEntityTags>()
 				.ConfigureAwait(false);
 
 			return response;
@@ -67,7 +67,7 @@ namespace Dynatrace.Net
 			var response = await GetCustomTagsUrl()
 				.SetQueryParams(queryParamValues)
 				.DeleteAsync(cancellationToken)
-				.ReceiveJson<DeletedEntityTags>()
+				.ReceiveJsonWithErrorChecking<DeletedEntityTags>()
 				.ConfigureAwait(false);
 
 			return response;

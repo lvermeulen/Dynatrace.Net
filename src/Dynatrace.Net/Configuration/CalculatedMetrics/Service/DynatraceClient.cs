@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.CalculatedMetrics.Models;
 using Flurl.Http;
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		public async Task<StubList> GetCalculatedServiceMetricsAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetCalculatedMetricsServiceUrl()
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -28,7 +29,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetCalculatedMetricsServiceUrl()
 				.AppendPathSegment(metricKey)
-				.GetJsonAsync<CalculatedServiceMetric>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<CalculatedServiceMetric>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -38,7 +39,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetCalculatedMetricsServiceUrl()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<CalculatedServiceMetric>()
+				.ReceiveJsonWithErrorChecking<CalculatedServiceMetric>()
 				.ConfigureAwait(false);
 
 			return response;

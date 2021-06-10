@@ -8,7 +8,7 @@ namespace Dynatrace.Net.Environment.LogMonitoring.Models
 	{
 		[JsonConverter(typeof(LogAnalysisStatusesConverter))]
 		public LogAnalysisStatuses LogAnalysisStatus { get; set; }
-		public int? StatusChangeTimestamp { get; set; }
+		public long? StatusChangeTimestamp { get; set; }
 		[JsonConverter(typeof(LogHandlingErrorsConverter))]
 		public LogHandlingErrors LogHandlingError { get; set; }
 		public int? RecordsTotal { get; set; }

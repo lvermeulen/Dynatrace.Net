@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.LogMonitoring.Models;
 using Flurl.Http;
 
@@ -18,13 +19,13 @@ namespace Dynatrace.Net
 		public async Task<LogListForCustomDeviceResult> GetCustomDeviceLogsAsync(string customDeviceId, CancellationToken cancellationToken = default)
 		{
 			var response = await GetLogMonitoringCustomDevicesUrl(customDeviceId)
-				.GetJsonAsync<LogListForCustomDeviceResult>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<LogListForCustomDeviceResult>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
 		}
 
-		public async Task<string> PostCustomDeviceLogAnalysisJobAsync(string customDeviceId, string logPath, string query = null, int? startTimestamp = null, int? endTimestamp = null, ExtractFields body = null,
+		public async Task<string> PostCustomDeviceLogAnalysisJobAsync(string customDeviceId, string logPath, string query = null, long? startTimestamp = null, long? endTimestamp = null, ExtractFields body = null,
 			CancellationToken cancellationToken = default)
 		{
 			var queryParamValues = new Dictionary<string, object>
@@ -49,7 +50,7 @@ namespace Dynatrace.Net
 			var response = await GetLogMonitoringCustomDevicesUrl(customDeviceId)
 				.AppendPathSegment("jobs")
 				.AppendPathSegment(jobId)
-				.GetJsonAsync<LogJobStatusResult>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<LogJobStatusResult>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -69,7 +70,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment(jobId)
 				.AppendPathSegment("records")
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<LogJobRecordsResult>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<LogJobRecordsResult>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -90,7 +91,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("records")
 				.SetQueryParams(queryParamValues)
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<LogJobRecordsResult>()
+				.ReceiveJsonWithErrorChecking<LogJobRecordsResult>()
 				.ConfigureAwait(false);
 
 			return response;
@@ -105,7 +106,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("records")
 				.AppendPathSegment("top")
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<LogJobRecordsTopValuesRestResult>()
+				.ReceiveJsonWithErrorChecking<LogJobRecordsTopValuesRestResult>()
 				.ConfigureAwait(false);
 
 			return response;

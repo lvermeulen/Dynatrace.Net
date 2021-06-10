@@ -110,7 +110,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("latest")
 				.AppendPathSegment("metainfo")
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<InstallerMetaInfoDto>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<InstallerMetaInfoDto>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -120,7 +120,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetDeploymentOneAgentUrl()
 				.AppendPathSegment("connectioninfo")
-				.GetJsonAsync<ConnectionInfo>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ConnectionInfo>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

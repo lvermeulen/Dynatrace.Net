@@ -29,7 +29,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetAwsCredentialsUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<AwsCredentialsConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<AwsCredentialsConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -39,7 +39,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetAwsCredentialsUrl()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return response;
@@ -50,7 +50,7 @@ namespace Dynatrace.Net
 			var response = await GetAwsCredentialsUrl()
 				.AppendPathSegment(id)
 				.PutJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return response;

@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.Rum.Models;
 using Flurl.Http;
 
@@ -23,7 +24,7 @@ namespace Dynatrace.Net
 		public async Task<ApplicationDataPrivacyList> GetAllWebApplicationsDataPrivacyAsync(CancellationToken cancellationToken = default)
 		{
 			var result = await GetWebApplicationConfigurationDataPrivacyUrl()
-				.GetJsonAsync<ApplicationDataPrivacyList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ApplicationDataPrivacyList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -32,7 +33,7 @@ namespace Dynatrace.Net
 		public async Task<ApplicationDataPrivacy> GetWebApplicationDataPrivacyAsync(string id, CancellationToken cancellationToken = default)
 		{
 			var result = await GetWebApplicationConfigurationDataPrivacyUrl(id)
-				.GetJsonAsync<ApplicationDataPrivacy>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ApplicationDataPrivacy>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -50,7 +51,7 @@ namespace Dynatrace.Net
 		public async Task<ApplicationDataPrivacy> GetDefaultApplicationDataPrivacyAsync(CancellationToken cancellationToken = default)
 		{
 			var result = await GetWebApplicationConfigurationDataPrivacyUrl("default")
-				.GetJsonAsync<ApplicationDataPrivacy>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ApplicationDataPrivacy>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;

@@ -1,6 +1,7 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.Plugins.Models;
 using Flurl.Http;
@@ -19,7 +20,7 @@ namespace Dynatrace.Net
 		public async Task<StubList> GetAllPluginsAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetPluginsUrl()
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -29,7 +30,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetPluginsUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<Plugin>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<Plugin>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -39,7 +40,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetPluginsUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<PluginStateList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<PluginStateList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -50,7 +51,7 @@ namespace Dynatrace.Net
 			var result = await GetPluginsUrl()
 				.SetQueryParam(nameof(overrideAlerts), overrideAlerts)
 				.PostJsonAsync(new ByteArrayContent(file), cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return result;
@@ -83,7 +84,7 @@ namespace Dynatrace.Net
 			var response = await GetPluginsUrl()
 				.AppendPathSegment(id)
 				.AppendPathSegment("endpoints")
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -95,7 +96,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment(id)
 				.AppendPathSegment("endpoints")
 				.AppendPathSegment(endpointId)
-				.GetJsonAsync<RemotePluginEndpoint>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<RemotePluginEndpoint>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -107,7 +108,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment(id)
 				.AppendPathSegment("endpoints")
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return result;
@@ -141,7 +142,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetPluginsUrl()
 				.AppendPathSegment("activeGatePluginModules")
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

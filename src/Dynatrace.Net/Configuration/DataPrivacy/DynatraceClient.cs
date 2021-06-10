@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.DataPrivacy.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<DataPrivacyAndSecurity> GetDataPrivacyConfigurationAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetDataPrivacyUrl()
-				.GetJsonAsync<DataPrivacyAndSecurity>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<DataPrivacyAndSecurity>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

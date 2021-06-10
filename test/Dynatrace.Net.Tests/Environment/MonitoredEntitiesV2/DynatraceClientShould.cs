@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Models;
 using Xunit;
 
 // ReSharper disable once CheckNamespace
@@ -10,14 +11,14 @@ namespace Dynatrace.Net.Tests
 		[Fact]
 		public async Task GetMonitoredEntitiesV2Async()
 		{
-			var result = await _client.GetMonitoredEntitiesV2Async().ConfigureAwait(false);
+			var result = await _client.GetMonitoredEntitiesV2Async(entitySelector:new EntitySelector { EntityType = "APPLICATION" }).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
 		[Fact]
 		public async Task GetMonitoredEntityV2Async()
 		{
-			var results = await _client.GetMonitoredEntitiesV2Async().ConfigureAwait(false);
+			var results = await _client.GetMonitoredEntitiesV2Async(entitySelector:new EntitySelector { EntityType = "APPLICATION" }).ConfigureAwait(false);
 			var firstResult = results.Entities?.FirstOrDefault();
 			if (firstResult is null)
 			{

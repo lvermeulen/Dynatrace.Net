@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.Rum.Models;
 using Flurl.Http;
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		public async Task<KeyUserActionList> GetKeyUserActionsAsync(string id, CancellationToken cancellationToken = default)
 		{
 			var result = await GetKeyUserActionsUrl(id)
-				.GetJsonAsync<KeyUserActionList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<KeyUserActionList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -28,7 +29,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetKeyUserActionsUrl(id)
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return result;

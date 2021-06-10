@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.ManagementZones.Models;
 using Flurl.Http;
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		public async Task<StubList> GetAllManagementZonesAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetManagementZonesUrl()
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -28,7 +29,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetManagementZonesUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<ManagementZone>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ManagementZone>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

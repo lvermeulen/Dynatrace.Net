@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.Rum.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<MobileSessionUserActionPropertyList> GetMobileAndCustomAppUserActionsAsync(string applicationId, CancellationToken cancellationToken = default)
 		{
 			var result = await GetMobileAndCustomAppUserActionsUrl(applicationId)
-				.GetJsonAsync<MobileSessionUserActionPropertyList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<MobileSessionUserActionPropertyList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -27,7 +28,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetMobileAndCustomAppUserActionsUrl(applicationId)
 				.AppendPathSegment(key)
-				.GetJsonAsync<MobileSessionUserActionProperty>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<MobileSessionUserActionProperty>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -37,7 +38,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetMobileAndCustomAppUserActionsUrl(applicationId)
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<MobileSessionUserActionPropertyShort>()
+				.ReceiveJsonWithErrorChecking<MobileSessionUserActionPropertyShort>()
 				.ConfigureAwait(false);
 
 			return result;
@@ -48,7 +49,7 @@ namespace Dynatrace.Net
 			var result = await GetMobileAndCustomAppUserActionsUrl(applicationId)
 				.AppendPathSegment(key)
 				.PutJsonAsync(body, cancellationToken)
-				.ReceiveJson<MobileSessionUserActionPropertyShort>()
+				.ReceiveJsonWithErrorChecking<MobileSessionUserActionPropertyShort>()
 				.ConfigureAwait(false);
 
 			return result;

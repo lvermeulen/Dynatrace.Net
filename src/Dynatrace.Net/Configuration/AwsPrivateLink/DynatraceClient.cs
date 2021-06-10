@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.AwsPrivateLink.Models;
 using Flurl.Http;
 
@@ -23,7 +24,7 @@ namespace Dynatrace.Net
 		public async Task<AwsPrivateLinkConfig> GetAwsPrivateLinkConfigAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetAwsPrivateLinkUrl()
-				.GetJsonAsync<AwsPrivateLinkConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<AwsPrivateLinkConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -33,7 +34,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetAwsPrivateLinkUrl()
 				.PutJsonAsync(body, cancellationToken)
-				.ReceiveJson<AwsPrivateLinkConfig>()
+				.ReceiveJsonWithErrorChecking<AwsPrivateLinkConfig>()
 				.ConfigureAwait(false);
 
 			return response;
@@ -42,7 +43,7 @@ namespace Dynatrace.Net
 		public async Task<WhitelistedAwsAccountList> GetAwsPrivateLinkWhiteListedAccountsAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetAwsPrivateLinkWhiteListedAccountsUrl()
-				.GetJsonAsync<WhitelistedAwsAccountList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<WhitelistedAwsAccountList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -53,7 +54,7 @@ namespace Dynatrace.Net
 			var response = await GetAwsPrivateLinkWhiteListedAccountsUrl()
 				.AppendPathSegment(id)
 				.PutJsonAsync(body, cancellationToken)
-				.ReceiveJson<WhitelistedAwsAccountList>()
+				.ReceiveJsonWithErrorChecking<WhitelistedAwsAccountList>()
 				.ConfigureAwait(false);
 
 			return response;

@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.TopologyAndSmartscapeV1.Models;
 using Flurl.Http;
 
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetTopologyCustomDeviceUrl(customDeviceId)
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<CustomDevicePushResult>()
+				.ReceiveJsonWithErrorChecking<CustomDevicePushResult>()
 				.ConfigureAwait(false);
 
 			return result;

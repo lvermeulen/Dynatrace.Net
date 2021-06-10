@@ -12,7 +12,7 @@ namespace Dynatrace.Net.Environment.SyntheticV1.Models
 		[JsonConverter(typeof(TestEventTypesConverter))]
 		public TestEventTypes? EventType { get; set; }
 		public string Reason { get; set; }
-		public int? StartTimestamp { get; set; }
+		public long? StartTimestamp { get; set; }
 		public IEnumerable<string> LocationIds { get; set; }
 	}
 }

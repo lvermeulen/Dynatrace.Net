@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.RealUserMonitoringBrowserExtension.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<RealUserMonitoringBrowserExtensionResult> GetRealUserMonitoringBrowserExtensionsAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetRealUserMonitoringBrowserExtensionUrl()
-				.GetJsonAsync<RealUserMonitoringBrowserExtensionResult>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<RealUserMonitoringBrowserExtensionResult>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

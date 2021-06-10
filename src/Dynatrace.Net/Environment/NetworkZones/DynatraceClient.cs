@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Environment.NetworkZones.Models;
 using Flurl.Http;
@@ -24,7 +25,7 @@ namespace Dynatrace.Net
 		public async Task<NetworkZoneList> GetNetworkZonesAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetNetworkZonesUrl()
-				.GetJsonAsync<NetworkZoneList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<NetworkZoneList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -34,7 +35,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetNetworkZonesUrl()
 				.AppendPathSegment(networkZoneId)
-				.GetJsonAsync<NetworkZone>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<NetworkZone>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -45,7 +46,7 @@ namespace Dynatrace.Net
 			var response = await GetNetworkZonesUrl()
 				.AppendPathSegment(networkZoneId)
 				.PutJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return response;
@@ -64,7 +65,7 @@ namespace Dynatrace.Net
 		public async Task<NetworkZoneSettings> GetNetworkZoneSettingsAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetNetworkZoneSettingsUrl()
-				.GetJsonAsync<NetworkZoneSettings>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<NetworkZoneSettings>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

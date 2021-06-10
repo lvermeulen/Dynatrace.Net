@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.AutoTags.Models;
 using Flurl.Http;
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		public async Task<StubList> GetAutoTagsAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetAutoTagsUrl()
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -29,7 +30,7 @@ namespace Dynatrace.Net
 			var response = await GetAutoTagsUrl()
 				.AppendPathSegment(id)
 				.SetQueryParam(nameof(includeProcessGroupReferences), includeProcessGroupReferences)
-				.GetJsonAsync<AutoTag>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<AutoTag>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -39,7 +40,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetAutoTagsUrl()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return response;

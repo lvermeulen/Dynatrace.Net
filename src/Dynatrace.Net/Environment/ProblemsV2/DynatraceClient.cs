@@ -40,7 +40,7 @@ namespace Dynatrace.Net
 
 			var response = await GetProblemsV2Url()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<ProblemsDto>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ProblemsDto>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -58,7 +58,7 @@ namespace Dynatrace.Net
 			var response = await GetProblemsV2Url()
 				.AppendPathSegment(problemId)
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<Problem>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<Problem>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -71,7 +71,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment(problemId)
 				.AppendPathSegment("close")
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<ProblemCloseResult>()
+				.ReceiveJsonWithErrorChecking<ProblemCloseResult>()
 				.ConfigureAwait(false);
 
 			return response;
@@ -89,7 +89,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment(problemId)
 				.AppendPathSegment("comments")
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<CommentsList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<CommentsList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -101,7 +101,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment(problemId)
 				.AppendPathSegment("comments")
 				.AppendPathSegment(commentId)
-				.GetJsonAsync<CommentDto>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<CommentDto>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

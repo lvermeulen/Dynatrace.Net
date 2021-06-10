@@ -11,8 +11,8 @@ namespace Dynatrace.Net.Environment.TimeSeriesV1.Models
 		public string TimeseriesId { get; set; }
 		[JsonConverter(typeof(MetricDescriptorAggregationTypesConverter))]
 		public MetricDescriptorAggregationTypes? AggregationType { get; set; }
-		public int? StartTimestamp { get; set; }
-		public int? EndTimestamp { get; set; }
+		public long? StartTimestamp { get; set; }
+		public long? EndTimestamp { get; set; }
 		public bool? Predict { get; set; }
 		public RelativeTimes? RelativeTime { get; set; }
 		[JsonConverter(typeof(TimeSeriesQueryModesConverter))]

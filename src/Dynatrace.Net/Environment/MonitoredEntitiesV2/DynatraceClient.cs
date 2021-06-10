@@ -85,7 +85,7 @@ namespace Dynatrace.Net
 			var response = await GetMonitoredEntitiesV2Url()
 				.AppendPathSegment(entityId)
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<Entity>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<Entity>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -101,7 +101,7 @@ namespace Dynatrace.Net
 
 			var response = await GetMonitoredEntityTypesV2Url()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<EntityTypeList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<EntityTypeList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -111,7 +111,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetMonitoredEntityTypesV2Url()
 				.AppendPathSegment(type)
-				.GetJsonAsync<EntityType>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<EntityType>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -122,7 +122,7 @@ namespace Dynatrace.Net
 			var response = await GetMonitoredEntitiesV2Url()
 				.AppendPathSegment("custom")
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<CustomDeviceCreationResult>()
+				.ReceiveJsonWithErrorChecking<CustomDeviceCreationResult>()
 				.ConfigureAwait(false);
 
 			return response;

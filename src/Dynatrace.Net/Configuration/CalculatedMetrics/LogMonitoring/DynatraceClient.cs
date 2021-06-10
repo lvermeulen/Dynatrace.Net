@@ -29,7 +29,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetCalculatedMetricsLogMonitoringUrl()
 				.AppendPathSegment(metricKey)
-				.GetJsonAsync<LogMetricConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<LogMetricConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

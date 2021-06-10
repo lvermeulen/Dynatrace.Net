@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.CalculatedMetrics.Models;
 using Dynatrace.Net.Configuration.Extensions.Models;
 using Dynatrace.Net.Environment.ActiveGates.Models;
@@ -27,7 +28,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("v1/oneagents");
 		}
 
-		public async Task<HostsListPage> GetOneAgentInstanceConfigurationAsync(int? startTimestamp = null, int? endTimestamp = null, RelativeTimes? relativeTime = null, IEnumerable<string> tag = null,
+		public async Task<HostsListPage> GetOneAgentInstanceConfigurationAsync(long? startTimestamp = null, long? endTimestamp = null, RelativeTimes? relativeTime = null, IEnumerable<string> tag = null,
 			IEnumerable<string> entity = null, int? managementZoneId = null, string managementZone = null, string networkZoneId = null, string hostGroupId = null, string hostGroupName = null,
 			OsTypes? osType = null, AvailabilityStates? availabilityState = null, MonitoringTypes? monitoringType = null, VersionCompareTypes? agentVersionIs = null, string agentVersionNumber = null,
 			AutoUpdateSettings? autoUpdateSetting = null, ActiveGatesUpdateStatusTypes? updateStatus = null, bool? faultyVersion = null, TechnologyModuleTypes? technologyModuleType = null,
@@ -67,7 +68,7 @@ namespace Dynatrace.Net
 
 			var response = await GetOneAgentOnAHostUrl()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<HostsListPage>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<HostsListPage>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

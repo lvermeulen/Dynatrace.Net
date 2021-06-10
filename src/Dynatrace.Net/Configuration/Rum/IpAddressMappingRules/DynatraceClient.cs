@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.Rum.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<IpAddressMappings> GetRumIpAddressMappingConfigurationAsync(CancellationToken cancellationToken = default)
 		{
 			var result = await GetRumIpAddressMappingUrl()
-				.GetJsonAsync<IpAddressMappings>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<IpAddressMappings>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;

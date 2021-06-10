@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.MetricsV2.Models;
 using Dynatrace.Net.Environment.ProblemsV1.Models;
 using Dynatrace.Net.Environment.TimeSeriesV1.Models;
@@ -34,7 +35,7 @@ namespace Dynatrace.Net
 
 			var response = await GetTimeSeriesV1Url()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<IEnumerable<TimeSeriesDefinition>>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<IEnumerable<TimeSeriesDefinition>>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -45,14 +46,14 @@ namespace Dynatrace.Net
 			var response = await GetTimeSeriesV1Url()
 				.AppendPathSegment(timeseriesId)
 				.SetQueryParam(nameof(includeData), includeData)
-				.GetJsonAsync<TimeSeriesQueryResult>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<TimeSeriesQueryResult>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
 		}
 
 		public async Task<TimeSeriesQueryResult> GetTimeSeriesDataPointsV1Async(string timeseriesId, bool? includeData = null, MetricDescriptorAggregationTypes? aggregationType = null,
-			int? startTimestamp = null, int? endTimestamp = null, bool? predict = null, RelativeTimes? relativeTime = null, TimeSeriesQueryModes? queryMode = null,
+			long? startTimestamp = null, long? endTimestamp = null, bool? predict = null, RelativeTimes? relativeTime = null, TimeSeriesQueryModes? queryMode = null,
 			IEnumerable<string> entity = null, IEnumerable<string> tag = null, int? percentile = null, bool? includeParentIds = null, bool? considerMaintenanceWindowsForAvailability = null,
 			CancellationToken cancellationToken = default)
 		{
@@ -75,7 +76,7 @@ namespace Dynatrace.Net
 			var response = await GetTimeSeriesV1Url()
 				.AppendPathSegment(timeseriesId)
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<TimeSeriesQueryResult>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<TimeSeriesQueryResult>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -86,7 +87,7 @@ namespace Dynatrace.Net
 			var response = await GetTimeSeriesV1Url()
 				.AppendPathSegment(timeseriesId)
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<TimeSeriesQueryResultWrapper>()
+				.ReceiveJsonWithErrorChecking<TimeSeriesQueryResultWrapper>()
 				.ConfigureAwait(false);
 
 			return response;
@@ -97,7 +98,7 @@ namespace Dynatrace.Net
 			var response = await GetTimeSeriesV1Url()
 				.AppendPathSegment(timeseriesId)
 				.PutJsonAsync(body, cancellationToken)
-				.ReceiveJson<TimeSeriesDefinition>()
+				.ReceiveJsonWithErrorChecking<TimeSeriesDefinition>()
 				.ConfigureAwait(false);
 
 			return response;

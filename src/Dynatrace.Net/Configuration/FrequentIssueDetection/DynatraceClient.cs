@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.FrequentIssueDetection.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<FrequentIssueDetectionConfig> GetFrequentIssueDetectionConfigurationAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetFrequentIssueDetectionUrl()
-				.GetJsonAsync<FrequentIssueDetectionConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<FrequentIssueDetectionConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

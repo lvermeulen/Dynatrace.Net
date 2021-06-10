@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.OneAgentOnAHost.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<HostConfig> GetOneAgentOnAHostConfigAsync(string id, CancellationToken cancellationToken = default)
 		{
 			var response = await GetOneAgentOnAHostConfigUrl(id)
-				.GetJsonAsync<HostConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<HostConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -26,7 +27,7 @@ namespace Dynatrace.Net
 		public async Task<HostAutoUpdateConfig> GetOneAgentOnAHostAutoUpdateConfigAsync(string id, CancellationToken cancellationToken = default)
 		{
 			var response = await GetOneAgentOnAHostConfigUrl(id)
-				.GetJsonAsync<HostAutoUpdateConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<HostAutoUpdateConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -44,7 +45,7 @@ namespace Dynatrace.Net
 		public async Task<MonitoringConfig> GetOneAgentOnAHostMonitoringConfigAsync(string id, CancellationToken cancellationToken = default)
 		{
 			var response = await GetOneAgentOnAHostConfigUrl(id)
-				.GetJsonAsync<MonitoringConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<MonitoringConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -62,7 +63,7 @@ namespace Dynatrace.Net
 		public async Task<TechMonitoringList> GetOneAgentOnAHostTechnologyMonitoringConfigAsync(string id, CancellationToken cancellationToken = default)
 		{
 			var response = await GetOneAgentOnAHostConfigUrl(id)
-				.GetJsonAsync<TechMonitoringList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<TechMonitoringList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

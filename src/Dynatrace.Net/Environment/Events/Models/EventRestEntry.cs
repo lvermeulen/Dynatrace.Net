@@ -7,8 +7,8 @@ namespace Dynatrace.Net.Environment.Events.Models
 {
 	public class EventRestEntry
 	{
-		public int? StartTime { get; set; }
-		public int? EndTime { get; set; }
+		public long? StartTime { get; set; }
+		public long? EndTime { get; set; }
 		public string EntityId { get; set; }
 		public string EntityName { get; set; }
 		[JsonConverter(typeof(SeverityLevelsConverter))]

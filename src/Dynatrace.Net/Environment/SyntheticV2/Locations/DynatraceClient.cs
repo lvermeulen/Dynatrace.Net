@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Environment.SyntheticV2.Models;
 using Flurl.Http;
@@ -29,7 +30,7 @@ namespace Dynatrace.Net
 
 			var response = await GetSyntheticLocationsV2Url()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<SyntheticLocations>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<SyntheticLocations>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -39,7 +40,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetSyntheticLocationsV2Url()
 				.AppendPathSegment(locationId)
-				.GetJsonAsync<SyntheticLocation>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<SyntheticLocation>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -49,7 +50,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetSyntheticLocationsV2Url()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<SyntheticLocationIdsDto>()
+				.ReceiveJsonWithErrorChecking<SyntheticLocationIdsDto>()
 				.ConfigureAwait(false);
 
 			return response;

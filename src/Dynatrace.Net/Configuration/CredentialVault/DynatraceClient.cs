@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.CredentialVault.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<CredentialsList> GetAllCredentialsAsync(CredentialTypes? type = null, CancellationToken cancellationToken = default)
 		{
 			var response = await GetCredentialVaultUrl()
-				.GetJsonAsync<CredentialsList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<CredentialsList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -27,7 +28,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetCredentialVaultUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<CredentialsResponseElement>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<CredentialsResponseElement>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -37,7 +38,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetCredentialVaultUrl()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<CredentialsResponseElement>()
+				.ReceiveJsonWithErrorChecking<CredentialsResponseElement>()
 				.ConfigureAwait(false);
 
 			return response;
@@ -48,7 +49,7 @@ namespace Dynatrace.Net
 			var response = await GetCredentialVaultUrl()
 				.AppendPathSegment(id)
 				.PutJsonAsync(body, cancellationToken)
-				.ReceiveJson<CredentialsResponseElement>()
+				.ReceiveJsonWithErrorChecking<CredentialsResponseElement>()
 				.ConfigureAwait(false);
 
 			return response;

@@ -10,7 +10,7 @@ namespace Dynatrace.Net.Tests
 		[Fact]
 		public async Task GetTagsAsync()
 		{
-			var result = await _client.GetTagsAsync(new EntitySelector { HealthState = HealthStates.Unhealthy }, Timeframe.FromUtcMilliseconds(10 * 1000), Timeframe.FromUtcMilliseconds(1000)).ConfigureAwait(false);
+			var result = await _client.GetTagsAsync(new EntitySelector { DynatraceEntityId = new [] { "CUSTOM_APPLICATION-E1975E34652E4AD4" } }).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.UserSessions.Models;
 using Flurl.Http;
 
@@ -15,7 +16,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("v1/userSessionQueryLanguage");
 		}
 
-		public async Task<DtaqlResultAsTable> GetUserSessionsAsTableAsync(string query, int? startTimestamp = null, int? endTimestamp = null, int? offsetUtc = null, int? pageSize = null,
+		public async Task<DtaqlResultAsTable> GetUserSessionsAsTableAsync(string query, long? startTimestamp = null, long? endTimestamp = null, int? offsetUtc = null, int? pageSize = null,
 			int? pageOffset = null, bool? addDeepLinkFields = null, bool? explain = null, CancellationToken cancellationToken = default)
 		{
 			var queryParamValues = new Dictionary<string, object>
@@ -33,13 +34,13 @@ namespace Dynatrace.Net
 			var response = await GetUserSessionsUrl()
 				.AppendPathSegment("table")
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<DtaqlResultAsTable>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<DtaqlResultAsTable>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
 		}
 
-		public async Task<DtaqlResultAsTree> GetUserSessionsAsTreeAsync(string query, int? startTimestamp = null, int? endTimestamp = null, int? offsetUtc = null, 
+		public async Task<DtaqlResultAsTree> GetUserSessionsAsTreeAsync(string query, long? startTimestamp = null, long? endTimestamp = null, int? offsetUtc = null, 
 			bool? addDeepLinkFields = null, bool? explain = null, CancellationToken cancellationToken = default)
 		{
 			var queryParamValues = new Dictionary<string, object>
@@ -55,7 +56,7 @@ namespace Dynatrace.Net
 			var response = await GetUserSessionsUrl()
 				.AppendPathSegment("tree")
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<DtaqlResultAsTree>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<DtaqlResultAsTree>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

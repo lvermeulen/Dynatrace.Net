@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.Anonymization.Models;
 using Flurl.Http;
 
@@ -19,7 +20,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("v1/anonymize/anonymizationJobs");
 		}
 
-		public async Task<AnonymizationIdResult> StartAnonymizationJobAsync(int? startTimestamp = null, int? endTimestamp = null, IEnumerable<string> userIds = null, IEnumerable<string> ips = null, IEnumerable<AdditionalFields> additionalField = null,
+		public async Task<AnonymizationIdResult> StartAnonymizationJobAsync(long? startTimestamp = null, long? endTimestamp = null, IEnumerable<string> userIds = null, IEnumerable<string> ips = null, IEnumerable<AdditionalFields> additionalField = null,
 			CancellationToken cancellationToken = default)
 		{
 			var queryParamValues = new Dictionary<string, object>
@@ -34,7 +35,7 @@ namespace Dynatrace.Net
 			var response = await GetAnonymizationUrl()
 				.SetQueryParams(queryParamValues)
 				.PutJsonAsync(null, cancellationToken)
-				.ReceiveJson<AnonymizationIdResult>()
+				.ReceiveJsonWithErrorChecking<AnonymizationIdResult>()
 				.ConfigureAwait(false);
 
 			return response;
@@ -44,7 +45,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetAnonymizationUrl()
 				.AppendPathSegment(requestId)
-				.GetJsonAsync<AnonymizationProgressResult>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<AnonymizationProgressResult>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

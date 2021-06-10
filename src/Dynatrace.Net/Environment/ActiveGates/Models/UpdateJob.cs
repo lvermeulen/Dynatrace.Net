@@ -16,7 +16,7 @@ namespace Dynatrace.Net.Environment.ActiveGates.Models
 		public bool? Cancelable	{ get; set; }
 		public string StartVersion	{ get; set; }
 		public string TargetVersion	{ get; set; }
-		public int? Timestamp	{ get; set; }
+		public long? Timestamp	{ get; set; }
 		[JsonConverter(typeof(ActiveGatesTypesConverter))]
 		public ActiveGatesTypes? AgType		{ get; set; }
 		public IEnumerable<string> Environments	{ get; set; }

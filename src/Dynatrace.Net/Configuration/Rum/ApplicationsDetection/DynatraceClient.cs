@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.Rum.Models;
 using Dynatrace.Net.Configuration.Services.Models;
@@ -19,7 +20,7 @@ namespace Dynatrace.Net
 		public async Task<StubList> GetAllRumApplicationDetectionRulesAsync(CancellationToken cancellationToken = default)
 		{
 			var result = await GetRumApplicationDetectionUrl()
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -29,7 +30,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetRumApplicationDetectionUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<ApplicationDetectionRuleConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ApplicationDetectionRuleConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -40,7 +41,7 @@ namespace Dynatrace.Net
 			var result = await GetRumApplicationDetectionUrl()
 				.SetQueryParam(nameof(position), s_positionsConverter.ConvertToString(position))
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return result;
@@ -51,7 +52,7 @@ namespace Dynatrace.Net
 			var result = await GetRumApplicationDetectionUrl()
 				.AppendPathSegment(id)
 				.PutJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return result;
@@ -81,7 +82,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetRumApplicationDetectionUrl()
 				.AppendPathSegment("hostDetection")
-				.GetJsonAsync<ApplicationDetectionRulesHostDetectionSettings>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ApplicationDetectionRulesHostDetectionSettings>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;

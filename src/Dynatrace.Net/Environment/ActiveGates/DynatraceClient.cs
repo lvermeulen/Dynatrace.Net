@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Environment.ActiveGates.Models;
 using Flurl.Http;
@@ -50,7 +51,7 @@ namespace Dynatrace.Net
 
 			var response = await GetActiveGatesUrl()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<ActiveGateList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ActiveGateList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -60,7 +61,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetActiveGatesUrl()
 				.AppendPathSegment(agId)
-				.GetJsonAsync<ActiveGate>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ActiveGate>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -82,7 +83,7 @@ namespace Dynatrace.Net
 
 			var response = await GetActiveGatesAutoUpdateJobsUrl(agId)
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<UpdateJobList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<UpdateJobList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -92,7 +93,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetActiveGatesAutoUpdateJobsUrl(agId)
 				.AppendPathSegment(jobId)
-				.GetJsonAsync<UpdateJob>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<UpdateJob>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -115,7 +116,7 @@ namespace Dynatrace.Net
 			var response = await GetActiveGatesUrl()
 				.AppendPathSegment("updateJobs")
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<UpdateJobsAll>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<UpdateJobsAll>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -125,7 +126,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetActiveGatesAutoUpdateJobsUrl(agId)
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<UpdateJob>()
+				.ReceiveJsonWithErrorChecking<UpdateJob>()
 				.ConfigureAwait(false);
 
 			return response;

@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.SyntheticV2.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<NodesObject> GetSyntheticNodesV2Async(CancellationToken cancellationToken = default)
 		{
 			var response = await GetSyntheticNodesV2Url()
-				.GetJsonAsync<NodesObject>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<NodesObject>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -27,7 +28,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetSyntheticNodesV2Url()
 				.AppendPathSegment(nodeId)
-				.GetJsonAsync<Node>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<Node>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

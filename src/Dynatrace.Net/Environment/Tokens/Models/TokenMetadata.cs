@@ -10,9 +10,9 @@ namespace Dynatrace.Net.Environment.Tokens.Models
 		public string Name { get; set; }
 		public string UserId { get; set; }
 		public bool? Revoked { get; set; }
-		public int? Created { get; set; }
-		public int? Expires { get; set; }
-		public int? LastUse { get; set; }
+		public long? Created { get; set; }
+		public long? Expires { get; set; }
+		public long? LastUse { get; set; }
 		[JsonConverter(typeof(PermissionsConverter))]
 		public IEnumerable<Permissions> Scopes { get; set; }
 	}

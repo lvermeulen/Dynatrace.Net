@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.OneAgentEnvironmentWideConfiguration.Models;
 using Dynatrace.Net.Configuration.OneAgentOnAHost.Models;
 using Flurl.Http;
@@ -24,7 +25,7 @@ namespace Dynatrace.Net
 		public async Task<EnvironmentAutoUpdateConfig> GetOneAgentEnvironmentWideAutoUpdateConfigAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetOneAgentEnvironmentWideAutoUpdateUrl()
-				.GetJsonAsync<EnvironmentAutoUpdateConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<EnvironmentAutoUpdateConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -42,7 +43,7 @@ namespace Dynatrace.Net
 		public async Task<TechMonitoringList> GetOneAgentEnvironmentWideTechnologyMonitoringConfigAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetOneAgentEnvironmentWideTechnologyMonitoringUrl()
-				.GetJsonAsync<TechMonitoringList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<TechMonitoringList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.Rum.Models;
 using Flurl.Http;
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		public async Task<StubList> GetAllWebApplicationsAsync(CancellationToken cancellationToken = default)
 		{
 			var result = await GetWebApplicationConfigurationWebApplicationUrl()
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -28,7 +29,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetWebApplicationConfigurationWebApplicationUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<WebApplicationConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<WebApplicationConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -38,7 +39,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetWebApplicationConfigurationWebApplicationUrl()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return result;
@@ -49,7 +50,7 @@ namespace Dynatrace.Net
 			var result = await GetWebApplicationConfigurationWebApplicationUrl()
 				.AppendPathSegment(id)
 				.PutJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return result;

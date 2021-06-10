@@ -36,8 +36,19 @@ namespace Dynatrace.Net.Common.Converters
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var actualValue = (TEnum)value;
-            writer.WriteValue(ConvertToString(actualValue));
+            if (value is IEnumerable<TEnum> items)
+            {
+                writer.WriteStartArray();
+                foreach (var item in items)
+                {
+	                WriteJson(writer, item, serializer);
+                }
+                writer.WriteEndArray();
+            }
+            else if (Enum.TryParse<TEnum>(value?.ToString(), out var enumerationValue))
+            {
+	            writer.WriteValue(ConvertToString(enumerationValue));
+            }
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.Extensions.Models;
 using Dynatrace.Net.Configuration.Services.Models;
@@ -40,7 +41,7 @@ namespace Dynatrace.Net
 		public async Task<ExtensionListDto> GetExtensionsAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetExtensionsUrl()
-				.GetJsonAsync<ExtensionListDto>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ExtensionListDto>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -50,7 +51,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetExtensionsUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<Extension>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<Extension>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -69,7 +70,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment(id)
 				.AppendPathSegment("states")
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<ExtensionStateList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ExtensionStateList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -80,7 +81,7 @@ namespace Dynatrace.Net
 			var response = await GetExtensionsUrl()
 				.SetQueryParam(nameof(overrideAlerts), overrideAlerts)
 				.PostMultipartAsync(content => content.AddFile(Path.GetFileName(file), Path.GetDirectoryName(file)), cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return response;
@@ -117,7 +118,7 @@ namespace Dynatrace.Net
 
 			var response = await GetExtensionInstancesUrl(id)
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<ExtensionConfigurationList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ExtensionConfigurationList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -127,7 +128,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetExtensionInstancesUrl(id)
 				.AppendPathSegment(configurationId)
-				.GetJsonAsync<ExtensionConfigurationDto>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ExtensionConfigurationDto>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -137,7 +138,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetExtensionInstancesUrl(id)
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<ExtensionConfigurationDto>()
+				.ReceiveJsonWithErrorChecking<ExtensionConfigurationDto>()
 				.ConfigureAwait(false);
 
 			return response;
@@ -166,7 +167,7 @@ namespace Dynatrace.Net
 		public async Task<GlobalExtensionConfiguration> GetExtensionGlobalConfigurationAsync(string id, CancellationToken cancellationToken = default)
 		{
 			var response = await GetExtensionGlobalUrl(id)
-				.GetJsonAsync<GlobalExtensionConfiguration>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<GlobalExtensionConfiguration>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -185,7 +186,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetExtensionsUrl()
 				.AppendPathSegment("activeGateExtensionModules")
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -208,7 +209,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment(s_serviceTechnologiesConverter.ConvertToString(technology))
 				.AppendPathSegment("availableHosts")
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<HostList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<HostList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

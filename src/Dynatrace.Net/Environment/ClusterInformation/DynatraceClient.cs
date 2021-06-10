@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.ClusterInformation.Models;
 using Flurl.Http;
 
@@ -29,7 +30,7 @@ namespace Dynatrace.Net
 			var response = await GetClusterInformationUrl()
 				.AppendPathSegment("config")
 				.AppendPathSegment("clusterversion")
-				.GetJsonAsync<ClusterVersion>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ClusterVersion>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

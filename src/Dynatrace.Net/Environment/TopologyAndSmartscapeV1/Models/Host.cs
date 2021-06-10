@@ -13,8 +13,8 @@ namespace Dynatrace.Net.Environment.TopologyAndSmartscapeV1.Models
 		public string DisplayName { get; set; }
 		public string CustomizedName { get; set; }
 		public string DiscoveredName { get; set; }
-		public int? FirstSeenTimestamp { get; set; }
-		public int? LastSeenTimestamp { get; set; }
+		public long? FirstSeenTimestamp { get; set; }
+		public long? LastSeenTimestamp { get; set; }
 		public IEnumerable<TagInfo> Tags { get; set; }
 		public object ToRelationships { get; set; }
 		public IEnumerable<string> GcePublicIpAddresses { get; set; }

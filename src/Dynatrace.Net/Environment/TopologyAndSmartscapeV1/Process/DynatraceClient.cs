@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.ProblemsV1.Models;
 using Dynatrace.Net.Environment.TopologyAndSmartscapeV1.Models;
 using Flurl.Http;
@@ -20,7 +21,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("v1/entity/infrastructure/processes");
 		}
 
-		public async Task<IEnumerable<ProcessGroupInstance>> GetAllTopologyProcessesAsync(int? startTimestamp = null, int? endTimestamp = null, RelativeTimes? relativeTime = null, IEnumerable<string> tag = null,
+		public async Task<IEnumerable<ProcessGroupInstance>> GetAllTopologyProcessesAsync(long? startTimestamp = null, long? endTimestamp = null, RelativeTimes? relativeTime = null, IEnumerable<string> tag = null,
 			IEnumerable<string> entity = null, IEnumerable<string> hostTag = null, IEnumerable<string> host = null, ProcessMonitoringStates? actualMonitoringState = null, 
 			ProcessMonitoringStates? expectedMonitoringState = null, int? managementZone = null, bool? includeDetails = null, int? pageSize = null, string nextPageKey = null,
 			CancellationToken cancellationToken = default)
@@ -44,7 +45,7 @@ namespace Dynatrace.Net
 
 			var response = await GetTopologyProcessUrl()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<IEnumerable<ProcessGroupInstance>>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<IEnumerable<ProcessGroupInstance>>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -54,7 +55,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetTopologyProcessUrl()
 				.AppendPathSegment(meIdentifier)
-				.GetJsonAsync<ProcessGroupInstance>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ProcessGroupInstance>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

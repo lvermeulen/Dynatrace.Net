@@ -52,7 +52,7 @@ namespace Dynatrace.Net
 			var response = await GetServiceLevelObjectivesUrl()
 				.AppendPathSegment(id)
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<Slo>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<Slo>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

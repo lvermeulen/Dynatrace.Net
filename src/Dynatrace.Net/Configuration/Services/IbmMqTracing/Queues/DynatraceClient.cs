@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.Services.Models;
 using Flurl.Http;
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		public async Task<StubList> GetAllIbmMqTracingQueuesAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetIbmMqTracingQueueUrl()
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -28,7 +29,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetIbmMqTracingQueueUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<IbmMqImsEntryQueue>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<IbmMqImsEntryQueue>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

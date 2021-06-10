@@ -55,7 +55,7 @@ namespace Dynatrace.Net
 
 			var response = await GetTokensUrl()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -87,7 +87,7 @@ namespace Dynatrace.Net
 			var response = await GetTokensUrl()
 				.AppendPathSegment("lookup")
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<TokenMetadata>()
+				.ReceiveJsonWithErrorChecking<TokenMetadata>()
 				.ConfigureAwait(false);
 
 			return response;

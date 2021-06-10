@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.Rum.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<ContentResources> GetRumContentProvidersConfigurationAsync(CancellationToken cancellationToken = default)
 		{
 			var result = await GetRumContentResourcesUrl()
-				.GetJsonAsync<ContentResources>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ContentResources>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;

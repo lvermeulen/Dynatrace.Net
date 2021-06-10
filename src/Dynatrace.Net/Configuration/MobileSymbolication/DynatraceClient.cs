@@ -34,7 +34,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetMobileSymbolicationUrl()
 				.AppendPathSegment("info")
-				.GetJsonAsync<SymbolFileStorageInfo>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<SymbolFileStorageInfo>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -45,7 +45,7 @@ namespace Dynatrace.Net
 			var response = await GetMobileSymbolicationUrl()
 				.AppendPathSegment("ios")
 				.AppendPathSegment("supportedversion")
-				.GetJsonAsync<SupportedVersion>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<SupportedVersion>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -55,7 +55,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetMobileSymbolicationUrl()
 				.AppendPathSegment(applicationId)
-				.GetJsonAsync<SymbolFileList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<SymbolFileList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -96,7 +96,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment(s_mobileOsTypesConverter.ConvertToString(os))
 				.AppendPathSegment(versionCode)
 				.AppendPathSegment(versionName)
-				.GetJsonAsync<SymbolFile>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<SymbolFile>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

@@ -19,7 +19,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("v1/entity/infrastructure/process-groups");
 		}
 
-		public async Task<WithResponseHeaders<IEnumerable<ProcessGroup>>> GetAllTopologyProcessGroupsAsync(int? startTimestamp = null, int? endTimestamp = null, RelativeTimes? relativeTime = null,
+		public async Task<WithResponseHeaders<IEnumerable<ProcessGroup>>> GetAllTopologyProcessGroupsAsync(long? startTimestamp = null, long? endTimestamp = null, RelativeTimes? relativeTime = null,
 			IEnumerable<string> tag = null, IEnumerable<string> entity = null, IEnumerable<string> host = null, int? managementZone = null, bool? includeDetails = null, int? pageSize = null,
 			string nextPageKey = null, CancellationToken cancellationToken = default)
 		{
@@ -49,7 +49,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetTopologyProcessGroupUrl()
 				.AppendPathSegment(meIdentifier)
-				.GetJsonAsync<ProcessGroup>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ProcessGroup>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

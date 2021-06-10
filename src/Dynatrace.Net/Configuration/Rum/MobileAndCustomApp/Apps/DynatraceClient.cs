@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.Rum.Models;
 using Flurl.Http;
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		public async Task<StubList> GetAllMobileAndCustomAppsAsync(CancellationToken cancellationToken = default)
 		{
 			var result = await GetMobileAndCustomAppAppUrl()
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -28,7 +29,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetMobileAndCustomAppAppUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<MobileCustomAppConfig>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<MobileCustomAppConfig>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -38,7 +39,7 @@ namespace Dynatrace.Net
 		{
 			var result = await GetMobileAndCustomAppAppUrl()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return result;

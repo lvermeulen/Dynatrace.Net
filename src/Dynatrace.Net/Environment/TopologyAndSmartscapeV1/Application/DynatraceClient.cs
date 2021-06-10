@@ -19,7 +19,7 @@ namespace Dynatrace.Net
 				.AppendPathSegment("v1/entity/applications");
 		}
 
-		public async Task<WithResponseHeaders<IEnumerable<Application>>> GetAllTopologyAppsAsync(int? startTimestamp = null, int? endTimestamp = null, RelativeTimes? relativeTime = null, IEnumerable<string> tag = null,
+		public async Task<WithResponseHeaders<IEnumerable<Application>>> GetAllTopologyAppsAsync(long? startTimestamp = null, long? endTimestamp = null, RelativeTimes? relativeTime = null, IEnumerable<string> tag = null,
 			IEnumerable<string> entity = null, int? managementZone = null, bool? includeDetails = null, int? pageSize = null, string nextPageKey = null, CancellationToken cancellationToken = default)
 		{
 			var queryParamValues = new Dictionary<string, object>
@@ -47,7 +47,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetTopologyApplicationUrl()
 				.AppendPathSegment(meIdentifier)
-				.GetJsonAsync<Application>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<Application>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -68,7 +68,7 @@ namespace Dynatrace.Net
 			var response = await GetTopologyApplicationUrl()
 				.AppendPathSegment(meIdentifier)
 				.AppendPathSegment("baseline")
-				.GetJsonAsync<ApplicationBaselineValues>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<ApplicationBaselineValues>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;

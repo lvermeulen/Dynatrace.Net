@@ -7,14 +7,14 @@ namespace Dynatrace.Net.Tests
 {
 	public partial class DynatraceClientShould
 	{
-		[Fact]
+		[Fact(Skip = "Obsolete")]
 		public async Task GetCalculatedLogMonitoringMetricsAsync()
 		{
 			var result = await _client.GetCalculatedLogMonitoringMetricsAsync().ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
-		[Fact]
+		[Fact(Skip = "Obsolete")]
 		public async Task GetCalculatedLogMonitoringMetricAsync()
 		{
 			var results = await _client.GetCalculatedLogMonitoringMetricsAsync().ConfigureAwait(false);

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Environment.SyntheticV1.Models;
 using Flurl.Http;
 
@@ -36,7 +37,7 @@ namespace Dynatrace.Net
 
 			var response = await GetSyntheticMonitorsV1Url()
 				.SetQueryParams(queryParamValues)
-				.GetJsonAsync<MonitorsObject>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<MonitorsObject>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -46,7 +47,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetSyntheticMonitorsV1Url()
 				.AppendPathSegment(monitorId)
-				.GetJsonAsync<SyntheticMonitor>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<SyntheticMonitor>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -56,7 +57,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetSyntheticMonitorsV1Url()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityIdDto>()
+				.ReceiveJsonWithErrorChecking<EntityIdDto>()
 				.ConfigureAwait(false);
 
 			return response;

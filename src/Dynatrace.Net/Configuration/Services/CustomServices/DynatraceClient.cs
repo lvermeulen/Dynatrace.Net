@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Dynatrace.Net.Common.Converters;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.Services.Models;
 using Flurl.Http;
@@ -22,7 +23,7 @@ namespace Dynatrace.Net
 		public async Task<StubList> GetAllCustomServiceRulesAsync(CustomServiceTechnologies technology, CancellationToken cancellationToken = default)
 		{
 			var response = await GetCustomServicesUrl(technology)
-				.GetJsonAsync<StubList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<StubList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -34,7 +35,7 @@ namespace Dynatrace.Net
 			var response = await GetCustomServicesUrl(technology)
 				.AppendPathSegment(id)
 				.SetQueryParam(nameof(includeProcessGroupReferences), includeProcessGroupReferences)
-				.GetJsonAsync<CustomService>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<CustomService>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -46,7 +47,7 @@ namespace Dynatrace.Net
 			var response = await GetCustomServicesUrl(technology)
 				.SetQueryParam(nameof(position), s_positionsConverter.ConvertToString(position))
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return response;

@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Common.Models;
 using Dynatrace.Net.Configuration.Dashboards.Models;
 using Flurl.Http;
@@ -18,7 +19,7 @@ namespace Dynatrace.Net
 		public async Task<DashboardList> GetDashboardsAsync(CancellationToken cancellationToken = default)
 		{
 			var response = await GetDashboardsUrl()
-				.GetJsonAsync<DashboardList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<DashboardList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -28,7 +29,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetDashboardsUrl()
 				.AppendPathSegment(id)
-				.GetJsonAsync<Dashboard>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<Dashboard>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return response;
@@ -38,7 +39,7 @@ namespace Dynatrace.Net
 		{
 			var response = await GetDashboardsUrl()
 				.PostJsonAsync(body, cancellationToken)
-				.ReceiveJson<EntityShortRepresentation>()
+				.ReceiveJsonWithErrorChecking<EntityShortRepresentation>()
 				.ConfigureAwait(false);
 
 			return response;

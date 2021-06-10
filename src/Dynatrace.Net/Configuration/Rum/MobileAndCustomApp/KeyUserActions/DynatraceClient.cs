@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Dynatrace.Net.Common.Extensions;
 using Dynatrace.Net.Configuration.Rum.Models;
 using Flurl.Http;
 
@@ -17,7 +18,7 @@ namespace Dynatrace.Net
 		public async Task<KeyUserActionMobileList> GetMobileAndCustomAppKeyUserActionsAsync(string applicationId, CancellationToken cancellationToken = default)
 		{
 			var result = await GetMobileAndCustomAppKeyUserActionsUrl(applicationId)
-				.GetJsonAsync<KeyUserActionMobileList>(cancellationToken)
+				.GetJsonWithErrorCheckingAsync<KeyUserActionMobileList>(cancellationToken)
 				.ConfigureAwait(false);
 
 			return result;
@@ -28,7 +29,7 @@ namespace Dynatrace.Net
 			var result = await GetMobileAndCustomAppKeyUserActionsUrl(applicationId)
 				.AppendPathSegment(actionName)
 				.PostAsync(null, cancellationToken)
-				.ReceiveJson<KeyUserActionMobile>()
+				.ReceiveJsonWithErrorChecking<KeyUserActionMobile>()
 				.ConfigureAwait(false);
 
 			return result;
