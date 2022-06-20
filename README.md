@@ -1,4 +1,3 @@
-![Icon](https://i.imgur.com/qMwX65s.jpg)
 # Dynatrace.Net 
 [![Build status](https://ci.appveyor.com/api/projects/status/580qa5qts41o6fv7?svg=true)](https://ci.appveyor.com/project/lvermeulen/dynatrace-net)
  [![license](https://img.shields.io/github/license/lvermeulen/Dynatrace.Net.svg?maxAge=2592000)](https://github.com/lvermeulen/Dynatrace.Net/blob/master/LICENSE)
@@ -9,6 +8,10 @@
 C# client for [Dynatrace](https://dynatrace.com/)
 
 See documentation at [https://dynatrace.com/support/help/dynatrace-api/](https://dynatrace.com/support/help/dynatrace-api/)
+
+## Disclaimer
+
+This is not an official Dynatrace project! If you do need support or have questions please open a GitHub Issue.
 
 ## Features
 * [X] Configuration API
