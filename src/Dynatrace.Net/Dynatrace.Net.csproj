@@ -8,7 +8,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/lvermeulen/Dynatrace.Net</PackageProjectUrl>
     <Description>C# client for Dynatrace</Description>
-    <PackageIcon>Dynatrace-small.jpg</PackageIcon>
+    <!-- <PackageIcon>Dynatrace-small.jpg</PackageIcon> -->
     <RepositoryUrl>https://github.com/lvermeulen/Dynatrace.Net</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Dynatrace</PackageTags>
@@ -22,10 +22,12 @@
 
   <ItemGroup>
     <None Include="..\..\.editorconfig" Link=".editorconfig" />
+    <!-- 
     <None Include="..\..\assets\Dynatrace-small.jpg">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+    -->
   </ItemGroup>
 
 </Project>
